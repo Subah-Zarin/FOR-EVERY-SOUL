@@ -1,0 +1,149 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Modern gradient background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+/* Overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Subtle overlay */
+    z-index: 0; /* Ensure it's behind the content */
+}
+
+/* Form container */
+.form-container {
+    position: relative;
+    z-index: 1; /* Bring form above the overlay */
+    max-width: 400px;
+    width: 90%; /* Responsive width */
+    padding: 30px; /* Reduced padding for more compactness */
+    background-color: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for a modern look */
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form title */
+h1 {
+    font-size: 26px; /* Slightly smaller title */
+    margin-bottom: 15px; /* Reduced space */
+    color: #333; /* Neutral color for readability */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ant Design input styling */
+.ant-input {
+    height: 45px; /* Reduced input height */
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    margin-bottom: 15px; /* Reduced space between inputs */
+    font-size: 16px;
+    padding: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.ant-input:focus {
+    border-color: #ff9a9e;
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.7); /* Gradient-based glow */
+}
+
+/* Input hover effect for better feedback */
+.ant-input:hover {
+    border-color: #fad0c4;
+}
+
+/* Ant Design input labels */
+.ant-form-item-label > label {
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Submit button */
+.btn-primary {
+    display: block;
+    width: 100%;
+    height: 45px; /* Reduced button height */
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e); /* Gradient button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px; /* Slightly smaller font size */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slight scale-up effect */
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.7); /* Glow on focus */
+}
+
+/* Secondary button for Login link */
+.btn-secondary {
+    display: inline-block;
+    margin-top: 10px; /* Reduced space */
+    font-size: 12px; /* Smaller font size */
+    color: #555;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+}
+
+.btn-secondary:hover {
+    color: #ff9a9e;
+}
+
+/* Checkbox styling */
+.ant-checkbox-wrapper {
+    color: #555;
+    font-size: 14px;
+}
+
+.ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #ff9a9e;
+    border-color: #ff9a9e;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+    border-color: #fad0c4;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
