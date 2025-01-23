@@ -42,6 +42,8 @@ const Homepage = () => {
       </footer>
     </div>
   );
+
 };
+
 
 export default Homepage;
