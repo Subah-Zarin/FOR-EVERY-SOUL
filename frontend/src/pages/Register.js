@@ -1,58 +1,80 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
+const Register = () => {
+  const navigate = useNavigate(); // Hook to navigate between pages
 
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
+  const onFinish = (values) => {
+    const passwordRegex = /^[A-Za-z0-9]{8}$/;
 
-const navigateToLogin = () => {
-  console.log('Navigate to Login Page'); // Replace with actual navigation logic
-};
+    if (passwordRegex.test(values.password)) {
+      console.log('Registration successful:', values);
+      message.success('Registration successful!');
+      // Navigate to the Account page after successful registration
+      navigate('/account');
+    } else {
+      message.error('Password must be exactly 8 characters and contain both letters and numbers.');
+    }
+  };
 
-const Register = () => (
-  <div
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      background: 'linear-gradient(135deg, #ff9a9e, #fad0c4)', // Gradient background
-      animation: 'fadeIn 2s ease-in-out', // Fade-in effect for the container
-    }}
-  >
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
+
+  const navigateToLogin = () => {
+    navigate('/login');
+  };
+
+  return (
     <div
       style={{
-        padding: '5%',
-        boxSizing: 'border-box',
-        backgroundColor: '#ffffff',
-        borderRadius: '16px',
-        boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)', // Enhanced shadow for depth
-        transform: 'scale(1)',
-        transition: 'transform 0.3s', // Add hover effect on the box
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', // Fresh gradient background
+        animation: 'fadeIn 2s ease-in-out', // Smooth fade-in animation
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
       <div
         style={{
-          width: '100%',
-          maxWidth: '600px',
+          padding: '5%',
+          boxSizing: 'border-box',
+          backgroundColor: '#ffffff',
+          borderRadius: '16px',
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', // Softer shadow
+          transform: 'scale(1)',
+          transition: 'transform 0.3s',
+          maxWidth: '500px',
+          width: '90%', // Responsive width
         }}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+        onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
       >
         <h2
           style={{
             textAlign: 'center',
             marginBottom: '1rem',
-            fontFamily: 'Arial, sans-serif',
+            fontFamily: "'Poppins', sans-serif",
             color: '#333',
+            fontWeight: '700',
+            fontSize: '1.8rem',
           }}
         >
-          Register
+          Create Your Account
         </h2>
+        <p
+          style={{
+            textAlign: 'center',
+            color: '#555',
+            fontSize: '1rem',
+            marginBottom: '2rem',
+            fontFamily: "'Roboto', sans-serif",
+          }}
+        >
+          Join us and make a difference!
+        </p>
         <Form
           name="register"
           style={{
@@ -83,7 +105,10 @@ const Register = () => (
                   borderRadius: '8px',
                   padding: '10px',
                   border: '2px solid #ddd',
+                  transition: 'border-color 0.3s',
                 }}
+                onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+                onBlur={(e) => (e.target.style.borderColor = '#ddd')}
               />
             </Form.Item>
 
@@ -108,82 +133,18 @@ const Register = () => (
                   borderRadius: '8px',
                   padding: '10px',
                   border: '2px solid #ddd',
+                  transition: 'border-color 0.3s',
                 }}
+                onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+                onBlur={(e) => (e.target.style.borderColor = '#ddd')}
               />
             </Form.Item>
           </Form.Item>
 
           <Form.Item
-            label="Age"
-            name="age"
-            labelCol={{
-              span: 24,
-            }}
-            wrapperCol={{
-              span: 24,
-            }}
-            rules={[
-              {
-                required: true,
-                message: 'Please input your age!',
-              },
-              {
-                type: 'number',
-                min: 1,
-                max: 120,
-                transform: (value) => Number(value),
-                message: 'Age must be a number between 1 and 120!',
-              },
-            ]}
-          >
-            <Input
-              type="number"
-              style={{
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-              }}
-            />
-          </Form.Item>
-
-          <Form.Item
-            label="Phone Number"
-            name="phone"
-            labelCol={{
-              span: 24,
-            }}
-            wrapperCol={{
-              span: 24,
-            }}
-            rules={[
-              {
-                required: true,
-                message: 'Please input your phone number!',
-              },
-              {
-                pattern: /^[0-9]{10}$/,
-                message: 'Phone number must be 10 digits!',
-              },
-            ]}
-          >
-            <Input
-              style={{
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-              }}
-            />
-          </Form.Item>
-
-          <Form.Item
             label="Email"
             name="email"
-            labelCol={{
-              span: 24,
-            }}
-            wrapperCol={{
-              span: 24,
-            }}
+            labelCol={{ span: 24 }}
             rules={[
               {
                 required: true,
@@ -197,19 +158,17 @@ const Register = () => (
                 borderRadius: '8px',
                 padding: '10px',
                 border: '2px solid #ddd',
+                transition: 'border-color 0.3s',
               }}
+              onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+              onBlur={(e) => (e.target.style.borderColor = '#ddd')}
             />
           </Form.Item>
 
           <Form.Item
             label="Password"
             name="password"
-            labelCol={{
-              span: 24,
-            }}
-            wrapperCol={{
-              span: 24,
-            }}
+            labelCol={{ span: 24 }}
             rules={[
               {
                 required: true,
@@ -222,43 +181,10 @@ const Register = () => (
                 borderRadius: '8px',
                 padding: '10px',
                 border: '2px solid #ddd',
+                transition: 'border-color 0.3s',
               }}
-            />
-          </Form.Item>
-
-          <Form.Item
-            label="Confirm Password"
-            name="confirmPassword"
-            labelCol={{
-              span: 24,
-            }}
-            wrapperCol={{
-              span: 24,
-            }}
-            dependencies={['password']}
-            rules={[
-              {
-                required: true,
-                message: 'Please confirm your password!',
-              },
-              ({ getFieldValue }) => ({
-                validator(_, value) {
-                  if (!value || getFieldValue('password') === value) {
-                    return Promise.resolve();
-                  }
-                  return Promise.reject(
-                    new Error('The two passwords do not match!')
-                  );
-                },
-              }),
-            ]}
-          >
-            <Input.Password
-              style={{
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-              }}
+              onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+              onBlur={(e) => (e.target.style.borderColor = '#ddd')}
             />
           </Form.Item>
 
@@ -267,7 +193,7 @@ const Register = () => (
             valuePropName="checked"
             style={{ textAlign: 'left' }}
           >
-            <Checkbox style={{ color: '#555' }}>
+            <Checkbox style={{ color: '#555' }} >
               I agree to the terms and conditions
             </Checkbox>
           </Form.Item>
@@ -278,13 +204,19 @@ const Register = () => (
               htmlType="submit"
               style={{
                 width: '100%',
-                background: 'linear-gradient(135deg, #fad0c4, #ff9a9e)',
+                background: 'linear-gradient(135deg, #66a6ff, #89f7fe)',
                 border: 'none',
                 borderRadius: '8px',
                 padding: '10px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
               }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background = 'linear-gradient(135deg, #89f7fe, #66a6ff)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = 'linear-gradient(135deg, #66a6ff, #89f7fe)')
+              }
             >
               Register
             </Button>
@@ -295,12 +227,10 @@ const Register = () => (
               type="link"
               onClick={navigateToLogin}
               style={{
-                display: 'inline-block',
-                width: 'auto',
+                display: 'block',
                 textAlign: 'center',
-                color: '#ff9a9e',
+                color: '#66a6ff',
                 fontWeight: 'bold',
-                padding: '5px 10px', // Smaller button
               }}
             >
               Already have an account? Log in
@@ -309,7 +239,7 @@ const Register = () => (
         </Form>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Register;

@@ -1,19 +1,95 @@
 .login-paper {
   padding: 20px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Subtle and fresh gradient */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 400px; /* Adjust for smaller screens */
+  width: 90%; /* Ensures responsiveness */
+  margin: auto; /* Centers the container */
+  animation: fadeIn 1s ease-in-out; /* Smooth fade-in effect */
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
+  gap: 15px; /* Uniform spacing between elements */
+}
+
+.login-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #66a6ff; /* Highlight border on focus */
+  box-shadow: 0 0 8px rgba(102, 166, 255, 0.3); /* Subtle glow */
 }
 
 .login-button {
-  margin-top: 20px;
-  transition: background-color 0.3s;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #66a6ff, #89f7fe); /* Gradient for button */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .login-button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.login-button:active {
+  transform: scale(0.98); /* Pressed effect */
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #66a6ff; /* Color change on hover */
+}
+
+@media (max-width: 768px) {
+  .login-paper {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .login-form input {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .login-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .login-link {
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

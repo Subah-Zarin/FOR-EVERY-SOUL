@@ -1,160 +1,177 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, message } from 'antd';
 
+// Handle form submission
 const onFinish = (values) => {
-  console.log('Success:', values);
+  const passwordRegex = /^[A-Za-z0-9]{8}$/; // Regular expression for 8 characters (letters and/or numbers)
+
+  if (passwordRegex.test(values.password)) {
+    console.log('Login successful:', values);
+    message.success('Login successful!');
+  } else {
+    message.error('Password must be exactly 8 characters and contain letters and numbers.');
+  }
 };
 
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 
-const App = () => (
+const Login = () => (
   <div
     style={{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      background: 'linear-gradient(135deg, #ff9a9e, #fad0c4)', // Gradient background
-      animation: 'fadeIn 2s ease-in-out', // Fade-in effect for the container
+      background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', // Updated gradient
+      animation: 'fadeIn 2s ease-in-out', // Fade-in animation
     }}
   >
     <div
       style={{
-        padding: '10%',
+        padding: '10% 5%',
         boxSizing: 'border-box',
         backgroundColor: '#ffffff',
         borderRadius: '16px',
-        boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)', // Enhanced shadow for depth
+        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', // Subtle shadow for depth
         transform: 'scale(1)',
-        transition: 'transform 0.3s', // Add hover effect on the box
+        transition: 'transform 0.3s', // Hover effect
+        width: '90%',
+        maxWidth: '600px',
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.02)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <div
+      <h2
         style={{
-          width: '80%',
-          maxWidth: '600px',
+          textAlign: 'center',
+          marginBottom: '1.5rem',
+          fontFamily: `'Poppins', sans-serif`,
+          color: '#333',
+          fontSize: '2.2rem', // Larger font for the headline
+          fontWeight: '600',
         }}
       >
-        <h2
-          style={{
-            textAlign: 'center',
-            marginBottom: '1.5rem',
-            fontFamily: 'Arial, sans-serif',
-            color: '#333',
+        Welcome Back!
+      </h2>
+      <p
+        style={{
+          textAlign: 'center',
+          color: '#555',
+          fontSize: '1rem',
+          marginBottom: '2rem',
+          fontFamily: `'Roboto', sans-serif`,
+        }}
+      >
+        Log in to access your personalized dashboard and start exploring.
+      </p>
+      <Form
+        name="login"
+        style={{
+          width: '100%',
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Username"
+          name="username"
+          labelCol={{
+            span: 24,
           }}
+          wrapperCol={{
+            span: 24,
+          }}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your username!',
+            },
+          ]}
         >
-          Welcome Back
-        </h2>
-        <Form
-          name="basic"
-          style={{
-            width: '100%',
+          <Input
+            style={{
+              width: '100%',
+              borderRadius: '8px',
+              padding: '10px',
+              border: '2px solid #ddd',
+              transition: 'border-color 0.3s',
+            }}
+            onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+            onBlur={(e) => (e.target.style.borderColor = '#ddd')}
+          />
+        </Form.Item>
+
+        <Form.Item
+          label="Password"
+          name="password"
+          labelCol={{
+            span: 24,
           }}
-          initialValues={{
-            remember: true,
+          wrapperCol={{
+            span: 24,
           }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
         >
-          <Form.Item
-            label="Username"
-            name="username"
-            labelCol={{
-              span: 24,
+          <Input.Password
+            style={{
+              width: '100%',
+              borderRadius: '8px',
+              padding: '10px',
+              border: '2px solid #ddd',
+              transition: 'border-color 0.3s',
             }}
-            wrapperCol={{
-              span: 24,
-            }}
-            rules={[
-              {
-                required: true,
-                message: 'Please input your username!',
-              },
-            ]}
-          >
-            <Input
-              style={{
-                width: '100%',
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-                transition: 'border-color 0.3s',
-              }}
-              onFocus={(e) => (e.target.style.borderColor = '#ff9a9e')}
-              onBlur={(e) => (e.target.style.borderColor = '#ddd')}
-            />
-          </Form.Item>
+            onFocus={(e) => (e.target.style.borderColor = '#89f7fe')}
+            onBlur={(e) => (e.target.style.borderColor = '#ddd')}
+          />
+        </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            labelCol={{
-              span: 24,
-            }}
-            wrapperCol={{
-              span: 24,
-            }}
-            rules={[
-              {
-                required: true,
-                message: 'Please input your password!',
-              },
-            ]}
-          >
-            <Input.Password
-              style={{
-                width: '100%',
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-                transition: 'border-color 0.3s',
-              }}
-              onFocus={(e) => (e.target.style.borderColor = '#fad0c4')}
-              onBlur={(e) => (e.target.style.borderColor = '#ddd')}
-            />
-          </Form.Item>
+        <Form.Item
+          name="remember"
+          valuePropName="checked"
+          label={null}
+          style={{ textAlign: 'left' }}
+        >
+          <Checkbox style={{ color: '#555' }}>Remember me</Checkbox>
+        </Form.Item>
 
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            label={null}
-            style={{ textAlign: 'left' }}
+        <Form.Item label={null}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{
+              width: '100%',
+              background: 'linear-gradient(135deg, #66a6ff, #89f7fe)',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '10px',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              fontSize: '1rem',
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.background = 'linear-gradient(135deg, #89f7fe, #66a6ff)')
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.background = 'linear-gradient(135deg, #66a6ff, #89f7fe)')
+            }
           >
-            <Checkbox style={{ color: '#555' }}>Remember me</Checkbox>
-          </Form.Item>
-
-          <Form.Item label={null}>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{
-                width: '100%',
-                background: 'linear-gradient(135deg, #fad0c4, #ff9a9e)',
-                border: 'none',
-                borderRadius: '8px',
-                padding: '10px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = 'linear-gradient(135deg, #ff9a9e, #fad0c4)')
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = 'linear-gradient(135deg, #fad0c4, #ff9a9e)')
-              }
-            >
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
-      </div>
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   </div>
 );
 
-export default App;
+export default Login;
