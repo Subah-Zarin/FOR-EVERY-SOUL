@@ -1,121 +1,162 @@
-import React from "react";
-import { Link } from "react-router-dom"; // For navigation
-import "../styles/Homepage.css"; // Add custom styles
+import React, { useState } from 'react';
+import { Button, Input } from 'antd';
 
-// Import the images
-import educationImg from "../assets/education.jpg";
-import medicalImg from "../assets/medical.jpg";
-import waterImg from "../assets/water.jpg";
-import foodImg from "../assets/food.jpg";
+import '../styles/Homepage.css';
 
-const Homepage = () => {
+import medicalCareIcon from '../assets/medical-care-icon.png';
+import cleanWaterIcon from '../assets/clean-water-icon.png';
+import healthyFoodIcon from '../assets/healthy-food-icon.png';
+import childEducationIcon from '../assets/child-education-icon.png';
+
+import carouselImg1 from '../assets/camp1.jpeg';
+import carouselImg2 from '../assets/camp2.jpeg';
+import carouselImg3 from '../assets/camp3.jpg';
+
+import cancerPaitent from '../assets/cancer-paitent.jpeg';
+import specialChild from '../assets/special-child.jpeg';
+import disableChild from '../assets/Disablechild.jpeg';
+import strayAnimal from '../assets/stray-animal.jpeg';
+
+
+const HomePage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const goToNextSlide = () => setCarouselIndex((prevIndex) => (prevIndex + 1) % 3);
+  const goToPreviousSlide = () => setCarouselIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
+
   return (
     <div className="homepage">
-      {/* Navigation Bar */}
-      <nav className="navbar">
-        <div className="logo">GoHelp</div>
-        <div className="nav-links">
-          <input type="text" placeholder="Search..." className="search-bar" />
-          <Link to="/login" className="nav-link">
-            Login
-          </Link>
-          <Link to="/register" className="nav-link">
-            Register
-          </Link>
+      {/* Header */}
+      <header className="homepage-header">
+        <h1 className="homepage-logo">FOR EVERY SOUL</h1>
+        <nav>
+          <ul className="homepage-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/login">Login</a></li> {/* Add Login link */}
+            <li><a href="/register">Register</a></li> {/* Add Register link */}
+          </ul>
+        </nav>
+        <div className="hamburger-menu" onClick={toggleMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </nav>
-
-      {/* Header Section */}
-      <header className="header">
-        <div className="header-content">
-          <h1 className="header-title">Give Hope, Change Lives, Spread Love</h1>
-          <p className="header-description">
-            We help local nonprofits access the funding, tools, training, and
-            support they need to serve their communities.
-          </p>
-          <button className="cta-button">Get Involved</button>
-        </div>
-        <div className="header-image">
-          <img
-            src="https://via.placeholder.com/300"
-            alt="Helping hands"
-            className="image"
-          />
+        <div className={`navbar-mobile ${menuOpen ? 'active' : ''}`}>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+          <a href="/campaigns">Campaigns</a>
         </div>
       </header>
 
-      {/* Main Section */}
-      <section className="main-section">
-        <h2>Our Focus Areas</h2>
-        <div className="card-container">
-          <div className="card">
-            <img src={educationImg} alt="Child Education" />
-            <h3>Child Education</h3>
-          </div>
-          <div className="card">
-            <img src={medicalImg} alt="Medical Care" />
-            <h3>Medical Care</h3>
-          </div>
-          <div className="card">
-            <img src={waterImg} alt="Clean Water" />
-            <h3>Clean Water</h3>
-          </div>
-          <div className="card">
-            <img src={foodImg} alt="Healthy Food" />
-            <h3>Healthy Food</h3>
-          </div>
+      {/* Hero Section */}
+      <section className="homepage-hero">
+        <div className="hero-content">
+          <h2 className="hero-title">Give hope, change lives, spread love.</h2>
+          <p className="hero-description">
+            We help local nonprofits access the funding, tools, training, and
+            support they need to become more.
+          </p>
+          <Button className="hero-button">Get Involved</Button>
         </div>
       </section>
 
-      {/* Purpose Section */}
-      <section className="purpose-section">
-        <h2>Our Purpose</h2>
-        <p>
-          GoHelp is a platform dedicated to empowering local communities by
-          connecting them with donors, volunteers, and resources. Whether it's
-          education, medical support, clean water, or nutritious food, we
-          strive to make a difference in the lives of those in need.
-        </p>
+      {/* Search Bar */}
+      <section className="search-bar-section">
+        <Input.Search
+          placeholder="Search donation campaigns..."
+          className="donation-search-bar"
+          style={{ width: '50%', margin: '20px auto' }}
+        />
       </section>
 
-      {/* Donation Campaign Section */}
-      <section className="donation-section">
-        <h2>Active Donation Campaign</h2>
-        <div className="campaign-card">
-          <h3>Help Build Schools in Remote Areas</h3>
-          <p>Raised: $15,000 / $25,000</p>
-          <div className="progress-bar">
-            <div className="progress" style={{ width: "60%" }}></div>
+      {/* Cards Section */}
+      <section className="homepage-cards">
+        {[{
+          img: medicalCareIcon,
+          title: 'Medical Care',
+          description: 'Help provide healthcare services to the needy.',
+        }, {
+          img: cleanWaterIcon,
+          title: 'Clean Water',
+          description: 'Support clean water initiatives.',
+        }, {
+          img: childEducationIcon,
+          title: 'Child Education',
+          description: 'Help educate children in underserved communities.',
+        }, {
+          img: healthyFoodIcon,
+          title: 'Healthy Food',
+          description: 'Donate food and resources to feed those in need.',
+        }].map((card, index) => (
+          <div className="card" key={index}>
+            <img className="card-image" src={card.img} alt={card.title} />
+            <h3 className="card-title">{card.title}</h3>
+            <p className="card-description">{card.description}</p>
+            <Button type="primary">Donate</Button>
           </div>
-          <button className="donate-button">Donate Now</button>
-        </div>
+        ))}
       </section>
 
-      {/* Footer Section */}
+      {/* Carousel Section */}
+      <section className="carousel">
+        <div className="carousel-images" style={{ transform: `translateX(-${carouselIndex * 100}%)` }}>
+          <img src={carouselImg1} alt="Campaign 1" />
+          <img src={carouselImg2} alt="Campaign 2" />
+          <img src={carouselImg3} alt="Campaign 3" />
+        </div>
+        <button className="carousel-button carousel-button-left" onClick={goToPreviousSlide}>❮</button>
+        <button className="carousel-button carousel-button-right" onClick={goToNextSlide}>❯</button>
+      </section>
+
+      {/* New Donation Campaigns Section */}
+      <section className="new-donation-campaigns">
+        <h2 className="new-campaigns-title">More Donation Campaigns</h2>
+        {[{
+          img: cancerPaitent,
+          title: 'Better Life for Cancer Patients',
+          description: 'Provide shelter and resources for cancer patients.',
+          amount: 'BDT 10,000',
+        }, {
+          img: specialChild,
+          title: 'Special Child',
+          description: 'Support initiatives to help them.',
+          amount: '$15,000',
+        }, {
+          img: strayAnimal,
+          title: 'Let Them Live Too',
+          description: 'Provide shelter and resources for stray animals.',
+          amount: 'BDT 10,000',
+        }, {
+          img: disableChild,
+          title: 'Better Life for Disabled Children',
+          description: 'Provide shelter and resources for disabled children.',
+          amount: 'BDT 10,000',
+        }].map((campaign, index) => (
+          <div className="new-campaign" key={index}>
+            <img className="new-campaign-image" src={campaign.img} alt={campaign.title} />
+            <div className="new-campaign-content">
+              <h3 className="new-campaign-title">{campaign.title}</h3>
+              <p className="new-campaign-description">{campaign.description}</p>
+              <p className="new-campaign-amount">Amount Collected: {campaign.amount}</p>
+              <Button type="primary">Donate</Button>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Footer */}
       <footer className="footer">
-        <p>Thank you for supporting a better world!</p>
-        <div className="social-links">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Facebook
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            Twitter
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-        </div>
+        <p>© 2025 EverySoul. All rights reserved.</p>
+        <p>
+          <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a>
+        </p>
       </footer>
     </div>
   );
 };
 
-export default Homepage;
+export default HomePage;
