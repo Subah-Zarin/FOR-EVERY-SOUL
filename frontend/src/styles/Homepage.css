@@ -7,76 +7,138 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f9; /* Light background */
+  background-color: #ebbdcb; /* Light background */
   color: #2c3e50;
 }
 
 /* Header */
 .homepage-header {
-  background: linear-gradient(to right, #3498db, #9b59b6); /* Gradient Background */
-  color: white;
-  padding: 30px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #1a69b8; /* Subtle off-white for a clean, professional background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e0e0e0; /* Light border for definition */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between logo and text */
+}
+
+.logo-image {
+  width: 50px; /* Adjusted logo size */
+  height: auto;
 }
 
 .homepage-logo {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.homepage-nav {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.homepage-nav li {
-  margin: 0;
-}
-
-.homepage-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #343a40; /* Dark gray for an elegant text color */
   letter-spacing: 1px;
+}
+
+.desktop-nav .homepage-nav {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #495057; /* Medium gray for text */
+  font-size: 1rem;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.homepage-nav a:hover {
-  color: #f39c12;
+.nav-link:hover {
+  color: #0056b3; /* Muted blue for hover effect */
 }
 
-/* Add Login and Register */
-.homepage-nav .login,
-.homepage-nav .register {
-  font-size: 1.2rem;
+.login-btn, .register-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
   font-weight: 600;
-  padding: 10px 20px;
-  background-color: #f39c12;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
-.homepage-nav .login:hover,
-.homepage-nav .register:hover {
-  background-color: #e67e22;
+.login-btn {
+  background-color: transparent;
+  border: 2px solid #0056b3;
+  color: #0056b3;
 }
 
-/* Hamburger Menu */
+.login-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.register-btn {
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+}
+
+.register-btn:hover {
+  background-color: #003d80;
+}
+
+/* Mobile Menu */
 .hamburger-menu {
   display: none;
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  flex-direction: column;
+  gap: 6px;
   cursor: pointer;
-  z-index: 1000;
 }
+
+.hamburger-menu .bar {
+  width: 28px;
+  height: 3px;
+  background-color: #343a40;
+}
+
+.navbar-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-mobile.active {
+  display: flex;
+}
+
+.mobile-link {
+  text-decoration: none;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.mobile-link:hover {
+  color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
+
 
 .hamburger-menu div {
   width: 30px;
@@ -117,13 +179,13 @@ body {
   position: relative;
   width: 100%;
   height: 500px;
-  background-image: url('../assets/hero-image.png');
+  background-image: url('../assets/hero-image3.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(0, 0, 0);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -217,105 +279,220 @@ body {
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
+  gap: 30px; /* Increased space between cards */
 }
 
 .card {
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  border-radius: 12px;
-  max-width: 200px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%); /* Soft gradient background */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+  padding: 25px;
+  text-align:center;
+  border-radius: 16px; /* Rounder corners for a more elegant look */
+  max-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px); /* Slightly softer hover effect */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  border: 1px solid #ddd; /* Light border to highlight the card */
 }
 
 .card-image {
-  max-width: 80px;
+  max-width: 100px; /* Increase image size for better visibility */
   height: auto;
+  margin-bottom: 15px; /* Space between image and text */
 }
 
 .card-title {
-  font-size: 1.5rem;
-  margin-top: 15px;
-}
-
-.card-description {
-  font-size: 1rem;
-  margin: 10px 0;
-}
-
-.card-button {
+  font-size: 1.6rem;
+  font-weight: 600; /* Bolder font weight */
+  color: #333; /* Darker color for readability */
   margin-top: 10px;
 }
 
-/* New Campaigns Section - Centered & Bigger */
-.new-campaigns {
+.card-description {
+  font-size: 1.1rem;
+  color: #666; /* Softer text color for description */
+  margin: 12px 0;
+  line-height: 1.5; /* Improved readability */
+}
+
+.card-button {
+  margin-top: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 30px; /* Fully rounded button for a sleek look */
+  padding: 12px 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05); /* Slight zoom effect for the button */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .homepage-cards {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+}
+
+
+/* New Campaigns Section */
+.new-donation-campaigns {
+  margin-top: 50px;
   text-align: center;
-  margin-top: 80px;
+}
+
+.new-campaign {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 40px;
-}
-
-.new-campaigns-title {
-  font-size: 3rem; /* Increase font size for the title */
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.new-campaigns-description {
-  font-size: 1.5rem; /* Keep this as is or adjust for better readability */
   margin-bottom: 30px;
 }
 
-.new-campaigns-button {
-  font-size: 1.5rem; /* Increase the button size */
-  padding: 15px 30px; /* Increase the button padding */
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.new-campaign-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.new-campaigns-button:hover {
-  background-color: #2980b9;
+.new-campaign-content {
+  margin-top: 20px;
 }
-/* Purpose Section */
-.purpose {
-  background-color: #ecf0f1;
-  padding: 40px 20px;
+
+.new-campaign-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.new-campaign-description {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.new-campaign-amount {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #e67e22;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 30px;
   text-align: center;
 }
 
-.purpose-title {
-  font-size: 2rem;
-  margin-bottom: 15px;
+.footer a {
+  color: #f39c12;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.purpose-description {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.footer a:hover {
+  color: white;
 }
 
-.purpose-button {
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .homepage-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .homepage-logo {
+    font-size: 2.5rem;
+  }
+
+  .homepage-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .carousel-images img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-button {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+
+  .new-campaign {
+    flex-direction: column;
+  }
+
+  .new-campaign-image {
+    max-width: 100%;
+  }
+
+  .new-campaign-content {
+    text-align: center;
+  }
+}
+
+/* Larger screen adjustments */
+@media screen and (min-width: 769px) {
+  .homepage-cards {
+    flex-direction: row;
+  }
+
+  .carousel-images {
+    display: flex;
+  }
+
+  .new-campaign-content {
+    text-align: left;
+  }
+}
+.new-campaign-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #34495e;
+}
+
+.new-campaign-description {
   font-size: 1.1rem;
-  padding: 10px 20px;
-  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.new-campaign-amount {
+  font-size: 1.2rem;
+  color: #e74c3c;
+}
+
+.new-campaign button {
+  margin-top: 10px;
   background-color: #3498db;
   color: white;
   border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.purpose-button:hover {
+.new-campaign button:hover {
   background-color: #2980b9;
 }
 
@@ -323,16 +500,21 @@ body {
 .footer {
   background-color: #2c3e50;
   color: white;
-  padding: 20px 0;
   text-align: center;
+  padding: 30px 20px;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 .footer a {
-  color: white;
+  color: #3498db;
   text-decoration: none;
-  margin: 0 10px;
+  font-weight: 600;
 }
 
 .footer a:hover {
-  color: #f39c12;
+  text-decoration: underline;
 }

@@ -28,29 +28,42 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      {/* Header */}
-      <header className="homepage-header">
-        <h1 className="homepage-logo">FOR EVERY SOUL</h1>
-        <nav>
-          <ul className="homepage-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/login">Login</a></li> {/* Add Login link */}
-            <li><a href="/register">Register</a></li> {/* Add Register link */}
-          </ul>
-        </nav>
-        <div className="hamburger-menu" onClick={toggleMenu}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className={`navbar-mobile ${menuOpen ? 'active' : ''}`}>
-          <a href="/login">Login</a>
-          <a href="/register">Register</a>
-          <a href="/campaigns">Campaigns</a>
-        </div>
-      </header>
+     {/* Header */}
+<header className="homepage-header">
+  <div className="logo-container">
+    <img 
+      src="/src/assets/logo3.png" 
+      alt="Logo" 
+      className="logo-image"
+    />
+    <h1 className="homepage-logo">FOR EVERY SOUL</h1>
+  </div>
+  
+  <nav className="desktop-nav">
+    <ul className="homepage-nav">
+      <li><a href="/" className="nav-link">Home</a></li>
+      <li><a href="/about" className="nav-link">About</a></li>
+      <li><a href="/contact" className="nav-link">Contact</a></li>
+      <li><a href="/login" className="nav-link login-btn">Login</a></li>
+      <li><a href="/register" className="nav-link register-btn">Register</a></li>
+    </ul>
+  </nav>
+  
+  <div className="hamburger-menu" onClick={toggleMenu}>
+    <div className="bar"></div>
+    <div className="bar"></div>
+    <div className="bar"></div>
+  </div>
+
+  <div className={`navbar-mobile ${menuOpen ? 'active' : ''}`}>
+    <a href="/login" className="mobile-link">Login</a>
+    <a href="/register" className="mobile-link">Register</a>
+    <a href="/campaigns" className="mobile-link">Campaigns</a>
+  </div>
+</header>
+
+
+
 
       {/* Hero Section */}
       <section className="homepage-hero">
@@ -78,25 +91,24 @@ const HomePage = () => {
         {[{
           img: medicalCareIcon,
           title: 'Medical Care',
-          description: 'Help provide healthcare services to the needy.',
         }, {
           img: cleanWaterIcon,
           title: 'Clean Water',
-          description: 'Support clean water initiatives.',
+      
         }, {
           img: childEducationIcon,
           title: 'Child Education',
-          description: 'Help educate children in underserved communities.',
+          
         }, {
           img: healthyFoodIcon,
           title: 'Healthy Food',
-          description: 'Donate food and resources to feed those in need.',
+          
         }].map((card, index) => (
           <div className="card" key={index}>
             <img className="card-image" src={card.img} alt={card.title} />
             <h3 className="card-title">{card.title}</h3>
             <p className="card-description">{card.description}</p>
-            <Button type="primary">Donate</Button>
+            
           </div>
         ))}
       </section>
