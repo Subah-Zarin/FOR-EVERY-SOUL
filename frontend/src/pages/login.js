@@ -3,7 +3,7 @@ import { Button, Checkbox, Form, Input, message } from 'antd';
 
 // Handle form submission
 const onFinish = (values) => {
-  const passwordRegex = /^[A-Za-z0-9]{8}$/; // Regular expression for 8 characters (letters and/or numbers)
+  const passwordRegex = /^[A-Za-z0-9]{8}$/; 
 
   if (passwordRegex.test(values.password)) {
     console.log('Login successful:', values);
@@ -24,8 +24,8 @@ const Login = () => (
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', // Updated gradient
-      animation: 'fadeIn 2s ease-in-out', // Fade-in animation
+      background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', 
+      animation: 'fadeIn 2s ease-in-out', 
     }}
   >
     <div
@@ -34,9 +34,9 @@ const Login = () => (
         boxSizing: 'border-box',
         backgroundColor: '#ffffff',
         borderRadius: '16px',
-        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', // Subtle shadow for depth
+        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', 
         transform: 'scale(1)',
-        transition: 'transform 0.3s', // Hover effect
+        transition: 'transform 0.3s', 
         width: '90%',
         maxWidth: '600px',
       }}
@@ -49,7 +49,7 @@ const Login = () => (
           marginBottom: '1.5rem',
           fontFamily: `'Poppins', sans-serif`,
           color: '#333',
-          fontSize: '2.2rem', // Larger font for the headline
+          fontSize: '2.2rem', 
           fontWeight: '600',
         }}
       >

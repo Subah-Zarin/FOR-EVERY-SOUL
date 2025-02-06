@@ -1,9 +1,9 @@
-/* General body styling */
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Modern gradient background */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,29 +23,29 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Subtle overlay */
-    z-index: 0; /* Ensure it's behind the content */
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 0; 
 }
 
 /* Form container */
 .form-container {
     position: relative;
-    z-index: 1; /* Bring form above the overlay */
+    z-index: 1; 
     max-width: 400px;
-    width: 90%; /* Responsive width */
-    padding: 30px; /* Reduced padding for more compactness */
-    background-color: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    width: 90%; 
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95); 
     border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for a modern look */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); 
     text-align: center;
     animation: fadeIn 1s ease-in-out;
 }
 
 /* Form title */
 h1 {
-    font-size: 26px; /* Slightly smaller title */
-    margin-bottom: 15px; /* Reduced space */
-    color: #333; /* Neutral color for readability */
+    font-size: 26px; 
+    margin-bottom: 15px; 
+    color: #333; 
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -53,10 +53,10 @@ h1 {
 
 /* Ant Design input styling */
 .ant-input {
-    height: 45px; /* Reduced input height */
+    height: 45px; 
     border-radius: 8px;
     border: 2px solid #ddd;
-    margin-bottom: 15px; /* Reduced space between inputs */
+    margin-bottom: 15px; 
     font-size: 16px;
     padding: 10px;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -64,10 +64,10 @@ h1 {
 
 .ant-input:focus {
     border-color: #ff9a9e;
-    box-shadow: 0 0 8px rgba(255, 154, 158, 0.7); /* Gradient-based glow */
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.7); 
 }
 
-/* Input hover effect for better feedback */
+
 .ant-input:hover {
     border-color: #fad0c4;
 }
@@ -83,32 +83,32 @@ h1 {
 .btn-primary {
     display: block;
     width: 100%;
-    height: 45px; /* Reduced button height */
-    background: linear-gradient(135deg, #fad0c4, #ff9a9e); /* Gradient button */
+    height: 45px; 
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e); 
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px; /* Slightly smaller font size */
+    font-size: 16px; 
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Reverse gradient on hover */
-    transform: scale(1.05); /* Slight scale-up effect */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); 
+    transform: scale(1.05); 
 }
 
 .btn-primary:focus {
     outline: none;
-    box-shadow: 0 0 8px rgba(255, 154, 158, 0.7); /* Glow on focus */
+    box-shadow: 0 0 8px rgba(255, 154, 158, 0.7); 
 }
 
 /* Secondary button for Login link */
 .btn-secondary {
     display: inline-block;
-    margin-top: 10px; /* Reduced space */
-    font-size: 12px; /* Smaller font size */
+    margin-top: 10px; 
+    font-size: 12px; 
     color: #555;
     text-decoration: underline;
     cursor: pointer;

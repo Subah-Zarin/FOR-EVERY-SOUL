@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2C3E50;
+    color: white;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navbar-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .navbar-link:hover {
+    color: #ff6347; /* Change to a color of your choice */
+  }
+  
+  .navbar-actions {
+    display: flex;
+  }
+  
+  .donate-button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .donate-button:hover {
+    background-color: #e55347;
+  }
+  

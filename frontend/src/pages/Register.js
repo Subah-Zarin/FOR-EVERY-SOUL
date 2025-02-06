@@ -3,7 +3,7 @@ import { Button, Checkbox, Form, Input, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const navigate = useNavigate(); // Hook to navigate between pages
+  const navigate = useNavigate(); 
 
   const onFinish = (values) => {
     const passwordRegex = /^[A-Za-z0-9]{8}$/;
@@ -33,8 +33,8 @@ const Register = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', // Fresh gradient background
-        animation: 'fadeIn 2s ease-in-out', // Smooth fade-in animation
+        background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', 
+        animation: 'fadeIn 2s ease-in-out', 
       }}
     >
       <div
@@ -43,11 +43,10 @@ const Register = () => {
           boxSizing: 'border-box',
           backgroundColor: '#ffffff',
           borderRadius: '16px',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', // Softer shadow
-          transform: 'scale(1)',
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', 
           transition: 'transform 0.3s',
           maxWidth: '500px',
-          width: '90%', // Responsive width
+          width: '90%', 
         }}
         onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
         onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}

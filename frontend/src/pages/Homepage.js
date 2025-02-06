@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Input } from 'antd';
+import NavBar from '../components/NavBar'; 
 
 import '../styles/Homepage.css';
 
@@ -37,15 +38,7 @@ const HomePage = () => {
           />
           <h1 className="homepage-logo">FOR EVERY SOUL</h1>
         </div>
-        <nav className="desktop-nav">
-          <ul className="homepage-nav">
-            <li><a href="/" className="nav-link">Home</a></li>
-            <li><a href="/about" className="nav-link">About</a></li>
-            <li><a href="/login" className="nav-link">Login</a></li>
-            <li><a href="/register" className="nav-link">Register</a></li>
-            <li><a href="/donate" className="nav-link donate-btn">Donate Now</a></li>
-          </ul>
-        </nav>
+        <NavBar />
       </header>
 
       {/* Hero Section */}
@@ -140,87 +133,85 @@ const HomePage = () => {
           <img src={carouselImg1} alt="Campaign 1" />
           <img src={carouselImg2} alt="Campaign 2" />
           <img src={carouselImg3} alt="Campaign 3" />
-
         </div>
         <button className="carousel-button carousel-button-left" onClick={goToPreviousSlide}>❮</button>
         <button className="carousel-button carousel-button-right" onClick={goToNextSlide}>❯</button>
       </section>
 
-    {/* New Donation Campaigns Section */}
-    <section className="new-donation-campaigns">
-  <h2 className="new-campaigns-title">Our Featured Donation Campaigns</h2>
-  <div className="campaigns-container">
-    {[
-      {
-        img: cancerPaitent,
-        title: 'Better Life for Cancer Patients',
-        description: 'Provide shelter and resources for cancer patients.',
-        amount: 'BDT 10,000',
-        targetAmount: 'BDT 20,000',
-        progress: 50, // Example progress (percentage)
-      },
-      {
-        img: specialChild,
-        title: 'Special Child',
-        description: 'Support initiatives to help them.',
-        amount: 'BDT 15,000',
-        targetAmount: 'BDT 20,000',
-        progress: 20, 
-      },
-      {
-        img: strayAnimal,
-        title: 'Let Them Live Too',
-        description: 'Provide shelter and resources for stray animals.',
-        amount: 'BDT 10,000',
-        targetAmount: 'BDT 30,000',
-        progress: 33, 
-      },
-      {
-        img: disableChild,
-        title: 'Better Life for Disabled Children',
-        description: 'Provide shelter and resources for disabled children.',
-        amount: 'BDT 10,000',
-        targetAmount: 'BDT 15,000',
-        progress: 67, // Example progress (percentage)
-      },
-      {
-        img: educationFund,
-        title: 'Education for Underprivileged Children',
-        description: 'Support the education of underprivileged children.',
-        amount: 'BDT 5,000',
-        targetAmount: 'BDT 25,000',
-        progress: 10, 
-      },
-      {
-        img: healthCare,
-        title: 'Healthcare for All',
-        description: 'Ensure access to healthcare services for the poor.',
-        amount: 'BDT 8,000',
-        targetAmount: 'BDT 18,000',
-        progress: 44, // Example progress (percentage)
-      },
-    ].map((campaign, index) => (
-      <div className="new-campaign" key={index}>
-        <img className="new-campaign-image" src={campaign.img} alt={campaign.title} />
-        <div className="new-campaign-content">
-          <h3 className="new-campaign-title">{campaign.title}</h3>
-          <p className="new-campaign-description">{campaign.description}</p>
-          <p className="new-campaign-amount">
-            Amount Collected: {campaign.amount} / Target: {campaign.targetAmount}
-          </p>
+      {/* New Donation Campaigns Section */}
+      <section className="new-donation-campaigns">
+        <h2 className="new-campaigns-title">Our Featured Donation Campaigns</h2>
+        <div className="campaigns-container">
+          {[
+            {
+              img: cancerPaitent,
+              title: 'Better Life for Cancer Patients',
+              description: 'Provide shelter and resources for cancer patients.',
+              amount: 'BDT 10,000',
+              targetAmount: 'BDT 20,000',
+              progress: 50, // Example progress (percentage)
+            },
+            {
+              img: specialChild,
+              title: 'Special Child',
+              description: 'Support initiatives to help them.',
+              amount: 'BDT 15,000',
+              targetAmount: 'BDT 20,000',
+              progress: 20, 
+            },
+            {
+              img: strayAnimal,
+              title: 'Let Them Live Too',
+              description: 'Provide shelter and resources for stray animals.',
+              amount: 'BDT 10,000',
+              targetAmount: 'BDT 30,000',
+              progress: 33, 
+            },
+            {
+              img: disableChild,
+              title: 'Better Life for Disabled Children',
+              description: 'Provide shelter and resources for disabled children.',
+              amount: 'BDT 10,000',
+              targetAmount: 'BDT 15,000',
+              progress: 67, // Example progress (percentage)
+            },
+            {
+              img: educationFund,
+              title: 'Education for Underprivileged Children',
+              description: 'Support the education of underprivileged children.',
+              amount: 'BDT 5,000',
+              targetAmount: 'BDT 25,000',
+              progress: 10, 
+            },
+            {
+              img: healthCare,
+              title: 'Healthcare for All',
+              description: 'Ensure access to healthcare services for the poor.',
+              amount: 'BDT 8,000',
+              targetAmount: 'BDT 18,000',
+              progress: 44, // Example progress (percentage)
+            },
+          ].map((campaign, index) => (
+            <div className="new-campaign" key={index}>
+              <img className="new-campaign-image" src={campaign.img} alt={campaign.title} />
+              <div className="new-campaign-content">
+                <h3 className="new-campaign-title">{campaign.title}</h3>
+                <p className="new-campaign-description">{campaign.description}</p>
+                <p className="new-campaign-amount">
+                  Amount Collected: {campaign.amount} / Target: {campaign.targetAmount}
+                </p>
 
-          {/* Progress Bar */}
-          <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: `${campaign.progress}%` }}></div>
-          </div>
+                {/* Progress Bar */}
+                <div className="progress-bar-container">
+                  <div className="progress-bar" style={{ width: `${campaign.progress}%` }}></div>
+                </div>
 
-          <button className="donate-button">Donate</button>
+                <button className="donate-button">Donate</button>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
-
+      </section>
 
       {/* Footer */}
       <footer className="footer">
