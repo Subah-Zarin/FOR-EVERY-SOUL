@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,7 +37,7 @@ const Register = () => {
         background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', 
         animation: 'fadeIn 2s ease-in-out', 
       }}
-    >
+    > <NavBar />
       <div
         style={{
           padding: '5%',

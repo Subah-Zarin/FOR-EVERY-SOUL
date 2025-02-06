@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
 import { Button, Checkbox, Form, Input, message } from 'antd';
 
 // Handle form submission
@@ -27,7 +28,7 @@ const Login = () => (
       background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', 
       animation: 'fadeIn 2s ease-in-out', 
     }}
-  >
+  > <NavBar /> 
     <div
       style={{
         padding: '10% 5%',

@@ -29,17 +29,9 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <header className="homepage-header">
-        <div className="logo-container">
-          <img
-            src={require('../assets/logo3.png')} 
-            alt="Logo"
-            className="logo-image"
-          />
-          <h1 className="homepage-logo">FOR EVERY SOUL</h1>
-        </div>
-        <NavBar />
-      </header>
+    
+
+      <NavBar />
 
       {/* Hero Section */}
       <section className="hero-section">

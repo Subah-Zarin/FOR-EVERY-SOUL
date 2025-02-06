@@ -1,41 +1,159 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease, top 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    padding: 1.25rem 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.container-fluid {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #2C3E50;
-    color: white;
-  }
-  
-  .navbar-links {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  .navbar-link {
+    position: relative;
+}
+
+.navbar-brand {
+    font-size: 32px;
+    font-weight: 600;
+    color: #2d2d2d;
     text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .navbar-link:hover {
-    color: #ff6347; /* Change to a color of your choice */
-  }
-  
-  .navbar-actions {
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    margin-bottom: 6px;
     display: flex;
-  }
-  
-  .donate-button {
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-brand .tagline {
+    font-size: 18px;
+    font-weight: 400;
+    color: #2d2d2d;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.85;
+}
+
+.navbar-brand:hover {
+    color: #f39c12;
+}
+
+.navbar-brand .tagline:hover {
+    color: #f39c12;
+}
+
+.navbar input {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    transition: border 0.3s ease;
+    width: 240px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.navbar input:focus {
+    border-color: #f39c12;
+    outline: none;
+}
+
+button {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2d2d2d;
+    background-color: transparent;
+    border: 2px solid transparent;
+    padding: 14px 24px;
+    border-radius: 35px;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f39c12;
+    border-color: #f39c12;
+    transform: scale(1.05);
     cursor: pointer;
-  }
-  
-  .donate-button:hover {
-    background-color: #e55347;
-  }
-  
+}
+
+button:focus {
+    outline: none;
+    border-color: #f39c12;
+}
+
+.navbar .ant-dropdown-link:hover {
+    color: #f39c12;
+}
+
+.navbar .ant-dropdown-menu-item {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.navbar .ant-dropdown {
+    display: inline-block;
+    position: relative;
+    margin-left: 20px;
+}
+
+.navbar .ant-dropdown:hover .ant-dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s ease 0s;
+}
+
+.navbar .ant-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s ease 0s;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 28px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin-right: 15px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+
+    .navbar input {
+        width: 200px;
+    }
+}
