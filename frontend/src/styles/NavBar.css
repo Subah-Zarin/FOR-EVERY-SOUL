@@ -1,5 +1,5 @@
-body {
-    font-family: 'Roboto', sans-serif;
+html, body {
+    font-family: 'Roboto', sans-serif !important;
 }
 
 .navbar {
@@ -9,37 +9,50 @@ body {
     right: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease, top 0.3s ease, box-shadow 0.3s ease;
-    font-family: 'Roboto', sans-serif;
-    padding: 1.25rem 2rem;
+    transition: all 0.3s ease-in-out;
+    padding: 1.5rem 2rem;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;  /* Center the content horizontally */
+    align-items: center;
 }
 
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 1);
+    padding: 0.5rem 1.2rem;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
 }
 
-.container-fluid {
+.navbar .navbar-brand img {
+    height: 50px;
+    transition: height 0.3s ease-in-out;
+    margin-left: -80px;
+}
+
+.navbar.scrolled .navbar-brand img {
+    height: 35px;
+}
+
+.navbar .container-fluid {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;  /* Center content within the container */
     align-items: center;
-    position: relative;
+    width: 100%;
 }
 
 .navbar-brand {
-    font-size: 32px;
+    font-size: 32px !important;
     font-weight: 600;
     color: #2d2d2d;
     text-decoration: none;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     transition: color 0.3s ease;
-    margin-bottom: 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    flex: 1;  
+    margin-left: -150px;
 }
 
 .navbar-brand .tagline {
@@ -49,6 +62,13 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     opacity: 0.85;
+    text-align: center;
+    margin-left: -80px;
+}
+
+.navbar .left-section,
+.navbar .right-section {
+    display: none;  /* Hide left and right sections for centering */
 }
 
 .navbar-brand:hover {
@@ -76,13 +96,14 @@ body {
 }
 
 button {
-    font-size: 20px;
+    font-size: 20px !important;
     font-weight: 600;
     color: #2d2d2d;
     background-color: transparent;
     border: 2px solid transparent;
     padding: 14px 24px;
     border-radius: 35px;
+    margin-right: 10px;  /* Adds gap between buttons */
     transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -139,6 +160,81 @@ button:focus {
     transition: opacity 0.3s ease, visibility 0s ease 0s;
 }
 
+/* General Menu Styles */
+.ant-menu {
+    background-color: #ffffff !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 250px;
+}
+
+.rotate-up {
+    transform: rotate(180deg); /* Rotate the caret icon */
+    transition: transform 0.3s ease-in-out; /* Smooth rotation */
+  }
+
+.ant-menu-item {
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ant-menu-item:hover {
+    background-color: #1890ff;
+    color: white;
+}
+
+/* Menu Item Link Styles */
+.ant-menu-item a {
+    color: #1890ff !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.ant-menu-item a:hover {
+    color: #fff !important;
+}
+
+/* Submenu Styles */
+.ant-menu-submenu {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.ant-menu-submenu-title {
+    font-weight: bold;
+    color: #1890ff;
+}
+
+.ant-menu-submenu-title:hover {
+    color: white;
+}
+
+/* Menu Divider */
+.ant-menu-horizontal .ant-menu-item-divider {
+    background-color: #d9d9d9;
+}
+
+/* Active/Selected Item */
+.ant-menu-item-selected {
+    background-color: #1890ff;
+    color: white;
+}
+
+/* Dropdown Menu Styles */
+.ant-dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for disabled items */
+.ant-menu-item-disabled {
+    color: #d9d9d9;
+}
+
 @media (max-width: 768px) {
     .navbar-brand {
         font-size: 28px;
@@ -155,5 +251,10 @@ button:focus {
 
     .navbar input {
         width: 200px;
+    }
+
+    .navbar .left-section,
+    .navbar .right-section {
+        display: none;  /* Hide left and right sections for centering */
     }
 }
