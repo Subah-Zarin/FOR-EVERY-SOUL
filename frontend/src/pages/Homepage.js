@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Input } from 'antd';
+import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar'; 
 
 import '../styles/Homepage.css';
@@ -130,7 +131,7 @@ const HomePage = () => {
         <button className="carousel-button carousel-button-right" onClick={goToNextSlide}>❯</button>
       </section>
 
-      {/* New Donation Campaigns Section */}
+      {/* Donation Campaigns Section */}
       <section className="new-donation-campaigns">
         <h2 className="new-campaigns-title">Our Featured Donation Campaigns</h2>
         <div className="campaigns-container">
