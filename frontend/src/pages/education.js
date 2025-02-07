@@ -86,7 +86,8 @@ const Education = () => {
       description: 'Support adult and child literacy programs for communities in need.',
       goal: 15000,
       image: campaignImage7,
-      progress: 0, // Set initial progress to 0
+      progress: 50, // Set initial progress to 0
+
     },
     {
       id: 'special-education',
@@ -244,7 +245,7 @@ const Education = () => {
                   type="primary" 
                   onClick={() => {
                     setSelectedCampaign(campaign.id);
-                    navigate(`/donation-form`);
+                    navigate(`/donation`);
                   }}>
                   Donate
                 </Button>

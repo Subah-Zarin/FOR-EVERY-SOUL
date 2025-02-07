@@ -1,0 +1,103 @@
+body {
+    background-image: url('../assets/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease; /* Smooth transition for background change */
+  }
+  
+  .scrolled {
+    background-color: #73afc1; /* New background color after scrolling */
+    
+  }
+  
+  
+  .donation-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh;
+    padding: 0 10px;
+    margin-top: 120px; /* Adjust this value based on the height of your NavBar */
+  }
+  
+  .donation-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .donation-title {
+    text-align: center;  /* Horizontally center the title */
+    color: #3d3d3d;
+    margin-bottom: 20px; /* Adds space between title and the rest of the form */
+    font-size: 28px; /* Adjust font size for better visibility */
+  }
+  
+  .form-description {
+    text-align: center;
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  
+  .donation-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .donation-submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .payment-logo {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .donation-form-container {
+      padding: 10px;
+      margin-top: 90px; /* Increase for mobile if necessary */
+    }
+  
+    .donation-form {
+      padding: 15px;
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .donation-submit-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .form-description {
+      font-size: 14px;
+    }
+  
+    .donation-title {
+      font-size: 24px;  /* Adjust for smaller screens */
+    }
+  }
+  
