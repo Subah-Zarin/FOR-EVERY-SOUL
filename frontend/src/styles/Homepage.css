@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Lora:wght@400;700&display=swap');
 
 /* Global Styles */
@@ -14,17 +13,14 @@ body {
   color: #2c3e50;
 }
 
-
-
-
-
+/* Navigation */
 .desktop-nav ul {
   list-style: none;
   display: flex;
   gap: 30px;
 }
 
-
+/* Donate Button */
 .donate-btn {
   background-color: #D4AF37; 
   padding: 10px 20px;
@@ -90,7 +86,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
 }
 
-/* Additional Styling for Elegant Buttons */
+/* Elegant Button */
 .elegant-button {
   background-color: #D4AF37; 
   color: white;
@@ -107,12 +103,13 @@ body {
   background-color: #F39C12; 
 }
 
-
 /* Mission Section */
 .mission-section {
   padding: 40px 20px;
   text-align: center;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .mission-section h2 {
@@ -120,25 +117,42 @@ body {
   color: #2c3e50;
 }
 
-.know-more-button {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
+.mission-section p {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #444;
 }
 
-/* Search Bar */
+.know-more-button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1rem;
+  padding: 14px 35px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.know-more-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Search Bar Section */
 .search-bar-section {
   text-align: center;
   margin: 100px 0;
+  position: relative;
 }
 
 .donation-search-bar {
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   padding: 15px 40px;
   border: 2px solid #ccc; 
@@ -176,10 +190,6 @@ body {
 
 .search-bar-section button:active {
   transform: scale(1); 
-}
-
-.donation-search-bar {
-  max-width: 800px;
 }
 
 /* How It Works Section */
@@ -231,41 +241,6 @@ body {
   font-size: 1.2rem;
   color: #555;
   font-weight: 600;
-}
-
-/* Mission Section */
-.mission-section {
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  border-radius: 12px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  padding: 50px 20px;
-}
-
-.mission-section p {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2rem;
-  color: #444;
-}
-
-.know-more-button {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 1.1rem;
-  padding: 14px 35px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.know-more-button:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
 }
 
 /* Carousel */
@@ -374,20 +349,18 @@ body {
   transform: scale(1.05); 
 }
 
-
-
-/* New Campaigns Section */
+/* New Donation Campaigns Section */
 .new-donation-campaigns {
   padding: 40px 20px;
-    background-color: #e2f0d0;
-    text-align: center;
+  background-color: #e2f0d0;
+  text-align: center;
 }
 
 .new-campaigns-title {
   font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
 }
 
 .campaigns-container {
@@ -399,16 +372,16 @@ body {
 
 .new-campaign {
   background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .new-campaign:hover {
   transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .new-campaign-image {
@@ -461,51 +434,6 @@ body {
   transition: width 0.3s ease;
 }
 
-
-button {
-  background-color: #3498db;
-  color: white;
-  border-radius: 25px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-}
-
-button:hover {
-  background-color: #2980b9;
-}
-
-
-/* Larger screen adjustments */
-@media screen and (min-width: 769px) {
-  .homepage-cards {
-    flex-direction: row;
-  }
-
-  .carousel-images {
-    display: flex;
-  }
-
-  .new-campaign-content {
-    text-align: left;
-  }
-}
-.new-campaign-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #34495e;
-}
-
-.new-campaign-description {
-  font-size: 1.1rem;
-  margin: 10px 0;
-}
-
-.new-campaign-amount {
-  font-size: 1.2rem;
-  color: #e74c3c;
-}
-
 .new-campaign button {
   margin-top: 10px;
   background-color: #3498db;
@@ -541,4 +469,102 @@ button:hover {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* RESPONSIVE STYLES */
+
+/* For devices with width 1024px and below */
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    padding: 60px 30px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .campaigns-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  /* Navigation adjustments */
+  .desktop-nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  /* Hero Section adjustments */
+  .hero-section {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+  }
+  
+  .donate-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Search Bar adjustments */
+  .donation-search-bar {
+    max-width: 100%;
+    padding: 10px 20px;
+  }
+  
+  .search-bar-section button {
+    font-size: 1rem;
+    right: 10px;
+  }
+  
+  /* Carousel adjustments */
+  .carousel-button {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+  
+  /* Cards Section adjustments */
+  .homepage-cards {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* New Campaigns Grid adjustments */
+  .campaigns-container {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Mission Section adjustments */
+  .mission-section {
+    padding: 30px 15px;
+  }
 }

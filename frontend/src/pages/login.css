@@ -7,7 +7,6 @@
   width: 90%; /* Ensures responsiveness */
   margin: auto; /* Centers the container */
   animation: fadeIn 1s ease-in-out;
- 
 }
 
 .login-form {
@@ -64,10 +63,12 @@
   color: #66a6ff; /* Color change on hover */
 }
 
+/* Responsive adjustments for tablets and small devices */
 @media (max-width: 768px) {
   .login-paper {
     padding: 16px;
     border-radius: 12px;
+    max-width: 90%;
   }
 
   .login-form input {
@@ -81,6 +82,29 @@
 
   .login-link {
     font-size: 0.8rem;
+  }
+}
+
+/* Further adjustments for very small devices */
+@media (max-width: 480px) {
+  .login-paper {
+    padding: 12px;
+    border-radius: 8px;
+    max-width: 95%;
+  }
+
+  .login-form input {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .login-button {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .login-link {
+    font-size: 0.75rem;
   }
 }
 
