@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar'; 
+import Footer from "../components/Footer"; 
 
 import '../styles/Homepage.css';
 
@@ -206,13 +207,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>© 2025 EverySoul. All rights reserved.</p>
-        <p>
-          <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

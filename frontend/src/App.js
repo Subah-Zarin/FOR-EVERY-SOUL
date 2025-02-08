@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Account from './pages/Account'; 
 import Education from './pages/education';  
 import Donation from './pages/Donation';
+import Volunteer from './pages/Volunteer';
 import 'antd/dist/reset.css'; 
 
 const App = () => {
@@ -17,7 +18,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
         <Route path="/education" element={<Education />} />
-        <Route path="/donation" element={<Donation />} /> 
+        <Route path="/donation" element={<Donation />} />
+        <Route path="/Volunteer" element={<Volunteer />} /> 
       </Routes>
     </BrowserRouter>
   );

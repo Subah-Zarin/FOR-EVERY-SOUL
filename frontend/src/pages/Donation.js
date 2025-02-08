@@ -5,6 +5,7 @@ import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../styles/donation.css';
 import NavBar from '../components/NavBar';
+import Footer from "../components/Footer"; 
 
 // Import logos from the assets folder
 import creditCardLogo from '../assets/credit-card.jpg';
@@ -132,6 +133,7 @@ const Donation = () => {
           </Formik>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
