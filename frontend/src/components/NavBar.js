@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link , useLocation} from 'react-router-dom';
 import { Button, Input, Dropdown, Menu, Drawer } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
@@ -20,7 +20,27 @@ const NavBar = () => {
 
   const handleLoginClick = () => navigate('/login');
   const handleRegisterClick = () => navigate('/register');
-  const handleDonateClick = () => navigate('/donate');
+  const handleBackClick = () => navigate(-1);
+
+  const location = useLocation();
+
+  const handleDonateClick = () => {
+    const donationSection = document.getElementById('new-donation-campaigns'); // Use correct ID
+    if (donationSection) {
+      donationSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const donationSection = document.getElementById('new-donation-campaigns');
+          if (donationSection) {
+            donationSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100); // Reduce delay for better performance
+      }
+    }
+  };
+  
 
   const handleDropdownVisibility = (dropdown) => {
     switch (dropdown) {

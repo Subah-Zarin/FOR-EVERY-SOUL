@@ -217,8 +217,8 @@ const Medical = () => {
                 <h3>{campaign.title}</h3>
                 <p>{campaign.description}</p>
                 {/* Progress Bar */}
-                <div className="medical-progress-bar-container">
-                  <div className="medical-progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
+                <div className="progress-bar-container">
+                  <div className="progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
                 </div>
                 <Button 
                   type="primary" 

@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useCallback } from 'react'; 
 import NavBar from '../components/NavBar';
-import Footer from "../components/Footer"; 
 import { Button, List, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Relief.css';
@@ -182,8 +181,8 @@ const Relief = () => {
                 <h3>{campaign.title}</h3>
                 <p>{campaign.description}</p>
                 {/* Progress Bar */}
-                <div className="relief-progress-bar-container">
-                <div className="relief-progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
+                <div className="progress-bar-container">
+                  <div className="progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
                 </div>
                 <Button 
                  type="primary" 
@@ -236,8 +235,12 @@ const Relief = () => {
                             </List.Item>
                           )}
                         />
-                    </div>
-                <footer/>
+                      </div>
+                
+                {/* Footer Section */}
+                <footer className="footer">
+                        <p>&copy; 2025 Education Fund. All rights reserved.</p>
+                      </footer>
 
     </div>
   );
