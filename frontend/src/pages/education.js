@@ -142,19 +142,31 @@ const Education = () => {
     <div className="fundraiser-container">
       <NavBar />
 
+      <header className="education-header"></header>
+
+
       {/* Hero Section */}
-      <div className="hero-section">
-        <img src={heroImage} alt="Hero Image" className="hero-image" />
-        <div className="hero-text">
-          <Title level={1}>Support Education for Children in Need</Title>
-          <Paragraph className="hero-description">
-            Your generous donation can make a difference in the lives of children, providing them with a chance to learn and grow.
-          </Paragraph>
-          <Button type="primary" size="large" onClick={() => window.scrollTo(0, 600)}>
-            Donate Now
-          </Button>
-        </div>
-      </div>
+<div className="hero-section2">
+  <div className="hero-content2">
+    <div className="hero-text2">
+      <Title level={1} className="hero-title2">Empower a Child’s Future with Your Donation</Title>
+      <Paragraph className="hero-description2">
+        Every contribution helps provide education, books, and a brighter future for children in need. Join us in making a difference.
+      </Paragraph>
+      <Button type="primary" size="large" className="donate-btn" onClick={() => window.scrollTo({ top: 600, behavior: 'smooth' })}>
+        Donate Now
+      </Button>
+    </div>
+    <div className="hero-images2">
+      <img src={heroImage} alt="Children Learning" className="hero-image fade-in" />
+      <img src={campaignImage7} alt="Child with Books" className="hero-image fade-in" />
+      <img src={campaignImage6} alt="Happy Kids in School" className="hero-image fade-in" />
+    </div>
+  </div>
+  <div className="hero-overlay2"></div>
+</div>
+
+
 
       {/* Body */}
 <section className="why-education">
@@ -266,7 +278,7 @@ const Education = () => {
 
       {/* Donation Status Section */}
 <div className="donation-status-card">
-  <h3 className="donation-title">Total Donations</h3>
+  <h3 className="donation-title">Total Donation Raised</h3>
   <p className="donation-amount">
     <strong>{currentDonations.toLocaleString()} BDT</strong> 
   </p>

@@ -1,0 +1,411 @@
+/* General Styles */
+.medical-education-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    padding: 20px;
+  }
+
+  .medical-header {
+    height: 65px; /* Adjust height as needed */
+    background-color: #e0f9fc; 
+    width: 100%;
+  }
+  
+.medical-hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 20px 20px;
+    margin-top: 0px;
+   
+  }
+  
+  .medical-hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+  }
+  
+  .medical-hero-text {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .medical-hero-title, .medical-hero-description {
+    margin-bottom: 1.5rem;
+  }
+  
+  .medical-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .medical-hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .medical-donate-btn {
+    font-size: 1.1rem;
+  }
+  
+  .medical-hero-images {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .medical-hero-image {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meical-fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .medical-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/background.webp') center / cover;
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  
+  .medical-donate-btn {
+    background-color: #D4AF37; 
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  }
+  
+  /* Section Styling */
+  .medical-why-healthcare, .medical-donation-impact {
+    padding: 40px;
+    background-color: #f7fcfb;
+  }
+  
+  .medical-section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f39c12;
+    margin-bottom: 20px;
+  }
+  
+  .medical-section-text, .medical-stat-item {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+  }
+  
+  .medical-statistics-title, .medical-stories-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2980b9;
+  }
+  
+  .medical-donation-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+  }
+  
+  .medical-donation-list li, .medical-stat-item{
+    font-size: 16px;
+    color: #34495e;
+  }
+  
+  .medical-donation-list {
+    font-size: 1.1rem;
+    padding-left: 20px;
+  }
+  
+  .medical-section-quote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 4px solid #3498db;
+    font-weight: 300;
+  }
+  
+  /* Donation Campaigns Section */
+  .medical-donation-campaigns {
+    padding: 40px 20px;
+    background-color: #e2f0d0;
+    text-align: center;
+  }
+  
+  .medical-campaigns-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #2c3e50;
+  }
+  
+  /* Campaign Cards */
+  .medical-campaigns-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .medical-campaign-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .medical-campaign-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .medical-campaign-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .medical-campaign-info h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .medical-campaign-info p {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin: 10px 0;
+  }
+  
+  /* Donate Button */
+  .medical-donate-button {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    border: none;
+  }
+  
+  .medical-donate-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Recent Supporters */
+  .recent-supporters-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .supporters-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2980b9;
+  }
+  
+  .supporters-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .supporter-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+    width: 100%;
+  }
+  
+  .supporter-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #f39c12;
+  }
+  
+  .supporter-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #34495e;
+  }
+  
+  /* Donation Status Card */
+  .medical-donation-status-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .medical-donation-status .medical-section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2980b9;
+    margin-bottom: 20px;
+  }
+  
+  .medical-donation-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .medical-donation-progress-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  
+  .medical-donation-progress-bar .medical-progress {
+    width: 70%;
+    background-color: #27ae60;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  .medical-donation-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2980b9;
+  }
+  
+  .medical-donation-target {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-top: 10px;
+  }
+  
+  /* Footer Section */
+  .footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 3px solid #f39c12;
+  }
+  
+  .footer a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #2980b9;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .medical-hero-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .medical-hero-images {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .medical-hero-title {
+      font-size: 2rem;
+    }
+  
+    .medical-hero-description {
+      font-size: 1rem;
+    }
+  
+    .medical-section-title {
+      font-size: 28px;
+    }
+  
+    .medical-section-text {
+      font-size: 16px;
+    }
+  
+    .medical-campaigns-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .medical-campaign-card {
+      padding: 20px;
+    }
+  
+    .medical-donation-breakdown {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .medical-hero-title {
+      font-size: 1.8rem;
+    }
+  
+    .medical-hero-description {
+      font-size: 0.9rem;
+    }
+  
+    .medical-section-title {
+      font-size: 24px;
+    }
+  
+    .medical-section-text {
+      font-size: 14px;
+    }
+  
+    .medical-campaigns-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .medical-donate-btn {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  
+    .medical-donate-button {
+      font-size: 14px;
+    }
+  }
+  

@@ -6,13 +6,14 @@
   max-width: 400px; /* Adjust for smaller screens */
   width: 90%; /* Ensures responsiveness */
   margin: auto; /* Centers the container */
-  animation: fadeIn 1s ease-in-out; /* Smooth fade-in effect */
+  animation: fadeIn 1s ease-in-out;
+ 
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Uniform spacing between elements */
+  gap: 15px;
 }
 
 .login-form input {
