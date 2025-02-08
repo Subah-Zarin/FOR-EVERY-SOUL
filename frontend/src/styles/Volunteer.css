@@ -1,0 +1,141 @@
+.volunteer-page {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  padding-top: 100px; /* Adjust according to navbar height */
+}
+
+
+.volunteer-hero {
+  background-color: #f8f5f0; /* Light cream background */
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #e77a50; /* Soft orange */
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1f3b30; /* Dark green */
+}
+
+  .volunteer-header h1 {
+    color: #2c3e50;
+    font-size: 24px;
+  }
+  
+  .volunteer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .volunteer-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    text-align: center;
+  }
+  
+  .volunteer-card img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .volunteer-card h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+  }
+  
+  .volunteer-card p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .social-links {
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    margin: 0 5px;
+    display: inline-block;
+  }
+  
+  .social-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .volunteer-form-section {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .volunteer-form h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .volunteer-form input,
+  .volunteer-form textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .volunteer-form textarea {
+    height: 80px;
+  }
+  
+  .volunteer-form button {
+    background: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .volunteer-form button:hover {
+    background: #c0392b;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .volunteer-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .volunteer-card {
+      width: 80%;
+    }
+  }
+  

@@ -106,10 +106,12 @@ const NavBar = () => {
         </Link>
       </Menu.Item>
       <Menu.Item key="2" style={menuItemStyle}>
-        <Link to="/volunteer" style={menuLinkStyle}>
-          Join as a Volunteer
-        </Link>
-      </Menu.Item>
+  <Link to="/volunteer" style={menuLinkStyle}>
+    Join as a Volunteer
+  </Link>
+</Menu.Item>
+
+
       <Menu.Item key="3" style={menuItemStyle}>
         <Link to="/fundraise" style={menuLinkStyle}>
           Fundraise
@@ -181,6 +183,9 @@ const NavBar = () => {
             How to Help <CaretDownOutlined className={helpOpen ? 'rotate-up' : ''} />
           </Button>
         </Dropdown>
+
+        
+
 
         <Link className='navbar-brand' to='/'>
           <img src={logo} alt='Logo' style={{ height: '50px', marginRight: '10px' }} />
