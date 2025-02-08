@@ -8,6 +8,8 @@ import Education from './pages/education';
 import Donation from './pages/Donation';
 import Medical from './pages/medical';
 import Volunteer from './pages/Volunteer';
+import OurMission from './pages/OurMission';
+
 import TellYourStory from './pages/TellYourStory';
 
 import 'antd/dist/reset.css'; 
@@ -27,6 +29,8 @@ const App = () => {
         <Route path="/disaster-relief" element={<Relief />} /> 
         <Route path="/volunteer" element={<Volunteer />} /> 
         <Route path="/tell-your-story" element={<TellYourStory />} />
+        <Route path="/our-mission" element={<OurMission />} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import NavBar from '../components/NavBar';
+import Footer from "../components/Footer";
 import { Button, List, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import '../styles/medical.css';
@@ -273,10 +274,8 @@ const Medical = () => {
         />
       </div>
 
-{/* Footer Section */}
-<footer className="footer">
-        <p>&copy; 2025 Education Fund. All rights reserved.</p>
-      </footer>
+      <Footer />
+
 
     </div>
   );
