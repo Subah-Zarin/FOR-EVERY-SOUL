@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Button, Input, Dropdown, Menu } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
-import logo from '../assets/logo.png';  // Import the logo image
+import logo from '../assets/logo.png';  
 
 import '../styles/NavBar.css';
 

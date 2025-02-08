@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/Homepage';  // Make sure it's correct case
+import HomePage from './pages/Homepage';  
 import Login from './pages/login'; 
 import Register from './pages/Register'; 
 import Account from './pages/Account'; 
-import Volunteer from './pages/Volunteer';
-
+import Education from './pages/education';  
+import Donation from './pages/Donation';
 import 'antd/dist/reset.css'; 
 
 const App = () => {
@@ -16,7 +16,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/volunteer" element={<Volunteer />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/donation" element={<Donation />} /> 
       </Routes>
     </BrowserRouter>
   );

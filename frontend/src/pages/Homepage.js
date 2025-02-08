@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Input } from 'antd';
-import NavBar from '../components/NavBar';
-import Footer from "../components/Footer"; 
+import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar'; 
 
 import '../styles/Homepage.css';
 
@@ -131,7 +131,7 @@ const HomePage = () => {
         <button className="carousel-button carousel-button-right" onClick={goToNextSlide}>❯</button>
       </section>
 
-      {/* New Donation Campaigns Section */}
+      {/* Donation Campaigns Section */}
       <section className="new-donation-campaigns">
         <h2 className="new-campaigns-title">Our Featured Donation Campaigns</h2>
         <div className="campaigns-container">
@@ -206,7 +206,13 @@ const HomePage = () => {
         </div>
       </section>
 
-      <Footer />
+      {/* Footer */}
+      <footer className="footer">
+        <p>© 2025 EverySoul. All rights reserved.</p>
+        <p>
+          <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a>
+        </p>
+      </footer>
     </div>
   );
 };
