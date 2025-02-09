@@ -1,65 +1,61 @@
-import React, { useState, useMemo, useCallback } from 'react'; 
+import React from 'react'; 
 import NavBar from '../components/NavBar';
 import Footer from "../components/Footer";
-import { Button, List, Typography } from 'antd';
-import { useNavigate } from 'react-router-dom';
-
 import "../styles/OurMission.css"; // Import external CSS file
+
+// Import images correctly
+import handshakeIcon from "../assets/handshake.png";
+import donationIcon from "../assets/donation.png";
+import charityEventImage from "../assets/charity-event.jpg";
 
 const OurMission = () => {
   return (
     <div className="mission-container">
-        <NavBar /> 
+      <NavBar /> 
+
       {/* About Us Section */}
       <section className="hero-section">
-  <h2 className="hero-subtitle">ABOUT US</h2>
-  <h1 className="hero-title">Our Mission: Food, Education, Medicine</h1>
-</section>
-
+        <h2 className="hero-subtitle">ABOUT US</h2>
+        <h1 className="hero-title">Our Mission: Food, Education, Medicine</h1>
+      </section>
 
       {/* Trusted Non-Profit Section */}
-<section className="trusted-nonprofit">
-  <div className="nonprofit-text">
-    <h2 className="welcome-text">Welcome, Let's Make a Difference!</h2>
-    <h1 className="nonprofit-title">A Trusted Non-Profit Charity Organization</h1>
-    <p className="nonprofit-description">
-      Our non-profit charity center is dedicated to changing the world.
-      Our goal is to create positive change by providing assistance to
-      those in need and offering funding.
-    </p>
+      <section className="trusted-nonprofit">
+        <div className="nonprofit-text">
+          <h2 className="welcome-text">Welcome, Let's Make a Difference!</h2>
+          <h1 className="nonprofit-title">A Trusted Non-Profit Charity Organization</h1>
+          <p className="nonprofit-description">
+            Our non-profit charity center is dedicated to changing the world.
+            Our goal is to create positive change by providing assistance to
+            those in need and offering funding.
+          </p>
 
-    {/* Donation Options */}
-    <div className="donation-options">
-      <div className="donation-box">
-        <img src="/icons/handshake.png" alt="Contribute" />
-        <p><strong>Be a Hero,</strong> Contribute Now</p>
-      </div>
-      <div className="donation-box">
-        <img src="/icons/donation.png" alt="Help Children" />
-        <p><strong>Help Children</strong> with Donations</p>
-      </div>
-    </div>
+          {/* Donation Options */}
+          <div className="donation-options">
+            <div className="donation-box">
+              <img src={handshakeIcon} alt="Contribute" />
+              <p><strong>Be a Hero,</strong> Contribute Now</p>
+            </div>
+            <div className="donation-box">
+              <img src={donationIcon} alt="Help Children" />
+              <p><strong>Help Children</strong> with Donations</p>
+            </div>
+          </div>
 
-    {/* List of Services */}
-    <ul className="nonprofit-list">
-      <li>💛 Providing essential resources to underserved communities.</li>
-      <li>💛 Offering support through educational and health programs.</li>
-      <li>💛 Facilitating volunteer opportunities for community involvement.</li>
-    </ul>
+          {/* List of Services */}
+          <ul className="nonprofit-list">
+            <li>💛 Providing essential resources to underserved communities.</li>
+            <li>💛 Offering support through educational and health programs.</li>
+            <li>💛 Facilitating volunteer opportunities for community involvement.</li>
+          </ul>
 
-    <button className="support-btn">Support Now</button>
-  </div>
+          <button className="support-btn">Support Now</button>
+        </div>
 
-  {/* Image Section */}
-  <div className="nonprofit-image">
-    <img src="/assets/charity-event.jpg" alt="Charity Event" />
-  </div>
-</section>
-
-
-      {/* Image Section */}
-      <section className="image-section">
-        <img src="https://via.placeholder.com/600x300" alt="Charity event" className="charity-image" />
+        {/* Image Section */}
+        <div className="nonprofit-image">
+          <img src={charityEventImage} alt="Charity Event" />
+        </div>
       </section>
 
       {/* Stats Section */}
@@ -95,10 +91,11 @@ const OurMission = () => {
         </p>
         <div className="list-items">
           <div className="list-item">🟧 Providing essential medical aid.</div>
-          <div className="list-item">🟧 Delivering nutrition food to families.</div>
+          <div className="list-item">🟧 Delivering nutritious food to families.</div>
           <div className="list-item">🟧 Offering critical resources and aid.</div>
         </div>
       </section>
+
       <Footer />
     </div>
   );

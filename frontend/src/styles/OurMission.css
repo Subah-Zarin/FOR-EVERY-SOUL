@@ -1,249 +1,241 @@
-/* Global container */
+/* Global Container */
 .mission-container {
-    background-color: #f7f7f7;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    padding-top: 100px;  /* Adjust based on your navbar height */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  padding-top: 100px; /* Adjust according to navbar height */
 }
 
+/* Hero Section */
 .hero-section {
-    background-color: #f5f2eb; /* Light beige color */
-    text-align: center;
-    padding: 60px 20px;
-    border-radius: 0 0 30px 30px; /* Rounded corners at the bottom */
+  background-color: #f8f5f0;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-subtitle {
-    color: #e74c3c; /* Reddish-orange color */
-    font-style: italic;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 8px;
-    letter-spacing: 1.5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #e77a50;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .hero-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #1d3b30; /* Dark green */
-    line-height: 1.2;
+  font-size: 36px;
+  font-weight: bold;
+  color: #1d3b30;
+  line-height: 1.2;
 }
 
-  /* Section Titles */
-  .section-title {
-    color: #ff6600;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .main-heading {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-  }
-
-  /* Trusted Non-Profit Section */
+/* Trusted Non-Profit Section */
 .trusted-nonprofit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fdfaf5;
-    padding: 50px;
-    border-radius: 20px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdfaf5;
+  padding: 50px;
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
 .nonprofit-text {
-    width: 55%;
+  width: 55%;
 }
 
 .welcome-text {
-    color: #e74c3c;
-    font-style: italic;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 16px;
+  color: #e74c3c;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .nonprofit-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #1d3b30;
-    margin: 10px 0;
+  font-size: 36px;
+  font-weight: bold;
+  color: #1d3b30;
+  margin: 10px 0;
 }
 
 .nonprofit-description {
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 20px;
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 /* Donation Options */
 .donation-options {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .donation-box {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .donation-box img {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .nonprofit-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 .nonprofit-list li {
-    font-size: 16px;
-    margin-bottom: 8px;
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
-/* Button */
-.support-btn {
-    background-color: #e74c3c;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+/* Buttons */
+.support-btn, .cta-button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Image Section */
 .nonprofit-image {
-    width: 40%;
+  width: 40%;
 }
 
 .nonprofit-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-  
-  /* Section Box */
-  .section-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .highlight-title {
-    color: #ff6600;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .sub-heading {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-    margin-top: 10px;
-  }
-  
-  .section-text {
-    color: #555;
-    margin-top: 10px;
-  }
-  
-  /* Buttons */
-  .cta-button, .support-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 6px;
-    margin-top: 15px;
-  }
-  
-  .cta-button {
-    background-color: #ff6600;
-    color: white;
-  }
-  
-  .support-button {
-    background-color: #e63946;
-    color: white;
-  }
-  
-  /* List Items */
-  .list-items {
-    margin-top: 15px;
-  }
-  
-  .list-item {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  
-  /* Image Section */
-  .image-section {
-    margin-top: 20px;
-  }
-  
-  .charity-image {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Stats Section */
-  .stats-section {
-    margin-top: 20px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  .stat-box {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .stat-box h2 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-  }
-  
-  .stat-box p {
-    color: #666;
-  }
-  
+/* Stats Section */
+/* OurMission.css */
+
+/* Stats Section */
+.stats-section {
+  background-color: #f8f9fa; /* Light background color */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-box {
+  background-color: #ffffff; /* White background for each stat box */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.stat-box h2 {
+  font-size: 2.5em;
+  color: #e74c3c; /* Red color for the numbers */
+  margin-bottom: 10px;
+}
+
+.stat-box p {
+  font-size: 1.2em;
+  color: #7f8c8d; /* Gray color for the text */
+  margin: 0;
+}
+
+/* Core Goals Section */
+.section-box {
+  background-color: #ffffff; /* White background */
+  padding: 60px 20px;
+  text-align: center;
+  margin: 40px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.highlight-title {
+  font-size: 2.5em;
+  color: #2c3e50; /* Dark blue color */
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  font-size: 1.8em;
+  color: #e74c3c; /* Red color */
+  margin-bottom: 20px;
+}
+
+.section-text {
+  font-size: 1.2em;
+  color: #7f8c8d; /* Gray color */
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  background-color: #e74c3c; /* Red background */
+  color: #ffffff; /* White text */
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Positive Change Section */
+.list-items {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.list-item {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 1.1em;
+  color: #2c3e50; /* Dark blue color */
+  text-align: left;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-item:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
