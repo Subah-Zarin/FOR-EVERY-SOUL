@@ -1,85 +1,90 @@
-import jwt from "jsonwebtoken";
 import User from "../models/users.js";
-import { hashPassword, comparePassword } from "../utils/helpers.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-const lifetime = "3600000"; 
-
-
-export const register = async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
-
+// Registration controller: collects firstName, lastName, email, and password.
+export const Register = async (req, res) => {
   try {
-    // Check if user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: "Email is already registered" });
+    const { firstName, lastName, email, password } = req.body;
+
+    // Validate required fields
+    if (!firstName || !lastName || !email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
     }
 
-    // Hash password
-    const hashedPassword = await hashPassword(password);
+    // Check if a user with the same email exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ message: "User with provided email already exists" });
+    }
 
-    // Create new user
+    // Automatically generate a unique username from firstName and lastName
+    const baseUsername = `${firstName}${lastName}`.toLowerCase().replace(/\s+/g, '');
+    let username = baseUsername;
+    let count = 0;
+    while (await User.findOne({ username })) {
+      count++;
+      username = baseUsername + count;
+    }
+
+    // Hash the password before storing
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create and save the new user
     const newUser = new User({
       firstName,
       lastName,
       email,
       password: hashedPassword,
+      username,
     });
 
-    await newUser.save();  
+    await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ message: "User registered successfully", username });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ message: "Server error" });
   }
 };
 
-
-
+// Login controller: accepts username and password.
 export const login = async (req, res) => {
-  const { username, password } = req.body; 
   try {
-    const user = await User.findOne({ email: username });
-    if (!user) return res.status(404).json({ error: "User not found" });
+    const { username, password } = req.body;
 
-    const isValid = await comparePassword(password, user.password);
-    if (!isValid) return res.status(400).json({ error: "Invalid password" });
+    // Validate input
+    if (!username || !password) {
+      return res.status(400).json({ message: "Please provide username and password" });
+    }
 
+    // Find the user by username
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    // Compare the provided password with the stored hashed password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Wrong password" });
+    }
+
+    // Create a JWT token (ensure you have JWT_SECRET in your .env file)
     const token = jwt.sign(
-      { id: user._id, email: user.email },
+      { id: user._id, username: user.username },
       process.env.JWT_SECRET,
-      { expiresIn: lifetime }
+      { expiresIn: "1h" }
     );
 
-  
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
-      maxAge: parseInt(lifetime),
-    });
-
-    res.status(200).json({
-      message: "Login successful",
-      user: {
-        email: user.email,
-        firstName: user.firstName,
-        lastName: user.lastName,
-      },
-    });
+    // Optionally, set the token in an HTTP-only cookie
+    res.cookie("token", token, { httpOnly: true });
+    res.status(200).json({ message: "Login successful", token });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ message: "Server error" });
   }
-};
-
-
-export const logout = (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "none",
-  });
-  res.status(200).json({ message: "Logout successful" });
 };

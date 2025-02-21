@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import { Button, Checkbox, Input, message } from 'antd';
+import { Button, Input, message } from 'antd';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
@@ -17,17 +17,43 @@ const Register = () => {
   const validationSchema = Yup.object({
     firstName: Yup.string().required('Please input your first name!'),
     lastName: Yup.string().required('Please input your last name!'),
-    email: Yup.string()
-      .email('Invalid email address')
-      .required('Please input your email!'),
+    email: Yup.string().email('Invalid email address').required('Please input your email!'),
     password: Yup.string()
       .matches(
         /^[A-Za-z0-9]{8}$/,
         'Password must be exactly 8 characters and contain both letters and numbers.'
       )
       .required('Please input your password!'),
-    remember: Yup.boolean(),
   });
+
+  // Handler to call the backend registration endpoint
+  const handleRegister = async (values, { setSubmitting }) => {
+    try {
+      const response = await fetch('http://localhost:5000/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // Include cookies if your backend uses them
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          password: values.password,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
+      message.success(`Registration successful! Your username is: ${data.username}`);
+      navigate('/'); // Navigate to the account page after successful registration
+    } catch (error) {
+      message.error(error.message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div
@@ -84,15 +110,9 @@ const Register = () => {
             lastName: '',
             email: '',
             password: '',
-            remember: false,
           }}
           validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            console.log('Registration successful:', values);
-            message.success('Registration successful!');
-            navigate('/account');
-            setSubmitting(false);
-          }}
+          onSubmit={handleRegister}
         >
           {({
             values,
@@ -102,7 +122,6 @@ const Register = () => {
             handleBlur,
             handleSubmit,
             isSubmitting,
-            setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
               {/* First and Last Name Fields */}
@@ -203,20 +222,6 @@ const Register = () => {
                 {errors.password && touched.password && (
                   <div style={{ color: 'red', marginBottom: '0.5rem' }}>{errors.password}</div>
                 )}
-              </div>
-
-              {/* Terms and Conditions Checkbox */}
-              <div style={{ marginTop: '1rem', textAlign: 'left' }}>
-                <Checkbox
-                  id="remember"
-                  name="remember"
-                  checked={values.remember}
-                  onChange={(e) => setFieldValue('remember', e.target.checked)}
-                  onBlur={handleBlur}
-                  style={{ color: '#555' }}
-                >
-                  I agree to the terms and conditions
-                </Checkbox>
               </div>
 
               {/* Register Button */}

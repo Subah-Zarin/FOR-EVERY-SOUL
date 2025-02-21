@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Input, Checkbox, Button, message } from 'antd';
 
 const Login = () => {
+  const navigate = useNavigate();
   // Define the validation schema using Yup.
   const validationSchema = Yup.object().shape({
     username: Yup.string().required('Please input your username!'),
@@ -17,11 +19,31 @@ const Login = () => {
     remember: Yup.boolean(),
   });
 
- 
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log('Login successful:', values);
-    message.success('Login successful!');
-    setSubmitting(false);
+  // Handle form submission by calling the backend login endpoint.
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await fetch('http://localhost:5000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // Include cookies if your backend uses them
+        body: JSON.stringify({
+          username: values.username,
+          password: values.password,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+      message.success('Login successful!');
+      navigate('/account');
+    } catch (error) {
+      message.error(error.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -91,7 +113,10 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               {/* Username Field */}
               <div style={{ marginBottom: '1rem' }}>
-                <label htmlFor="username" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                <label
+                  htmlFor="username"
+                  style={{ display: 'block', marginBottom: '0.5rem' }}
+                >
                   Username
                 </label>
                 <Input
@@ -113,13 +138,18 @@ const Login = () => {
                   onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
                 />
                 {errors.username && touched.username && (
-                  <div style={{ color: 'red', marginTop: '0.5rem' }}>{errors.username}</div>
+                  <div style={{ color: 'red', marginTop: '0.5rem' }}>
+                    {errors.username}
+                  </div>
                 )}
               </div>
 
               {/* Password Field */}
               <div style={{ marginBottom: '1rem' }}>
-                <label htmlFor="password" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                <label
+                  htmlFor="password"
+                  style={{ display: 'block', marginBottom: '0.5rem' }}
+                >
                   Password
                 </label>
                 <Input.Password
@@ -141,7 +171,9 @@ const Login = () => {
                   onFocus={(e) => (e.target.style.borderColor = '#89f7fe')}
                 />
                 {errors.password && touched.password && (
-                  <div style={{ color: 'red', marginTop: '0.5rem' }}>{errors.password}</div>
+                  <div style={{ color: 'red', marginTop: '0.5rem' }}>
+                    {errors.password}
+                  </div>
                 )}
               </div>
 
@@ -151,7 +183,9 @@ const Login = () => {
                   name="remember"
                   checked={values.remember}
                   onChange={(e) =>
-                    handleChange({ target: { name: 'remember', value: e.target.checked } })
+                    handleChange({
+                      target: { name: 'remember', value: e.target.checked },
+                    })
                   }
                 >
                   Remember me
@@ -173,10 +207,12 @@ const Login = () => {
                   fontSize: '1rem',
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.background = 'linear-gradient(135deg, #89f7fe, #66a6ff)')
+                  (e.currentTarget.style.background =
+                    'linear-gradient(135deg, #89f7fe, #66a6ff)')
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.background = 'linear-gradient(135deg, #66a6ff, #89f7fe)')
+                  (e.currentTarget.style.background =
+                    'linear-gradient(135deg, #66a6ff, #89f7fe)')
                 }
                 htmlType="submit"
               >

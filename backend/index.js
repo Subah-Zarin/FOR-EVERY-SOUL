@@ -10,7 +10,7 @@ import userRouter from "./routes/users.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
