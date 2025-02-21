@@ -14,15 +14,15 @@ html, body {
     z-index: 1000;
     transition: all 0.3s ease-in-out;
     padding: 1.5rem 2rem;
-    background-color: transparent;  /* Fully transparent at the top */
+    background-color: transparent;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;  /* Center the content horizontally on larger screens */
+    justify-content: center;  
     align-items: center;
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 1);  /* Solid background when scrolled */
+    background-color: rgba(255, 255, 255, 1);  
     padding: 0.5rem 1.2rem;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-4px);

@@ -11,6 +11,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f4f4f4;
   color: #2c3e50;
+  
 }
 
 /* Navigation */
@@ -38,12 +39,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 40px;
+  padding: 120px 0px 80px 40px; 
   background: linear-gradient(to right, #74a6d7, #F7E7CE); 
   color: white;
+  padding-top: 100px;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .hero-content {
   max-width: 600px;

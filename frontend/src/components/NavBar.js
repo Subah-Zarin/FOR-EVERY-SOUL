@@ -25,20 +25,7 @@ const NavBar = () => {
   const location = useLocation();
 
   const handleDonateClick = () => {
-    const donationSection = document.getElementById('new-donation-campaigns'); // Use correct ID
-    if (donationSection) {
-      donationSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-          const donationSection = document.getElementById('new-donation-campaigns');
-          if (donationSection) {
-            donationSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100); // Reduce delay for better performance
-      }
-    }
+    navigate('/donation'); // Navigate to the donation page
   };
   
 

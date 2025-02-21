@@ -1,6 +1,18 @@
 {
   "dependencies": {
+    "dotenv": "^16.4.7",
     "formik": "^2.4.6",
+    "mongoose": "^8.10.1",
     "yup": "^1.6.1"
-  }
+  },
+  "name": "for-every-soul",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

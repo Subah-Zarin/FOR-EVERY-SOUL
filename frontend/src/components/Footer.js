@@ -6,7 +6,7 @@ import instagramIcon from "../assets/instagram-icon.png";
 import facebookIcon from "../assets/facebook-icon.png";
 import twitterIcon from "../assets/twitter-icon.png";
 import linkedinIcon from "../assets/linkedin-icon.png";
-import logo from "../assets/logo.png"; // Upload the image to assets and update the filename
+import logo from "../assets/logo.png"; 
 
 const Footer = () => {
   const [email, setEmail] = useState("");

@@ -14,6 +14,7 @@ import TellYourStory from './pages/TellYourStory';
 
 import 'antd/dist/reset.css'; 
 import Relief from "./pages/Relief"; 
+import Impact from './pages/impact';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/volunteer" element={<Volunteer />} /> 
         <Route path="/tell-your-story" element={<TellYourStory />} />
         <Route path="/our-mission" element={<OurMission />} />
+        <Route path="/impact" element={<Impact />} />
 
       </Routes>
     </BrowserRouter>

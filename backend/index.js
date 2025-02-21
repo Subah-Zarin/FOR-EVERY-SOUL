@@ -1,14 +1,42 @@
 import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import logger from "./middlewares/logger.js";
+import authRouter from "./routes/auth.js";
+import userRouter from "./routes/users.js";
+
+dotenv.config();
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) =>{ res.status(200).json({ message: "API is working" });
-});
+mongoose
+  .connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to database"))
+  .catch((err) => console.log(`Error connecting to database: ${err}`));
 
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.ALLOWED_ORIGIN,
+  })
+);
+
+// Custom logging middleware
+app.use(logger);
+
+app.get("/", (req, res) => res.json({ message: "API is working" }));
+
+app.use("/auth", authRouter);
+app.use("/users", userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
 export default app;
+

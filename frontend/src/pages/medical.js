@@ -261,9 +261,9 @@ const Medical = () => {
         <List
           className="supporters-list"
           dataSource={[
-            { name: 'John Doe', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-            { name: 'Jane Smith', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
-            { name: 'Robert Brown', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
+            { name: 'Nakib faiad', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
+            { name: 'Tathai Adhikary', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
+            { name: 'Mithu Bhai', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
           ]}
           renderItem={(item) => (
             <List.Item className="supporter-item">
