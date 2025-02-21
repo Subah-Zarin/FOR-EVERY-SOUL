@@ -17,11 +17,10 @@ const Login = () => {
     remember: Yup.boolean(),
   });
 
-  // This function will be called when the form is submitted.
+ 
   const handleSubmit = (values, { setSubmitting }) => {
     console.log('Login successful:', values);
     message.success('Login successful!');
-    // Add any further authentication logic here (e.g., API call).
     setSubmitting(false);
   };
 
