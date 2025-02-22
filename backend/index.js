@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 import logger from "./middlewares/logger.js";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
+import volunteerRoutes from "./routes/volunteerRoutes.js"; 
+
 
 dotenv.config();
 
@@ -33,6 +35,7 @@ app.get("/", (req, res) => res.json({ message: "API is working" }));
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/api", volunteerRoutes);  // Register Volunteer Routes
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
