@@ -10,6 +10,8 @@ import Volunteer from './pages/Volunteer';
 import OurMission from './pages/OurMission';
 
 import TellYourStory from './pages/TellYourStory';
+import FundraiserForm from "./pages/FundraiserForm";
+
 
 import 'antd/dist/reset.css'; 
 import Relief from "./pages/Relief"; 
@@ -32,6 +34,8 @@ const App = () => {
         <Route path="/tell-your-story" element={<TellYourStory />} />
         <Route path="/our-mission" element={<OurMission />} />
         <Route path="/impact" element={<Impact />} />
+        <Route path="/FundraiserForm" element={<FundraiserForm />} />
+
 
       </Routes>
     </BrowserRouter>
