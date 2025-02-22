@@ -1,0 +1,201 @@
+ /* Main Container */
+ .story-map-container {
+  text-align: center;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #a8c0ff, #3f2b96);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+/* Title */
+.story-map-title {
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Circle Structure */
+.story-map-circle {
+  position: relative;
+  width: 750px;
+  height: 750px;
+  margin: 30px auto;
+  border: 12px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #e0f7ff, #8eb5f0);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* General Box Style */
+.story-map-section {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  text-align: center;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
+  border: 6px solid #4a90e2;
+}
+
+.story-map-section h3 {
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #3f2b96;
+}
+
+.story-map-section textarea {
+  width: 90%;
+  height: 60px;
+  padding: 10px;
+  border: 2px solid #3f2b96;
+  border-radius: 8px;
+  resize: none;
+  background: #e0f7ff;
+  font-size: 16px;
+}
+
+/* Circular "What" Box */
+.what {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 333px;
+  height: 333px;
+  border-radius: 70%;
+  background: linear-gradient(to bottom, #d0eaff, #85a6ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.what h3 {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.what textarea {
+  width: 85%;
+  height: 100px;
+  padding: 12px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  resize: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* **Perfectly Balanced Positions & Spacing** */
+.who {
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 160px;
+}
+
+.where {
+  top: 40%;
+  left: -155px;
+  width: 280px;
+  height: 160px;
+}
+
+.when {
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 160px;
+}
+
+.why {
+  top: 40%;
+  right: -170px;
+  width: 280px;
+  height: 160px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .story-map-circle {
+    width: 550px;
+    height: 550px;
+  }
+
+  .what {
+    width: 260px;
+    height: 260px;
+  }
+
+  .story-map-section {
+    width: 200px;
+    height: 110px;
+  }
+
+  .who { top: -70px; }
+  .where { left: -120px; }
+  .why { right: -120px; }
+  .when { bottom: -70px; }
+}
+
+/* Submit Button */
+.story-submit-button {
+  margin-top: 40px;
+  padding: 16px 36px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to right, #4a90e2, #0d47a1);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.story-submit-button:hover {
+  background: linear-gradient(to right, #3b78d2, #083b7a);
+  transform: scale(1.08);
+}
+/* Success Message */
+.success-message {
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+  background: #3cb371;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

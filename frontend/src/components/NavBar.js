@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Button, Input, Dropdown, Menu } from 'antd';
+import { Button, Dropdown, Menu } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';  
 
@@ -13,6 +13,7 @@ const NavBar = () => {
   const handleLoginClick = () => navigate('/login');
   const handleRegisterClick = () => navigate('/register');
   const handleDonateClick = () => navigate('/donate');
+  const handleBackClick = () => navigate(-1);
 
   const [donationsOpen, setDonationsOpen] = React.useState(false);
   const [aboutOpen, setAboutOpen] = React.useState(false);
@@ -34,95 +35,6 @@ const NavBar = () => {
     }
   };
 
-  const donationsMenu = (
-    <Menu
-      theme="dark"
-      style={{
-        borderRadius: '12px',
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-        padding: '10px',
-        backgroundColor: '#fff',
-      }}
-    >
-      <Menu.Item key="1" style={menuItemStyle}>
-        <Link to="/medical" style={menuLinkStyle}>
-          Medical
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="2" style={menuItemStyle}>
-        <Link to="/education" style={menuLinkStyle}>
-          Education
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="3" style={menuItemStyle}>
-        <Link to="/disaster-relief" style={menuLinkStyle}>
-          Disaster Relief
-        </Link>
-      </Menu.Item>
-    </Menu>
-  );
-
-  const aboutMenu = (
-    <Menu
-      theme="dark"
-      style={{
-        borderRadius: '12px',
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-        padding: '10px',
-        backgroundColor: '#fff',
-      }}
-    >
-      <Menu.Item key="1" style={menuItemStyle}>
-        <Link to="/our-mission" style={menuLinkStyle}>
-          Our Mission
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="2" style={menuItemStyle}>
-        <Link to="/team" style={menuLinkStyle}>
-          Team
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="3" style={menuItemStyle}>
-        <Link to="/impact" style={menuLinkStyle}>
-          Impact
-        </Link>
-      </Menu.Item>
-    </Menu>
-  );
-
-  const helpMenu = (
-    <Menu
-      theme="dark"
-      style={{
-        borderRadius: '12px',
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-        padding: '10px',
-        backgroundColor: '#fff',
-      }}
-    >
-      <Menu.Item key="1" style={menuItemStyle}>
-        <Link to="/donate" style={menuLinkStyle}>
-          Donate
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="2" style={menuItemStyle}>
-        <Link to="/volunteer" style={menuLinkStyle}>
-          Join as a Volunteer
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="3" style={menuItemStyle}>
-        <Link to="/fundraise" style={menuLinkStyle}>
-          Fundraise
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="4" style={menuItemStyle}>
-        <Link to="/share" style={menuLinkStyle}>
-          Share with Friends
-        </Link>
-      </Menu.Item>
-    </Menu>
-  );
-
   React.useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -141,17 +53,14 @@ const NavBar = () => {
   return (
     <nav className={`navbar fixed-top shadow-sm p-2 ${scrolling ? 'scrolled' : ''}`}>
       <div className='container-fluid d-flex align-items-center justify-content-between'>
-        <Input placeholder='Search...' style={{ width: 200, borderRadius: '50px', padding: '8px 16px' }} />
+        <Button type='link' onClick={handleBackClick}>&larr; Back</Button>
 
         <Dropdown
           overlay={donationsMenu}
           trigger={['hover']}
           onVisibleChange={() => handleDropdownVisibility('donations')}
         >
-          <Button
-            type='link'
-            className="dropdown-button"
-          >
+          <Button type='link' className="dropdown-button">
             Donations <CaretDownOutlined className={donationsOpen ? 'rotate-up' : ''} />
           </Button>
         </Dropdown>
@@ -161,10 +70,7 @@ const NavBar = () => {
           trigger={['hover']}
           onVisibleChange={() => handleDropdownVisibility('about')}
         >
-          <Button
-            type='link'
-            className="dropdown-button"
-          >
+          <Button type='link' className="dropdown-button">
             About <CaretDownOutlined className={aboutOpen ? 'rotate-up' : ''} />
           </Button>
         </Dropdown>
@@ -174,10 +80,7 @@ const NavBar = () => {
           trigger={['hover']}
           onVisibleChange={() => handleDropdownVisibility('help')}
         >
-          <Button
-            type='link'
-            className="dropdown-button"
-          >
+          <Button type='link' className="dropdown-button">
             How to Help <CaretDownOutlined className={helpOpen ? 'rotate-up' : ''} />
           </Button>
         </Dropdown>
@@ -208,4 +111,30 @@ const menuLinkStyle = {
   transition: 'color 0.3s ease',
 };
 
+const donationsMenu = (
+  <Menu style={{ borderRadius: '12px', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)', padding: '10px', backgroundColor: '#fff' }}>
+    <Menu.Item key="1" style={menuItemStyle}><Link to="/medical" style={menuLinkStyle}>Medical</Link></Menu.Item>
+    <Menu.Item key="2" style={menuItemStyle}><Link to="/education" style={menuLinkStyle}>Education</Link></Menu.Item>
+    <Menu.Item key="3" style={menuItemStyle}><Link to="/disaster-relief" style={menuLinkStyle}>Disaster Relief</Link></Menu.Item>
+  </Menu>
+);
+
+const aboutMenu = (
+  <Menu style={{ borderRadius: '12px', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)', padding: '10px', backgroundColor: '#fff' }}>
+    <Menu.Item key="1" style={menuItemStyle}><Link to="/our-mission" style={menuLinkStyle}>Our Mission</Link></Menu.Item>
+    <Menu.Item key="2" style={menuItemStyle}><Link to="/team" style={menuLinkStyle}>Team</Link></Menu.Item>
+    <Menu.Item key="3" style={menuItemStyle}><Link to="/impact" style={menuLinkStyle}>Impact</Link></Menu.Item>
+  </Menu>
+);
+
+const helpMenu = (
+  <Menu style={{ borderRadius: '12px', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)', padding: '10px', backgroundColor: '#fff' }}>
+    <Menu.Item key="1" style={menuItemStyle}><Link to="/donate" style={menuLinkStyle}>Donate</Link></Menu.Item>
+    <Menu.Item key="2" style={menuItemStyle}><Link to="/volunteer" style={menuLinkStyle}>Join as a Volunteer</Link></Menu.Item>
+    <Menu.Item key="3" style={menuItemStyle}><Link to="/fundraise" style={menuLinkStyle}>Fundraise</Link></Menu.Item>
+    <Menu.Item key="4" style={menuItemStyle}><Link to="/share" style={menuLinkStyle}>Share with Friends</Link></Menu.Item>
+  </Menu>
+);
+
 export default NavBar;
+

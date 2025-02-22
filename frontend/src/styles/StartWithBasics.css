@@ -1,0 +1,183 @@
+/* StartWithBasics.css */
+
+/* General body styles */
+.start-with-basics {
+    font-family: 'Arial', sans-serif; /* Elegant font */
+    background: linear-gradient(135deg, #6c9eeb, #3c70b1); /* Elegant gradient using shades of blue */
+    color: #fff; /* White text on dark background */
+    padding: 40px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #3c70b1; /* Blue navbar */
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+  
+  .navbar li {
+    margin: 0 20px;
+  }
+  
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #ffcc00; /* Hover effect color */
+    text-decoration: underline;
+  }
+  
+  /* Main content styles */
+  .start-with-basics h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .start-with-basics p {
+    font-size: 1.4rem;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-style: italic;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Section for the basic info */
+  .basic-info {
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for basic info box */
+  .basic-info:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .basic-info h2 {
+    color: #3c70b1; /* Elegant dark blue */
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .basic-info ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .basic-info li {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 12px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .basic-info li:before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #6c9eeb; /* Light blue checkmark */
+    font-size: 1.5rem;
+    top: 0;
+  }
+  
+  /* Styling for the button */
+  .next-step {
+    margin-top: 40px;
+    padding: 12px 35px;
+    background-color: #3c70b1; /* Elegant blue button */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button hover effect */
+  .next-step:hover {
+    background-color: #2a4c81; /* Darker blue */
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Button active effect */
+  .next-step:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .start-with-basics {
+      padding: 20px;
+    }
+  
+    .navbar {
+      padding: 10px 0;
+    }
+  
+    .basic-info {
+      padding: 20px;
+      margin-top: 30px;
+    }
+  
+    .start-with-basics h1 {
+      font-size: 2.2rem;
+    }
+  
+    .basic-info h2 {
+      font-size: 1.6rem;
+    }
+  
+    .basic-info li {
+      font-size: 1rem;
+    }
+  
+    .next-step {
+      padding: 10px 25px;
+      font-size: 1rem;
+    }
+  }
+  

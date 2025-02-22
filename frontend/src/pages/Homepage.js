@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button, Input } from 'antd';
 import { Link } from 'react-router-dom';
@@ -82,23 +83,36 @@ const HomePage = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="how-it-works">
-        <h2>Fundraising on FOR EVERY SOUL Takes Just a Few Minutes</h2>
-        <div className="steps">
-          <div className="step">
-            <span>1</span>
-            <p>Start with the Basics</p>
-          </div>
-          <div className="step">
-            <span>2</span>
-            <p>Tell Your Story</p>
-          </div>
-          <div className="step">
-            <span>3</span>
-            <p>Share with Friends and Family</p>
-          </div>
-        </div>
-      </section>
+<section className="how-it-works">
+  <h2>Fundraising on FOR EVERY SOUL Takes Just a Few Minutes</h2>
+  <div className="steps">
+    <div className="step">
+    <span>1</span>
+      {/* Wrap the "Start with the Basics" text with Link to navigate to a new page */}
+      <Link to="/start-with-basics">
+        <button className="step-button">Start with the Basics</button>
+      </Link>
+    </div>
+    <div className="step">
+      <span>2</span>
+      {/* Wrap "Tell Your Story" in Link and use button */}
+      <Link to="/tell-your-story">
+        <button className="step-button">Tell Your Story</button>
+      </Link>
+    </div>
+    <div className="step">
+      <span>3</span>
+      {/* Wrap "Share with Friends and Family" in Link and use button */}
+      <Link to="/share-with-friends">
+        <button className="step-button">Share with Friends and Family</button>
+      </Link>
+    </div>
+  </div>
+</section>
+
+
+
+
 
       {/* Mission Section */}
       <section className="mission-section">
@@ -218,3 +232,6 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
