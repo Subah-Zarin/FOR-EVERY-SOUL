@@ -1,100 +1,98 @@
+/* Profile Container */
 .profile-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #4a148c, #8e24aa);
-  padding: 2.5rem;
-  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #377095, #4e4376);
+  padding: 2rem;
+  font-family: 'Lato', sans-serif;
 }
 
 /* Profile Card */
 .profile-card {
-  max-width: 650px;
+  max-width: 600px;
   width: 100%;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 5%;
+  transition: transform 0.3s ease;
 }
 
-/* Card Styling */
-.profile-card-content {
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  background: #fff;
-  padding: 3rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  border: 1px solid #f0f0f0;
-  position: relative;
-}
-
-/* Hover effect for card */
-.profile-card-content:hover {
+.profile-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
-/* Avatar Styling */
+/* Profile Avatar */
 .profile-avatar {
-  background-color: #8e24aa;
-  margin-bottom: 1.5rem;
-  border: 5px solid #fff;
-  padding: 10px;
+  width: 120px;
+  height: 120px;
+  background-color: #f2f2f2;
   border-radius: 50%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-/* Title Styling */
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Profile Title */
 .profile-title {
   font-size: 2rem;
-  color: #2c2c2c;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-/* Username Styling */
+/* Profile Username */
 .profile-username {
-  font-size: 1.1rem;
-  color: #9e9e9e;
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #555;
   font-weight: 500;
+  margin-bottom: 1.5rem;
 }
 
-/* Profile Info Section */
+/* Profile Info */
 .profile-info {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   font-size: 1rem;
-  color: #555;
-  background: #f7f7f7;
-  padding: 16px 20px;
+  color: #333;
+  margin-bottom: 1rem;
+  padding: 12px;
   border-radius: 10px;
-  margin-top: 1rem;
-  transition: background 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
 }
 
-/* Hover effect for profile info */
 .profile-info:hover {
-  background: #e1bee7;
+  background-color: #e9e9e9;
 }
 
-/* Icon styling */
+/* Profile Icon */
 .profile-icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  margin-right: 15px;
   color: #8e24aa;
-  margin-right: 12px;
 }
 
-/* Input Fields */
+/* Profile Input */
 .profile-input {
-  font-size: 1rem;
+  width: 100%;
   padding: 8px 12px;
   margin-left: 10px;
-  width: 60%;
   border-radius: 5px;
   border: 1px solid #ddd;
   outline: none;
+  font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 
@@ -104,48 +102,47 @@
 
 /* Buttons */
 .button-group {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .save-button,
 .edit-button,
 .logout-button {
   width: 100%;
-  margin-top: 1rem;
   padding: 12px 16px;
   border-radius: 8px;
-  color: #fff;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .save-button {
-  background: #4caf50;
+  background-color: #4caf50;
 }
 
 .edit-button {
-  background: #008cba;
+  background-color: #008cba;
 }
 
 .logout-button {
-  background: #ff4d4f;
+  background-color: #ff4d4f;
 }
 
-/* Hover effect for buttons */
 .save-button:hover {
-  background: #45a049;
+  background-color: #45a049;
   transform: scale(1.05);
 }
 
 .edit-button:hover {
-  background: #007b8f;
+  background-color: #007b8f;
   transform: scale(1.05);
 }
 
 .logout-button:hover {
-  background: #e43e41;
+  background-color: #e43e41;
   transform: scale(1.05);
 }
 
@@ -155,29 +152,25 @@
   margin: 20% auto;
   font-size: 2rem;
   color: #8e24aa;
+  text-align: center;
 }
 
-/* Media Query for smaller screens */
+/* Media Queries */
 @media (max-width: 768px) {
-  .profile-card-content {
-    padding: 2rem;
+  .profile-card {
+    padding: 1.5rem;
   }
-  
+
   .profile-avatar {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
-  
+
   .profile-title {
     font-size: 1.5rem;
   }
 
   .profile-username {
     font-size: 1rem;
-  }
-  
-  .profile-info {
-    font-size: 0.95rem;
-    padding: 12px 15px;
   }
 }

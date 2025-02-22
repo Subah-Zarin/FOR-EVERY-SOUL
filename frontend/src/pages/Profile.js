@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 import '../styles/Profile.css';
 
 const Profile = () => {
@@ -7,6 +9,7 @@ const Profile = () => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -14,6 +17,7 @@ const Profile = () => {
         const username = localStorage.getItem('username');
         if (!username) {
           message.error('You are not logged in!');
+          navigate('/login'); // Redirect if not logged in
           return;
         }
 
@@ -33,7 +37,7 @@ const Profile = () => {
     };
 
     fetchUserData();
-  }, []);
+  }, [navigate]);
 
   const handleEditToggle = () => {
     setIsEditing((prev) => !prev);
@@ -69,13 +73,23 @@ const Profile = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    message.success('Logged out successfully');
+    navigate('/login'); // Redirect to login page
+  };
+
   return (
     <div className="profile-container">
+      <NavBar />
       <div className="profile-card">
         <div className="profile-card-content">
           <div className="profile-avatar">
-            {/* You can replace this with a user's avatar image */}
-            <img src={userData?.avatar || 'default-avatar.png'} alt="User Avatar" width="100" height="100" />
+            <img
+              src={userData?.avatar || 'https://www.w3schools.com/w3images/avatar2.png'} // Placeholder avatar
+              alt="User Avatar"
+              className="avatar-img"
+            />
           </div>
           <h2 className="profile-title">Welcome to Your Profile</h2>
           {userData ? (
@@ -127,7 +141,7 @@ const Profile = () => {
                     Edit Profile
                   </button>
                 )}
-                <button className="logout-button" onClick={() => alert('Logging out...')}>
+                <button className="logout-button" onClick={handleLogout}>
                   Logout
                 </button>
               </div>
