@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/Homepage';  
 import Login from './pages/login'; 
 import Register from './pages/Register'; 
-import Account from './pages/Account'; 
 import Education from './pages/education';  
 import Donation from './pages/Donation';
 import Medical from './pages/medical';
@@ -15,6 +14,7 @@ import TellYourStory from './pages/TellYourStory';
 import 'antd/dist/reset.css'; 
 import Relief from "./pages/Relief"; 
 import Impact from './pages/impact';
+import Profile from './pages/Profile';
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/education" element={<Education />} />
         <Route path="/donation" element={<Donation />} />
         <Route path="/medical" element={<Medical />} />

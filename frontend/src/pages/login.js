@@ -37,8 +37,12 @@ const Login = () => {
       if (!response.ok) {
         throw new Error(data.message || 'Login failed');
       }
+
+      // On successful login, store the username in localStorage
+    localStorage.setItem('username', values.username);
+    
       message.success('Login successful!');
-      navigate('/account');
+      navigate('/profile');
     } catch (error) {
       message.error(error.message);
     } finally {
