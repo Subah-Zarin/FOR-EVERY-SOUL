@@ -34,7 +34,7 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Include cookies if your backend uses them
+        credentials: 'include', 
         body: JSON.stringify({
           firstName: values.firstName,
           lastName: values.lastName,

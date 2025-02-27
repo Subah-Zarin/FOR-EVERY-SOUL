@@ -25,7 +25,7 @@ const NavBar = () => {
   const location = useLocation();
 
   const handleDonateClick = () => {
-    navigate('/donation'); // Navigate to the donation page
+    navigate('/profile'); 
   };
   
 
@@ -114,7 +114,7 @@ const NavBar = () => {
       }}
     >
       <Menu.Item key="1" style={menuItemStyle}>
-        <Link to="/donate" style={menuLinkStyle}>
+        <Link to="/donation" style={menuLinkStyle}>
           Donate
         </Link>
       </Menu.Item>
@@ -126,12 +126,12 @@ const NavBar = () => {
 
 
       <Menu.Item key="3" style={menuItemStyle}>
-        <Link to="/fundraise" style={menuLinkStyle}>
+        <Link to="/FundraiserForm" style={menuLinkStyle}>
           Fundraise
         </Link>
       </Menu.Item>
       <Menu.Item key="4" style={menuItemStyle}>
-        <Link to="/share" style={menuLinkStyle}>
+        <Link to="/CampaignListPage" style={menuLinkStyle}>
           Share with Friends
         </Link>
       </Menu.Item>
@@ -227,7 +227,7 @@ const NavBar = () => {
                 Register
               </Button>
               <Button type="primary" onClick={handleDonateClick}>
-                Donate
+                Profile
               </Button>
             </div>
           )}
@@ -311,7 +311,7 @@ const NavBar = () => {
               }}
               style={{ width: '100%', textAlign: 'left' }}
             >
-              Donate
+              Profile
             </Button>
           </div>
         </Drawer>
