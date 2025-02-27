@@ -2,6 +2,9 @@ html, body {
     font-family: 'Roboto', sans-serif !important;
 }
 
+/* -----------------------------------
+   Main Navbar Styles (Desktop & General)
+----------------------------------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -11,39 +14,29 @@ html, body {
     z-index: 1000;
     transition: all 0.3s ease-in-out;
     padding: 1.5rem 2rem;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;  /* Center the content horizontally */
+    justify-content: center;  
     align-items: center;
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 1);  
     padding: 0.5rem 1.2rem;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-4px);
 }
 
-.navbar .navbar-brand img {
-    height: 50px;
-    transition: height 0.3s ease-in-out;
-    margin-left: -80px;
-}
-
-.navbar.scrolled .navbar-brand img {
-    height: 35px;
-}
-
 .navbar .container-fluid {
     display: flex;
-    justify-content: center;  /* Center content within the container */
+    justify-content: center;  
     align-items: center;
     width: 100%;
 }
 
 .navbar-brand {
-    font-size: 32px !important;
+    font-size: 30px !important;
     font-weight: 600;
     color: #2d2d2d;
     text-decoration: none;
@@ -51,7 +44,7 @@ html, body {
     text-transform: uppercase;
     transition: color 0.3s ease;
     text-align: center;
-    flex: 1;  
+    flex: 1;
     margin-left: -150px;
 }
 
@@ -66,15 +59,22 @@ html, body {
     margin-left: -80px;
 }
 
+.navbar .navbar-brand img {
+    height: 50px;
+    transition: height 0.3s ease-in-out;
+    margin-left: -80px;
+}
+
+.navbar.scrolled .navbar-brand img {
+    height: 35px;
+}
+
 .navbar .left-section,
 .navbar .right-section {
-    display: none;  /* Hide left and right sections for centering */
+    display: none;  
 }
 
-.navbar-brand:hover {
-    color: #f39c12;
-}
-
+.navbar-brand:hover,
 .navbar-brand .tagline:hover {
     color: #f39c12;
 }
@@ -98,7 +98,7 @@ html, body {
 button {
     font-size: 20px !important;
     font-weight: 600;
-    color: #2d2d2d;
+    color: #000000;
     background-color: transparent;
     border: 2px solid transparent;
     padding: 14px 24px;
@@ -118,6 +118,11 @@ button:focus {
     outline: none;
     border-color: #f39c12;
 }
+
+.custom-nav-link {
+    color: #0d43b7 !important;
+}
+
 
 .navbar .ant-dropdown-link:hover {
     color: #f39c12;
@@ -172,7 +177,7 @@ button:focus {
 .rotate-up {
     transform: rotate(180deg); /* Rotate the caret icon */
     transition: transform 0.3s ease-in-out; /* Smooth rotation */
-  }
+}
 
 .ant-menu-item {
     border-radius: 8px;
@@ -193,7 +198,6 @@ button:focus {
     transition: color 0.3s ease;
 }
 
-/* Hover effect for links */
 .ant-menu-item a:hover {
     color: #fff !important;
 }
@@ -235,9 +239,26 @@ button:focus {
     color: #d9d9d9;
 }
 
+/* -----------------------------------
+   Mobile & Offcanvas Navbar Styles
+----------------------------------- */
 @media (max-width: 768px) {
+    /* Adjust navbar layout */
+    .navbar {
+        justify-content: space-between;  /* Space between brand and hamburger */
+        padding: 1rem 1.5rem;
+    }
+
+    /* Hide any extra left/right sections (if not used) */
+    .navbar .left-section,
+    .navbar .right-section {
+        display: none;
+    }
+
+    /* Reduce brand font size */
     .navbar-brand {
         font-size: 28px;
+        margin-left: 0; /* Reset margin if needed */
     }
 
     .navbar a {
@@ -253,9 +274,64 @@ button:focus {
         width: 200px;
     }
 
-    .navbar .left-section,
-    .navbar .right-section {
-        display: none;  /* Hide left and right sections for centering */
+    /* -------------------------------
+       Hamburger (Menu Toggle) Button
+    ------------------------------- */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: #2d2d2d;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    /* Optionally hide any inline nav links if you plan to use the offcanvas menu */
+    .navbar .nav-links {
+        display: none;
+    }
+
+    /* -------------------------------
+       Offcanvas Menu Container
+    ------------------------------- */
+    .offcanvas-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #ffffff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 2000;
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    /* When active, slide the menu into view */
+    .offcanvas-menu.active {
+        transform: translateX(0);
+    }
+
+    /* -------------------------------
+       Offcanvas Overlay (for closing)
+    ------------------------------- */
+    .offcanvas-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 1500;
+    }
+    .offcanvas-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 }
-

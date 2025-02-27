@@ -1,0 +1,162 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../assets/background.webp') no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Wrapper to align info and form side by side */
+.fundraiser-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px;
+    backdrop-filter: blur(6px);
+}
+
+/* Fundraiser Information Section */
+.fundraiser-info {
+    width: 40%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.fundraiser-info:hover {
+    transform: translateY(-5px);
+}
+
+.fundraiser-info h2 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.fundraiser-info p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.fundraiser-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.fundraiser-info li {
+    font-size: 16px;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Fundraiser Form Container */
+.fundraiser-container {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.fundraiser-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Title Styling */
+.fundraiser-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+/* Form Styling */
+.fundraiser-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Input and Textarea Styling */
+.fundraiser-input,
+.fundraiser-textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.fundraiser-input:focus,
+.fundraiser-textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit Button */
+.fundraiser-button {
+    width: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.fundraiser-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003b75);
+    transform: scale(1.05);
+}
+
+/* Message Styling */
+.fundraiser-message {
+    text-align: center;
+    font-size: 16px;
+    color: #28a745;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .fundraiser-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fundraiser-info,
+    .fundraiser-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .fundraiser-title {
+        font-size: 24px;
+    }
+
+    .fundraiser-input,
+    .fundraiser-textarea {
+        font-size: 14px;
+    }
+
+    .fundraiser-button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

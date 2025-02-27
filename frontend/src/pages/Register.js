@@ -1,30 +1,58 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Button, Input, message } from 'antd';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    const passwordRegex = /^[A-Za-z0-9]{8}$/;
-
-    if (passwordRegex.test(values.password)) {
-      console.log('Registration successful:', values);
-      message.success('Registration successful!');
-      // Navigate to the Account page after successful registration
-      navigate('/account');
-    } else {
-      message.error('Password must be exactly 8 characters and contain both letters and numbers.');
-    }
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
+  // Function to navigate to the login page
   const navigateToLogin = () => {
     navigate('/login');
+  };
+
+  // Validation schema using Yup
+  const validationSchema = Yup.object({
+    firstName: Yup.string().required('Please input your first name!'),
+    lastName: Yup.string().required('Please input your last name!'),
+    email: Yup.string().email('Invalid email address').required('Please input your email!'),
+    password: Yup.string()
+      .matches(
+        /^[A-Za-z0-9]{8}$/,
+        'Password must be exactly 8 characters and contain both letters and numbers.'
+      )
+      .required('Please input your password!'),
+  });
+
+  // Handler to call the backend registration endpoint
+  const handleRegister = async (values, { setSubmitting }) => {
+    try {
+      const response = await fetch('http://localhost:5000/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // Include cookies if your backend uses them
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          password: values.password,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
+      message.success(`Registration successful! Your username is: ${data.username}`);
+      navigate('/'); // Navigate to the account page after successful registration
+    } catch (error) {
+      message.error(error.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -34,20 +62,21 @@ const Register = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        background: 'linear-gradient(135deg, #89f7fe, #66a6ff)', 
-        animation: 'fadeIn 2s ease-in-out', 
+        background: 'linear-gradient(135deg, #89f7fe, #66a6ff)',
+        animation: 'fadeIn 2s ease-in-out',
       }}
-    > <NavBar />
+    >
+      <NavBar />
       <div
         style={{
           padding: '5%',
           boxSizing: 'border-box',
           backgroundColor: '#ffffff',
           borderRadius: '16px',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)', 
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
           transition: 'transform 0.3s',
           maxWidth: '500px',
-          width: '90%', 
+          width: '90%',
         }}
         onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
         onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
@@ -75,168 +104,170 @@ const Register = () => {
         >
           Join us and make a difference!
         </p>
-        <Form
-          name="register"
-          style={{
-            width: '100%',
-          }}
+        <Formik
           initialValues={{
-            remember: true,
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
           }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
+          validationSchema={validationSchema}
+          onSubmit={handleRegister}
         >
-          <Form.Item style={{ marginBottom: 0 }}>
-            <Form.Item
-              name="firstName"
-              label="First Name"
-              labelCol={{ span: 24 }}
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your first name!',
-                },
-              ]}
-              style={{ display: 'inline-block', width: '48%' }}
-            >
-              <Input
-                style={{
-                  borderRadius: '8px',
-                  padding: '10px',
-                  border: '2px solid #ddd',
-                  transition: 'border-color 0.3s',
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
-                onBlur={(e) => (e.target.style.borderColor = '#ddd')}
-              />
-            </Form.Item>
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+          }) => (
+            <form onSubmit={handleSubmit}>
+              {/* First and Last Name Fields */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '4%' }}>
+                <div style={{ width: '48%' }}>
+                  <label htmlFor="firstName">First Name</label>
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    value={values.firstName}
+                    onChange={handleChange}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = '#ddd';
+                      handleBlur(e);
+                    }}
+                    style={{
+                      borderRadius: '8px',
+                      padding: '10px',
+                      border: '2px solid #ddd',
+                      transition: 'border-color 0.3s',
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+                  />
+                  {errors.firstName && touched.firstName && (
+                    <div style={{ color: 'red', marginBottom: '0.5rem' }}>{errors.firstName}</div>
+                  )}
+                </div>
+                <div style={{ width: '48%' }}>
+                  <label htmlFor="lastName">Last Name</label>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    value={values.lastName}
+                    onChange={handleChange}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = '#ddd';
+                      handleBlur(e);
+                    }}
+                    style={{
+                      borderRadius: '8px',
+                      padding: '10px',
+                      border: '2px solid #ddd',
+                      transition: 'border-color 0.3s',
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+                  />
+                  {errors.lastName && touched.lastName && (
+                    <div style={{ color: 'red', marginBottom: '0.5rem' }}>{errors.lastName}</div>
+                  )}
+                </div>
+              </div>
 
-            <Form.Item
-              name="lastName"
-              label="Last Name"
-              labelCol={{ span: 24 }}
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your last name!',
-                },
-              ]}
-              style={{
-                display: 'inline-block',
-                width: '48%',
-                marginLeft: '4%',
-              }}
-            >
-              <Input
-                style={{
-                  borderRadius: '8px',
-                  padding: '10px',
-                  border: '2px solid #ddd',
-                  transition: 'border-color 0.3s',
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
-                onBlur={(e) => (e.target.style.borderColor = '#ddd')}
-              />
-            </Form.Item>
-          </Form.Item>
+              {/* Email Field */}
+              <div style={{ marginTop: '1rem' }}>
+                <label htmlFor="email">Email</label>
+                <Input
+                  id="email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#ddd';
+                    handleBlur(e);
+                  }}
+                  style={{
+                    borderRadius: '8px',
+                    padding: '10px',
+                    border: '2px solid #ddd',
+                    transition: 'border-color 0.3s',
+                  }}
+                  onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+                />
+                {errors.email && touched.email && (
+                  <div style={{ color: 'red', marginBottom: '0.5rem' }}>{errors.email}</div>
+                )}
+              </div>
 
-          <Form.Item
-            label="Email"
-            name="email"
-            labelCol={{ span: 24 }}
-            rules={[
-              {
-                required: true,
-                message: 'Please input your email!',
-                type: 'email',
-              },
-            ]}
-          >
-            <Input
-              style={{
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-                transition: 'border-color 0.3s',
-              }}
-              onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
-              onBlur={(e) => (e.target.style.borderColor = '#ddd')}
-            />
-          </Form.Item>
+              {/* Password Field */}
+              <div style={{ marginTop: '1rem' }}>
+                <label htmlFor="password">Password</label>
+                <Input.Password
+                  id="password"
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#ddd';
+                    handleBlur(e);
+                  }}
+                  style={{
+                    borderRadius: '8px',
+                    padding: '10px',
+                    border: '2px solid #ddd',
+                    transition: 'border-color 0.3s',
+                  }}
+                  onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
+                />
+                {errors.password && touched.password && (
+                  <div style={{ color: 'red', marginBottom: '0.5rem' }}>{errors.password}</div>
+                )}
+              </div>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            labelCol={{ span: 24 }}
-            rules={[
-              {
-                required: true,
-                message: 'Please input your password!',
-              },
-            ]}
-          >
-            <Input.Password
-              style={{
-                borderRadius: '8px',
-                padding: '10px',
-                border: '2px solid #ddd',
-                transition: 'border-color 0.3s',
-              }}
-              onFocus={(e) => (e.target.style.borderColor = '#66a6ff')}
-              onBlur={(e) => (e.target.style.borderColor = '#ddd')}
-            />
-          </Form.Item>
+              {/* Register Button */}
+              <div style={{ marginTop: '1rem' }}>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  disabled={isSubmitting}
+                  style={{
+                    width: '100%',
+                    background: 'linear-gradient(135deg, #66a6ff, #89f7fe)',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '10px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.background = 'linear-gradient(135deg, #89f7fe, #66a6ff)')
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.background = 'linear-gradient(135deg, #66a6ff, #89f7fe)')
+                  }
+                >
+                  Register
+                </Button>
+              </div>
 
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            style={{ textAlign: 'left' }}
-          >
-            <Checkbox style={{ color: '#555' }} >
-              I agree to the terms and conditions
-            </Checkbox>
-          </Form.Item>
-
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{
-                width: '100%',
-                background: 'linear-gradient(135deg, #66a6ff, #89f7fe)',
-                border: 'none',
-                borderRadius: '8px',
-                padding: '10px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = 'linear-gradient(135deg, #89f7fe, #66a6ff)')
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = 'linear-gradient(135deg, #66a6ff, #89f7fe)')
-              }
-            >
-              Register
-            </Button>
-          </Form.Item>
-
-          <Form.Item>
-            <Button
-              type="link"
-              onClick={navigateToLogin}
-              style={{
-                display: 'block',
-                textAlign: 'center',
-                color: '#66a6ff',
-                fontWeight: 'bold',
-              }}
-            >
-              Already have an account? Log in
-            </Button>
-          </Form.Item>
-        </Form>
+              {/* Link to Login */}
+              <div style={{ marginTop: '1rem' }}>
+                <Button
+                  type="link"
+                  onClick={navigateToLogin}
+                  style={{
+                    display: 'block',
+                    textAlign: 'center',
+                    color: '#66a6ff',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Already have an account? Log in
+                </Button>
+              </div>
+            </form>
+          )}
+        </Formik>
       </div>
     </div>
   );

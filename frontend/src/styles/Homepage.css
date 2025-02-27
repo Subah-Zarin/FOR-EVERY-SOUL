@@ -11,45 +11,17 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f4f4f4;
   color: #2c3e50;
+  
 }
 
-
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-image {
-  width: 50px;
-  margin-right: 15px;
-}
-
-.homepage-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #D4AF37; 
-}
-
+/* Navigation */
 .desktop-nav ul {
   list-style: none;
   display: flex;
   gap: 30px;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #D4AF37; 
-}
-
+/* Donate Button */
 .donate-btn {
   background-color: #D4AF37; 
   padding: 10px 20px;
@@ -67,12 +39,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 40px;
+  padding: 120px 0px 80px 40px; 
   background: linear-gradient(to right, #74a6d7, #F7E7CE); 
   color: white;
+  padding-top: 100px;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .hero-content {
   max-width: 600px;
@@ -115,7 +89,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
 }
 
-/* Additional Styling for Elegant Buttons */
+/* Elegant Button */
 .elegant-button {
   background-color: #D4AF37; 
   color: white;
@@ -132,12 +106,13 @@ body {
   background-color: #F39C12; 
 }
 
-
 /* Mission Section */
 .mission-section {
   padding: 40px 20px;
   text-align: center;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .mission-section h2 {
@@ -145,25 +120,42 @@ body {
   color: #2c3e50;
 }
 
-.know-more-button {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
+.mission-section p {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #444;
 }
 
-/* Search Bar */
+.know-more-button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1rem;
+  padding: 14px 35px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.know-more-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Search Bar Section */
 .search-bar-section {
   text-align: center;
   margin: 100px 0;
+  position: relative;
 }
 
 .donation-search-bar {
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   padding: 15px 40px;
   border: 2px solid #ccc; 
@@ -201,10 +193,6 @@ body {
 
 .search-bar-section button:active {
   transform: scale(1); 
-}
-
-.donation-search-bar {
-  max-width: 800px;
 }
 
 /* How It Works Section */
@@ -258,41 +246,6 @@ body {
   font-weight: 600;
 }
 
-/* Mission Section */
-.mission-section {
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  border-radius: 12px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  padding: 50px 20px;
-}
-
-.mission-section p {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2rem;
-  color: #444;
-}
-
-.know-more-button {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 1.1rem;
-  padding: 14px 35px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.know-more-button:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
-}
-
 /* Carousel */
 .carousel {
   position: relative;
@@ -335,43 +288,167 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Services Section */
+/* Cards Section */
 .homepage-cards {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px 20px;
+  justify-content: space-around;
+  margin-top: 40px;
+  gap: 30px; 
 }
 
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+  padding: 25px;
   text-align: center;
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 16px; 
+  max-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
+  border: 1px solid #ddd; 
 }
 
 .card-image {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 15px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  max-width: 100px; 
+  height: auto;
+  margin-bottom: 15px; 
 }
 
 .card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-size: 1.6rem;
+  font-weight: 600; 
+  color: #333; 
+  margin-top: 10px;
 }
 
 .card-description {
-  font-size: 14px;
-  color: #555;
+  font-size: 1.1rem;
+  color: #666;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.card-button {
+  margin-top: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 30px; 
+  padding: 12px 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05); 
+}
+
+/* New Donation Campaigns Section */
+.new-donation-campaigns {
+  padding: 40px 20px;
+  background-color: #e2f0d0;
+  text-align: center;
+}
+
+.new-campaigns-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.campaigns-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.new-campaign {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.new-campaign:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.new-campaign-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.new-campaign-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-campaign-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 12px;
+}
+
+.new-campaign-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.new-campaign-amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 12px;
+  background-color: #ecf0f1;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  transition: width 0.3s ease;
+}
+
+.new-campaign button {
+  margin-top: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.new-campaign button:hover {
+  background-color: #2980b9;
 }
 
 /* Footer */
@@ -397,4 +474,100 @@ body {
   text-decoration: underline;
 }
 
+button {
+  background-color: #3498db;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+}
 
+button:hover {
+  background-color: #2980b9;
+}
+
+/* RESPONSIVE STYLES */
+
+/* For devices with width 1024px and below */
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    padding: 60px 30px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .campaigns-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  /* Navigation adjustments */
+  .desktop-nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  /* Hero Section adjustments */
+  .hero-section {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+  }
+  
+  .donate-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Search Bar adjustments */
+  .donation-search-bar {
+    max-width: 100%;
+    padding: 10px 20px;
+  }
+  
+  .search-bar-section button {
+    font-size: 1rem;
+    right: 10px;
+  }
+  
+  /* Carousel adjustments */
+  .carousel-button {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+  
+  /* Cards Section adjustments */
+  .homepage-cards {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* New Campaigns Grid adjustments */
+  .campaigns-container {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Mission Section adjustments */
+  .mission-section {
+    padding: 30px 15px;
+  }
+}

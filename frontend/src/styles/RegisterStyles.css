@@ -136,7 +136,7 @@ h1 {
     border-color: #fad0c4;
 }
 
-/* Fade-in animation */
+/* Fade-in animation 
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -146,4 +146,4 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
-}
+}*/
