@@ -8,10 +8,9 @@ const router = express.Router();
 
 router.get("/profile", getProfile);
 
-// Get user by username
 router.get('/:username', getUserByUsername);
 
-// Update user data by username
+
 router.put('/:username', updateUser);
 
 router.get("/", checkToken, getAllUsers);

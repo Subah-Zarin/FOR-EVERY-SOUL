@@ -8,6 +8,7 @@ const FundraiserForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [goalAmount, setGoalAmount] = useState("");
+  const [category, setCategory] = useState("");  
   const [image, setImage] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -25,7 +26,7 @@ const FundraiserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !description || !goalAmount || !image) {
+    if (!title || !description || !goalAmount || !category || !image) {
       setMessage("All fields are required.");
       return;
     }
@@ -35,13 +36,15 @@ const FundraiserForm = () => {
         title,
         description,
         goalAmount,
-        imageUrl: image, 
+        category,  
+        imageUrl: image,
       });
 
       setMessage(response.data.message);
       setTitle("");
       setDescription("");
       setGoalAmount("");
+      setCategory("");  
       setImage(null);
     } catch (error) {
       setMessage("Error creating campaign.");
@@ -49,8 +52,11 @@ const FundraiserForm = () => {
   };
 
   return (
-    <>
+    <div class="fundraiser-page">
       <NavBar />
+
+      <header className="Fund-header"></header>
+
       <div className="fundraiser-wrapper">
         {/* Left Section - Info about Fundraising */}
         <div className="fundraiser-info">
@@ -92,6 +98,20 @@ const FundraiserForm = () => {
               className="fundraiser-input"
               required
             />
+
+            {/* Donation Category Selection */}
+            <select
+              className="fundraiser-select"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}  // Handle category selection
+              required
+            >
+              <option value="" disabled>Select Donation Category</option>
+              <option value="education">Education</option>
+              <option value="medical">Medical</option>
+              <option value="relief">Relief</option>
+            </select>
+
             <input
               type="file"
               accept="image/*"
@@ -107,7 +127,7 @@ const FundraiserForm = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

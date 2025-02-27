@@ -1,13 +1,19 @@
-/* General Page Styling */
-body {
+/* Fundraiser Page Styles */
+.fundraiser-page {
     font-family: 'Poppins', sans-serif;
     background: url('../assets/background.webp') no-repeat center center/cover;
     margin: 0;
     padding: 0;
 }
 
+.fund-header {
+    height: 65px; 
+    background-color: #62e9e9; 
+    width: 100%;
+  }
+
 /* Wrapper to align info and form side by side */
-.fundraiser-wrapper {
+.fundraiser-page .fundraiser-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +25,7 @@ body {
 }
 
 /* Fundraiser Information Section */
-.fundraiser-info {
+.fundraiser-page .fundraiser-info {
     width: 40%;
     background: rgba(255, 255, 255, 0.9);
     padding: 30px;
@@ -28,29 +34,29 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-.fundraiser-info:hover {
+.fundraiser-page .fundraiser-info:hover {
     transform: translateY(-5px);
 }
 
-.fundraiser-info h2 {
+.fundraiser-page .fundraiser-info h2 {
     font-size: 26px;
     color: #333;
     margin-bottom: 20px;
 }
 
-.fundraiser-info p {
+.fundraiser-page .fundraiser-info p {
     font-size: 16px;
     color: #555;
     line-height: 1.6;
     margin-bottom: 15px;
 }
 
-.fundraiser-info ul {
+.fundraiser-page .fundraiser-info ul {
     list-style: none;
     padding: 0;
 }
 
-.fundraiser-info li {
+.fundraiser-page .fundraiser-info li {
     font-size: 16px;
     color: #007bff;
     font-weight: 600;
@@ -58,21 +64,22 @@ body {
 }
 
 /* Fundraiser Form Container */
-.fundraiser-container {
+.fundraiser-page .fundraiser-container {
     width: 50%;
     background: rgba(255, 255, 255, 0.95);
     padding: 35px;
+    margin-top: 5%;
     border-radius: 15px;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
 
-.fundraiser-container:hover {
+.fundraiser-page .fundraiser-container:hover {
     transform: translateY(-5px);
 }
 
 /* Title Styling */
-.fundraiser-title {
+.fundraiser-page .fundraiser-title {
     text-align: center;
     font-size: 28px;
     font-weight: 700;
@@ -81,15 +88,15 @@ body {
 }
 
 /* Form Styling */
-.fundraiser-form {
+.fundraiser-page .fundraiser-form {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
 /* Input and Textarea Styling */
-.fundraiser-input,
-.fundraiser-textarea {
+.fundraiser-page .fundraiser-input,
+.fundraiser-page .fundraiser-textarea {
     width: 100%;
     padding: 14px;
     border: 2px solid #ddd;
@@ -98,15 +105,15 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-.fundraiser-input:focus,
-.fundraiser-textarea:focus {
+.fundraiser-page .fundraiser-input:focus,
+.fundraiser-page .fundraiser-textarea:focus {
     border-color: #007bff;
     outline: none;
     box-shadow: 0px 0px 12px rgba(0, 123, 255, 0.3);
 }
 
 /* Submit Button */
-.fundraiser-button {
+.fundraiser-page .fundraiser-button {
     width: 100%;
     background: linear-gradient(135deg, #007bff, #0056b3);
     color: #fff;
@@ -119,13 +126,13 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-.fundraiser-button:hover {
+.fundraiser-page .fundraiser-button:hover {
     background: linear-gradient(135deg, #0056b3, #003b75);
     transform: scale(1.05);
 }
 
 /* Message Styling */
-.fundraiser-message {
+.fundraiser-page .fundraiser-message {
     text-align: center;
     font-size: 16px;
     color: #28a745;
@@ -134,28 +141,28 @@ body {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .fundraiser-wrapper {
+    .fundraiser-page .fundraiser-wrapper {
         flex-direction: column;
         align-items: center;
     }
 
-    .fundraiser-info,
-    .fundraiser-container {
+    .fundraiser-page .fundraiser-info,
+    .fundraiser-page .fundraiser-container {
         width: 90%;
     }
 }
 
 @media (max-width: 600px) {
-    .fundraiser-title {
+    .fundraiser-page .fundraiser-title {
         font-size: 24px;
     }
 
-    .fundraiser-input,
-    .fundraiser-textarea {
+    .fundraiser-page .fundraiser-input,
+    .fundraiser-page .fundraiser-textarea {
         font-size: 14px;
     }
 
-    .fundraiser-button {
+    .fundraiser-page .fundraiser-button {
         font-size: 16px;
         padding: 12px;
     }

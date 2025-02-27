@@ -17,6 +17,7 @@ import 'antd/dist/reset.css';
 import Relief from "./pages/Relief"; 
 import Impact from './pages/impact';
 import Profile from './pages/Profile';
+import CampaignListPage from './pages/CampaignListPage';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/our-mission" element={<OurMission />} />
         <Route path="/impact" element={<Impact />} />
         <Route path="/FundraiserForm" element={<FundraiserForm />} />
+        <Route path="/campaigns" component={CampaignListPage} />
 
 
       </Routes>
