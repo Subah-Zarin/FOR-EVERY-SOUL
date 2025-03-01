@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link , useLocation} from 'react-router-dom';
-import { Button, Input, Dropdown, Menu, Drawer } from 'antd';
+import { Button, Input, Dropdown, Menu, Drawer,message } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
 
@@ -8,6 +8,7 @@ import '../styles/NavBar.css';
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [scrolling, setScrolling] = React.useState(false);
   const [drawerVisible, setDrawerVisible] = React.useState(false);
   // Determine if the viewport is mobile-sized
@@ -23,6 +24,18 @@ const NavBar = () => {
   const handleBackClick = () => navigate(-1);
 
   const location = useLocation();
+
+  useEffect(() => {
+    const username = localStorage.getItem('username');
+    setIsAuthenticated(!!username);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    setIsAuthenticated(false);
+    message.success('Logged out successfully!');
+    navigate('/login');
+  };
 
   const handleDonateClick = () => {
     navigate('/profile'); 
@@ -132,7 +145,7 @@ const NavBar = () => {
       </Menu.Item>
       <Menu.Item key="4" style={menuItemStyle}>
         <Link to="/CampaignListPage" style={menuLinkStyle}>
-          Share with Friends
+          Campaigns
         </Link>
       </Menu.Item>
     </Menu>
@@ -220,9 +233,17 @@ const NavBar = () => {
                 <div className="tagline">FOR EVERY SOUL</div>
               </Link>
 
-              <Button type="link" onClick={handleLoginClick} className="custom-nav-link">
-                Login
-              </Button>
+              {isAuthenticated ? (
+          <Button type="link" onClick={handleLogout} className="custom-nav-link">
+            Logout
+          </Button>
+        ) : (
+          <>
+            <Button type="link" onClick={() => navigate('/login')} className="custom-nav-link">
+              Login
+            </Button>
+          </>
+        )}
               <Button type="link" onClick={handleRegisterClick} className="custom-nav-link">
                 Register
               </Button>
@@ -334,3 +355,6 @@ const menuLinkStyle = {
 };
 
 export default NavBar;
+
+
+

@@ -139,7 +139,7 @@
   font-weight: 300;
 }
 
-/* Donation Campaigns Section */
+ Donation Campaigns Section 
 .donation-campaigns {
   padding: 40px 20px;
   background-color: #e2f0d0;
@@ -153,7 +153,7 @@
   color: #2c3e50;
 }
 
-/* Campaign Cards */
+/* Campaign Cards 
 .campaigns-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -193,7 +193,7 @@
   font-size: 16px;
   color: #7f8c8d;
   margin: 10px 0;
-}
+}*/
 
 /* Donate Button */
 .donate-button {

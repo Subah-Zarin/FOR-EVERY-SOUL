@@ -1,138 +1,37 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import NavBar from '../components/NavBar';
-import Footer from "../components/Footer"; 
+import Footer from "../components/Footer";
+import CampaignListPage from "../components/EducationCampaignsPage.js";
+//import EducationCampaignsPage from "../components/EducationCampaignsPage";
+
 import { Button, Input, message, List, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import '../styles/education.css';
 
 // Import images from the assets folder
 import heroImage from '../assets/edu1.jpeg';
-import campaignImage1 from '../assets/education.jpeg';
-import campaignImage2 from '../assets/edu4.jpeg';
-import campaignImage3 from '../assets/edu5.jpeg';
-import campaignImage4 from '../assets/edu8.jpeg';
-import campaignImage5 from '../assets/edu7.jpg';
 import campaignImage6 from '../assets/edu9.jpeg';
 import campaignImage7 from '../assets/edu11.jpeg';
-import campaignImage8 from '../assets/special-child.jpeg';
-import campaignImage9 from '../assets/edu2.jpeg';
-import campaignImage10 from '../assets/edu1.jpeg';
-import campaignImage11 from '../assets/edu6.jpeg';
-import campaignImage12 from '../assets/edu10.jpeg';
+
 
 const { Title, Paragraph } = Typography;
 
 const Education = () => {
   const [currentDonations, setCurrentDonations] = useState(0);
   const [donationAmount, setDonationAmount] = useState('');
-  const [selectedCampaign, setSelectedCampaign] = useState('general');
-  const [showAllCampaigns, setShowAllCampaigns] = useState(false); // New state for toggle
+  const [selectedCampaign, setSelectedCampaign] = useState(null);
+  const [showAllCampaigns, setShowAllCampaigns] = useState(false);
   const goalAmount = 50000;
   const navigate = useNavigate();
 
-  // List of donation campaigns with images
-  const campaigns = useMemo(() => [
-    {
-      id: 'general',
-      title: 'General Education Fund',
-      description: 'Help provide educational resources and scholarships to underprivileged children.',
-      goal: goalAmount,
-      image: campaignImage1,
-      amount: 'BDT 10,000',
-      progress: 50,
-    },
-    {
-      id: 'school-supplies',
-      title: 'School Supplies Fund',
-      description: 'Donate to provide necessary school supplies for children in need.',
-      goal: 20000,
-      image: campaignImage2,
-      progress: 20, // Set initial progress to 0
-    },
-    {
-      id: 'scholarships',
-      title: 'Scholarships Fund',
-      description: 'Your donations will provide scholarships for bright students who lack financial resources.',
-      goal: 30000,
-      image: campaignImage3,
-      progress: 50,
-    },
-    {
-      id: 'teacher-training',
-      title: 'Teacher Training Fund',
-      description: 'Help provide training and resources for teachers in underprivileged schools.',
-      goal: 25000,
-      image: campaignImage4,
-      progress: 40, // Set initial progress to 0
-    },
-    {
-      id: 'digital-education',
-      title: 'Digital Education Fund',
-      description: 'Support the adoption of digital tools and resources in rural schools.',
-      goal: 30000,
-      image: campaignImage5,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'school-building',
-      title: 'School Building Fund',
-      description: 'Help build new classrooms and schools in rural and underserved areas.',
-      goal: 50000,
-      image: campaignImage6,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'literacy-program',
-      title: 'Literacy Program Fund',
-      description: 'Support adult and child literacy programs for communities in need.',
-      goal: 15000,
-      image: campaignImage7,
-      progress: 50, // Set initial progress to 0
+  // Example campaign data
+  const campaigns = [
+    { id: 1, title: "Books for Kids", progress: 10000, goal: 50000 },
+    { id: 2, title: "School Building", progress: 20000, goal: 50000 },
+    { id: 3, title: "Teacher Training", progress: 5000, goal: 30000 }
+  ];
 
-    },
-    {
-      id: 'special-education',
-      title: 'Special Education Fund',
-      description: 'Help provide education to children with special needs.',
-      goal: 20000,
-      image: campaignImage8,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'female-education',
-      title: 'Female Education Fund',
-      description: 'Empower girls and women through education in marginalized communities.',
-      goal: 35000,
-      image: campaignImage9,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'education-in-crisis',
-      title: 'Education in Crisis Areas Fund',
-      description: 'Support education for children in conflict and disaster-stricken areas.',
-      goal: 40000,
-      image: campaignImage10,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'early-childhood',
-      title: 'Early Childhood Education Fund',
-      description: 'Provide early childhood education to children in low-income areas.',
-      goal: 25000,
-      image: campaignImage11,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'higher-education',
-      title: 'Higher Education Fund',
-      description: 'Support scholarships and resources for students pursuing higher education.',
-      goal: 45000,
-      image: campaignImage12,
-      progress: 0, // Set initial progress to 0
-    }
-  ], [goalAmount]);
-
-  // Calculate the progress percentage for the selected campaign
+  // Calculate the progress percentage
   const updateProgressBar = useCallback((campaign) => {
     return (campaign.progress / campaign.goal) * 100;
   }, []);
@@ -239,41 +138,15 @@ const Education = () => {
 </section>
 
 
-
-      {/* Donation Campaigns Section */}
-      <section className="donation-campaigns">
+{/* Donation Campaigns Section */}
+<section className="donation-campaigns">
         <h2 className="campaigns-title">Our Featured Donation Campaigns</h2>
         <div className="campaigns-container">
-          {campaigns.slice(0, showAllCampaigns ? campaigns.length : 6).map((campaign, index) => (
-            <div className="campaign-card" key={index}>
-              <img src={campaign.image} alt={campaign.title} className="campaign-image" />
-              <div className="campaign-info">
-                <h3>{campaign.title}</h3>
-                <p>{campaign.description}</p>
-                {/* Progress Bar */}
-                <div className="progress-bar-container">
-                  <div className="progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
-                </div>
-                <Button 
-                  type="primary" 
-                  onClick={() => {
-                    setSelectedCampaign(campaign.id);
-                    navigate(`/donation`);
-                  }}>
-                  Donate
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
+          < CampaignListPage/>
+      </div>
+      
 
-        {/* Show More Button */}
-        <Button 
-          type="link" 
-          onClick={() => setShowAllCampaigns(prev => !prev)} 
-          style={{ marginTop: '20px' }}>
-          {showAllCampaigns ? 'Show Less' : 'Show More'}
-        </Button>
+  
       </section>
 
       {/* Donation Status Section */}

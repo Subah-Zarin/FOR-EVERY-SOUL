@@ -36,7 +36,7 @@ const App = () => {
         <Route path="/our-mission" element={<OurMission />} />
         <Route path="/impact" element={<Impact />} />
         <Route path="/FundraiserForm" element={<FundraiserForm />} />
-        <Route path="/campaigns" component={CampaignListPage} />
+        <Route path="/CampaignListPage" element={<CampaignListPage/>} />
 
 
       </Routes>
