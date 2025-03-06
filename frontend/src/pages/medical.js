@@ -4,18 +4,14 @@ import Footer from "../components/Footer";
 import { Button, List, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import '../styles/medical.css';
+import CampaignListPage from "../components/MedicalCampaigns.js";
 
 // Import images from the assets folder
 import heroImage from '../assets/healthCare.jpeg';
-import campaignImage1 from '../assets/camp2.jpeg';
+
 import campaignImage2 from '../assets/camp3.jpg';
-import campaignImage3 from '../assets/cancer-paitent.jpeg';
-import campaignImage4 from '../assets/Disablechild.jpeg';
-import campaignImage5 from '../assets/special-child.jpeg';
-import campaignImage6 from '../assets/edu9.jpeg';
+
 import campaignImage7 from '../assets/bloodDonate.jpeg'; // New image
-import campaignImage8 from '../assets/healthCare.jpeg'; // New image
-import campaignImage9 from '../assets/foodDonate.jpeg'; // New image
 
 const { Title, Paragraph } = Typography;
 
@@ -27,82 +23,7 @@ const Medical = () => {
   const goalAmount = 50000;
   const navigate = useNavigate();
 
-  // List of donation campaigns with images
-  const campaigns = useMemo(() => [
-    {
-      id: 'general-health',
-      title: 'General Health Fund',
-      description: 'Help provide essential medical care to underserved communities.',
-      goal: goalAmount,
-      image: campaignImage1,
-      amount: 'BDT 10,000',
-      progress: 50,
-    },
-    {
-      id: 'vaccination',
-      title: 'Vaccination Fund',
-      description: 'Support immunization efforts for children and adults.',
-      goal: 20000,
-      image: campaignImage2,
-      progress: 20, // Set initial progress to 0
-    },
-    {
-      id: 'emergency-care',
-      title: 'Emergency Care Fund',
-      description: 'Provide emergency medical services to those in urgent need.',
-      goal: 30000,
-      image: campaignImage3,
-      progress: 50,
-    },
-    {
-      id: 'mental-health',
-      title: 'Mental Health Fund',
-      description: 'Support mental health services and awareness programs.',
-      goal: 25000,
-      image: campaignImage4,
-      progress: 40, // Set initial progress to 0
-    },
-    {
-      id: 'medical-equipment',
-      title: 'Medical Equipment Fund',
-      description: 'Help hospitals and clinics acquire necessary medical tools.',
-      goal: 30000,
-      image: campaignImage5,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'health-education',
-      title: 'Health Education Fund',
-      description: 'Support programs that educate communities about health and wellness.',
-      goal: 25000,
-      image: campaignImage6,
-      progress: 0, // Set initial progress to 0
-    },
-    {
-      id: 'blood-donation',
-      title: 'Blood Donation Fund',
-      description: 'Help save lives by supporting blood donation drives.',
-      goal: 15000,
-      image: campaignImage7, // New image
-      progress: 25, // New progress
-    },
-    {
-      id: 'chronic-disease-care',
-      title: 'Chronic Disease Care Fund',
-      description: 'Provide long-term care and medication for those with chronic illnesses.',
-      goal: 35000,
-      image: campaignImage8, // New image
-      progress: 10, // New progress
-    },
-    {
-      id: 'nutrition-support',
-      title: 'Nutrition Support Fund',
-      description: 'Ensure proper nutrition for malnourished individuals and children.',
-      goal: 25000,
-      image: campaignImage9, // New image
-      progress: 15, // New progress
-    }
-  ], [goalAmount]);
+  
 
   // Calculate the progress percentage for the selected campaign
   const updateProgressBar = useCallback((campaign) => {
@@ -211,36 +132,10 @@ const Medical = () => {
       <section className="medical-donation-campaigns">
         <h2 className="medical-campaigns-title">Our Featured Donation Campaigns</h2>
         <div className="medical-campaigns-container">
-          {campaigns.slice(0, showAllCampaigns ? campaigns.length : 6).map((campaign, index) => (
-            <div className="medical-campaign-card" key={index}>
-              <img src={campaign.image} alt={campaign.title} className="medical-campaign-image" />
-              <div className="medical-campaign-info">
-                <h3>{campaign.title}</h3>
-                <p>{campaign.description}</p>
-                {/* Progress Bar */}
-                <div className="progress-bar-container">
-                  <div className="progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
-                </div>
-                <Button 
-                  type="primary" 
-                  onClick={() => {
-                    setSelectedCampaign(campaign.id);
-                    navigate(`/donation`); // Adjust the route based on your setup
-                  }}>
-                  Donate
-                </Button>
-              </div>
-            </div>
-          ))}
+                  
+          < CampaignListPage/>
         </div>
 
-        {/* Show More Button */}
-        <Button 
-          type="link" 
-          onClick={() => setShowAllCampaigns(prev => !prev)} 
-          style={{ marginTop: '20px' }}>
-          {showAllCampaigns ? 'Show Less' : 'Show More'}
-        </Button>
       </section>
 
       {/* Donation Status Section */}

@@ -159,47 +159,8 @@
     color: #2c3e50;
   }
   
-  /* Campaign Cards */
-  .medical-campaigns-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .medical-campaign-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .medical-campaign-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  }
-  
-  .medical-campaign-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-  
-  .medical-campaign-info h3 {
-    font-size: 20px;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #2c3e50;
-  }
-  
-  .medical-campaign-info p {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin: 10px 0;
-  }
+
+
   
   /* Donate Button */
   .medical-donate-button {

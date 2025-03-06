@@ -24,12 +24,6 @@ const Education = () => {
   const goalAmount = 50000;
   const navigate = useNavigate();
 
-  // Example campaign data
-  const campaigns = [
-    { id: 1, title: "Books for Kids", progress: 10000, goal: 50000 },
-    { id: 2, title: "School Building", progress: 20000, goal: 50000 },
-    { id: 3, title: "Teacher Training", progress: 5000, goal: 30000 }
-  ];
 
   // Calculate the progress percentage
   const updateProgressBar = useCallback((campaign) => {

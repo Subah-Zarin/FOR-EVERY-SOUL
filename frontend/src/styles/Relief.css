@@ -114,21 +114,7 @@
     color: #2980b9;
   }
   
-  .relief-donation-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 30px;
-  }
   
-  .relief-donation-list li, .relief-stat-item {
-    font-size: 16px;
-    color: #34495e;
-  }
-  
-  .relief-donation-list {
-    font-size: 1.1rem;
-    padding-left: 20px;
-  }
   
   .relief-section-quote {
     font-size: 1.3rem;
@@ -152,34 +138,6 @@
     font-weight: bold;
     margin-bottom: 30px;
     color: #2c3e50;
-}
-
-.relief-campaigns-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-}
-
-.relief-campaign-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.relief-campaign-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.relief-campaign-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
 }
 
 .relief-campaign-info h3 {

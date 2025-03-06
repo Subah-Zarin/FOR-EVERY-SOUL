@@ -4,14 +4,13 @@ import Footer from "../components/Footer";
 import { Button, List, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Relief.css';
+import CampaignListPage from "../components/ReliefCampaigns.js";
 
 // Import images from the assets folder
 import heroImage from '../assets/camp2.jpeg';
-import campaignImage1 from '../assets/foodDonate.jpeg';
-import campaignImage2 from '../assets/rel5.jpeg';
-import campaignImage3 from '../assets/rel1.jpeg';
+
 import campaignImage4 from '../assets/rel2.jpeg';
-import campaignImage5 from '../assets/rel3.jpeg';
+
 import campaignImage6 from '../assets/rel4.jpeg';
 
 const { Title, Paragraph } = Typography;
@@ -24,51 +23,7 @@ const Relief = () => {
   const goalAmount = 50000;
   const navigate = useNavigate();
 
-  // List of relief donation campaigns with images
-  const campaigns = useMemo(() => [
-    {
-      id: 'food-relief',
-      title: 'Food Assistance',
-      description: 'Help provide meals to families in crisis.',
-      image: campaignImage1,
-      progress: 40,
-    },
-    {
-      id: 'shelter-relief',
-      title: 'Emergency Shelter',
-      description: 'Support temporary housing for displaced individuals.',
-      image: campaignImage2,
-      progress: 60,
-    },
-    {
-      id: 'water-relief',
-      title: 'Clean Water Access',
-      description: 'Provide safe drinking water to affected communities.',
-      image: campaignImage3,
-      progress: 50,
-    },
-    {
-      id: 'medical-relief',
-      title: 'Medical Aid',
-      description: 'Ensure medical assistance for those in need.',
-      image: campaignImage4,
-      progress: 30,
-    },
-    {
-      id: 'education-relief',
-      title: 'Education Support',
-      description: 'Provide learning materials for displaced children.',
-      image: campaignImage5,
-      progress: 20,
-    },
-    {
-      id: 'clothing-relief',
-      title: 'Clothing & Essentials',
-      description: 'Distribute clothing and daily essentials.',
-      image: campaignImage6,
-      progress: 10,
-    },
-  ], []);
+  
 
     // Calculate the progress percentage for the selected campaign
     const updateProgressBar = useCallback((campaign) => {
@@ -175,36 +130,12 @@ const Relief = () => {
       <section className="relief-donation-campaigns">
         <h2>Our Relief Programs</h2>
         <div className="relief-campaigns-container">
-          {campaigns.slice(0, showAllCampaigns ? campaigns.length : 3).map((campaign, index) => (
-            <div className="relief-campaign-card" key={index}>
-              <img src={campaign.image} alt={campaign.title} className="relief-campaign-image" />
-              <div className="relief-campaign-info">
-                <h3>{campaign.title}</h3>
-                <p>{campaign.description}</p>
-                {/* Progress Bar */}
-                <div className="progress-bar-container">
-                  <div className="progress-bar" style={{ width: `${updateProgressBar(campaign)}%` }}></div>
-                </div>
-                <Button 
-                 type="primary" 
-                onClick={() => {
-                setSelectedCampaign(campaign.id);
-                    navigate(`/donation`); // Adjust the route based on your setup
-                                  }}>
-                                  Donate
-                                </Button>
-                              </div>
-                            </div>
-                          ))}
+              
+        < CampaignListPage/>
+            
                         </div>
                 
-                        {/* Show More Button */}
-                        <Button 
-                          type="link" 
-                          onClick={() => setShowAllCampaigns(prev => !prev)} 
-                          style={{ marginTop: '20px' }}>
-                          {showAllCampaigns ? 'Show Less' : 'Show More'}
-                        </Button>
+        
                       </section>
                 
                       {/* Donation Status Section */}
