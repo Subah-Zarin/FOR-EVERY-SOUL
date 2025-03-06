@@ -68,7 +68,7 @@
     border-radius: 10px;
 }
 
-/* Donate Button */
+/* Donate Button 
 .donate-button {
     width: 100%;
     font-size: 16px;
@@ -84,7 +84,7 @@
 
 .donate-button:hover {
     background: linear-gradient(90deg, #e67e22, #d35400);
-}
+}*/
 
 /* Responsive Design */
 @media (max-width: 768px) {

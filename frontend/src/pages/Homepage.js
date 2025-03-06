@@ -1,10 +1,12 @@
-
 import React, { useState } from 'react';
 import { Button, Input } from 'antd';
 import { useNavigate } from 'react-router-dom'; 
 import NavBar from '../components/NavBar'; 
 import Footer from "../components/Footer"; 
 import { Link } from "react-router-dom";
+import CampaignListPage from "../pages/CampaignListPage.js";
+import axios from 'axios';
+import SearchBar from '../components/SearchBar';
 
 
 import '../styles/Homepage.css';
@@ -18,17 +20,13 @@ import carouselImg1 from '../assets/camp1.jpeg';
 import carouselImg2 from '../assets/camp2.jpeg';
 import carouselImg3 from '../assets/camp3.jpg';
 
-import cancerPaitent from '../assets/cancer-paitent.jpeg';
-import specialChild from '../assets/special-child.jpeg';
-import disableChild from '../assets/Disablechild.jpeg';
-import strayAnimal from '../assets/stray-animal.jpeg';
-import educationFund from '../assets/education.jpeg';
-import healthCare from '../assets/healthCare.jpeg';
+
 
 const HomePage = () => {
   const navigate = useNavigate(); 
   const [menuOpen, setMenuOpen] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [searchResults, setSearchResults] = useState([]);
 
   const goToNextSlide = () => setCarouselIndex((prevIndex) => (prevIndex + 1) % 3);
   const goToPreviousSlide = () => setCarouselIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
@@ -37,6 +35,12 @@ const HomePage = () => {
     navigate('/donation'); 
   };
 
+   // Callback function to update the search results
+   const handleSearchResults = (results) => {
+    setSearchResults(results);
+  };
+
+  
 
   return (
     <div className="homepage">
@@ -49,7 +53,7 @@ const HomePage = () => {
           <p className="hero-description">
             We help local nonprofits access the funding, tools, training, and support they need to become more.
           </p>
-          <button className="donate-button" onClick={handleDonateClick}>Donate Now</button>
+          <button className="donate-button1" onClick={handleDonateClick}>Donate Now</button>
           <div className="stats">
             <div className="stat-item">
               <span>100+</span>
@@ -132,14 +136,29 @@ const HomePage = () => {
         <button className="know-more-button">Know More</button>
       </section>
 
-      {/* Search Bar */}
+       {/* Search Bar */}
       <section className="search-bar-section">
-        <Input.Search
-          placeholder="Search donation campaigns..."
-          className="donation-search-bar"
-          style={{ width: '50%', margin: '20px auto' }}
-        />
+        <SearchBar onSearchResults={handleSearchResults} /> 
       </section>
+
+  { /*{ Display Search Results }
+{searchResults.length > 0 && (
+  <section className="search-results">
+    <h3>Search Results:</h3>
+    <div className="search-results-grid">
+      {searchResults.map((campaign) => (
+        <div key={campaign._id} className="campaign-card">
+          <img src={campaign.imageUrl} alt={campaign.title} className="campaign-image" />
+          <div className="campaign-info">
+            <h4>{campaign.title}</h4>
+            <p>{campaign.description}</p>
+            <button className="donate-button">Donate</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)} */}
 
       {/* Carousel Section */}
       <section className="carousel">
@@ -156,70 +175,7 @@ const HomePage = () => {
       <section className="new-donation-campaigns">
         <h2 className="new-campaigns-title">Our Featured Donation Campaigns</h2>
         <div className="campaigns-container">
-          {[{
-            img: cancerPaitent,
-            title: 'Better Life for Cancer Patients',
-            description: 'Provide shelter and resources for cancer patients.',
-            amount: 'BDT 10,000',
-            targetAmount: 'BDT 20,000',
-            progress: 50, // Example progress (percentage)
-          }, {
-            img: specialChild,
-            title: 'Special Child',
-            description: 'Support initiatives to help them.',
-            amount: 'BDT 15,000',
-            targetAmount: 'BDT 20,000',
-            progress: 20, 
-          }, {
-            img: strayAnimal,
-            title: 'Let Them Live Too',
-            description: 'Provide shelter and resources for stray animals.',
-            amount: 'BDT 10,000',
-            targetAmount: 'BDT 30,000',
-            progress: 33, 
-          }, {
-            img: disableChild,
-            title: 'Better Life for Disabled Children',
-            description: 'Provide shelter and resources for disabled children.',
-            amount: 'BDT 10,000',
-            targetAmount: 'BDT 15,000',
-            progress: 67, // Example progress (percentage)
-          }, {
-            img: educationFund,
-            title: 'Education for Underprivileged Children',
-            description: 'Support the education of underprivileged children.',
-            amount: 'BDT 5,000',
-            targetAmount: 'BDT 25,000',
-            progress: 10, 
-          }, {
-            img: healthCare,
-            title: 'Healthcare for All',
-            description: 'Ensure access to healthcare services for the poor.',
-            amount: 'BDT 8,000',
-            targetAmount: 'BDT 18,000',
-            progress: 44, // Example progress (percentage)
-          }].map((campaign, index) => (
-            <div className="new-campaign" key={index}>
-              <img className="new-campaign-image" src={campaign.img} alt={campaign.title} />
-              <div className="new-campaign-content">
-                <h3 className="new-campaign-title">{campaign.title}</h3>
-                <p className="new-campaign-description">{campaign.description}</p>
-                <p className="new-campaign-amount">
-                  Amount Collected: {campaign.amount} / Target: {campaign.targetAmount}
-                </p>
-
-                {/* Progress Bar */}
-                <div className="progress-bar-container">
-                  <div className="progress-bar" style={{ width: `${campaign.progress}%` }}></div>
-                </div>
-
-                {/* Donate Button with navigate */}
-                <Button className="donate-button" onClick={handleDonateClick}>
-                  Donate
-                </Button>
-              </div>
-            </div>
-          ))}
+        < CampaignListPage/>
         </div>
       </section>
 

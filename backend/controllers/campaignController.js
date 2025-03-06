@@ -26,3 +26,18 @@ export const getAllCampaigns = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch campaigns" });
   }
 };
+
+// ✅ Search campaigns by title
+export const searchCampaigns = async (req, res) => {
+  try {
+    const { query } = req.query;
+    if (!query) return res.status(400).json({ message: "Query is required" });
+
+    const regex = new RegExp(query, "i"); // Case-insensitive search
+    const campaigns = await Campaign.find({ title: regex });
+
+    res.status(200).json(campaigns);
+  } catch (error) {
+    res.status(500).json({ message: "Error searching campaigns", error });
+  }
+};

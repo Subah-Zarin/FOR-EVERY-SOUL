@@ -139,7 +139,7 @@
   font-weight: 300;
 }
 
- Donation Campaigns Section 
+/* Donation Campaigns Section */
 .donation-campaigns {
   padding: 40px 20px;
   background-color: #e2f0d0;
@@ -195,7 +195,7 @@
   margin: 10px 0;
 }*/
 
-/* Donate Button */
+/* Donate Button 
 .donate-button {
   margin-top: 15px;
   width: 100%;
@@ -211,7 +211,7 @@
 
 .donate-button:hover {
   background-color: #2980b9;
-}
+}*/
 
 /* Recent Supporters */
 .recent-supporters-card {

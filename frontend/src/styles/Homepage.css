@@ -67,20 +67,21 @@ body {
   color: #000000; 
 }
 
-.donate-button {
-  background-color: #D4AF37; 
-  color: white;
-  padding: 15px 30px;
+.donate-button1 {
+  margin-top: 15px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
   border: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.donate-button:hover {
-  background-color: #F39C12; 
+.donate-button1:hover {
+  background-color: #2980b9;
 }
 
 .hero-image img {
@@ -352,8 +353,14 @@ body {
   transform: scale(1.05); 
 }
 
-/* New Donation Campaigns Section */
 .new-donation-campaigns {
+  padding: 40px 20px;
+  background-color: #e2f0d0;
+  text-align: center;
+}
+
+/* New Donation Campaigns Section */
+/*.new-donation-campaigns {
   padding: 40px 20px;
   background-color: #e2f0d0;
   text-align: center;
@@ -420,7 +427,7 @@ body {
   font-weight: bold;
   color: #3498db;
   margin-bottom: 15px;
-}
+}*/
 
 .progress-bar-container {
   width: 100%;
