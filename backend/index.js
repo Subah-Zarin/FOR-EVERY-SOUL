@@ -8,6 +8,10 @@ import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
 import campaignRoutes from "./routes/campaigns.js";
 
+import volunteerRoutes from "./routes/volunteerRoutes.js";
+
+
+
 
 
 
@@ -37,6 +41,8 @@ app.get("/", (req, res) => res.json({ message: "API is working" }));
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/api", volunteerRoutes);  // Register Volunteer Routes
+
 app.use("/api/campaigns", campaignRoutes);
 
 

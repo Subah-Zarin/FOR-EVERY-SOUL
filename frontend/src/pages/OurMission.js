@@ -1,9 +1,11 @@
-import React from 'react'; 
+import React, { useState, useMemo, useCallback } from 'react'; 
+import { Button, List, Typography } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from "../components/Footer";
-import "../styles/OurMission.css"; // Import external CSS file
+import "../styles/OurMission.css"; 
 
-// Import images correctly
+// Import images
 import handshakeIcon from "../assets/handshake.png";
 import donationIcon from "../assets/donation.png";
 import charityEventImage from "../assets/charity-event.jpg";
@@ -13,7 +15,7 @@ const OurMission = () => {
     <div className="mission-container">
       <NavBar /> 
 
-      {/* About Us Section */}
+      {/* Hero Section */}
       <section className="hero-section">
         <h2 className="hero-subtitle">ABOUT US</h2>
         <h1 className="hero-title">Our Mission: Food, Education, Medicine</h1>

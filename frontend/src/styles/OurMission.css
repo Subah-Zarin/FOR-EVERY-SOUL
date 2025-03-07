@@ -4,14 +4,15 @@
   font-family: Arial, sans-serif;
   padding: 20px;
   padding-top: 100px; /* Adjust according to navbar height */
+  background-color: #f7f7f7;
 }
 
 /* Hero Section */
 .hero-section {
-  background-color: #f8f5f0;
+  background-color: #f5f2eb; /* Light beige color */
   padding: 60px 20px;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 0 0 30px 30px; /* Rounded corners at the bottom */
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -128,11 +129,8 @@
 }
 
 /* Stats Section */
-/* OurMission.css */
-
-/* Stats Section */
 .stats-section {
-  background-color: #f8f9fa; /* Light background color */
+  background-color: #f8f9fa;
   padding: 60px 20px;
   text-align: center;
 }
@@ -146,73 +144,58 @@
 }
 
 .stat-box {
-  background-color: #ffffff; /* White background for each stat box */
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-box:hover {
-  transform: translateY(-10px); /* Slight lift on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .stat-box h2 {
   font-size: 2.5em;
-  color: #e74c3c; /* Red color for the numbers */
+  color: #e74c3c;
   margin-bottom: 10px;
 }
 
 .stat-box p {
   font-size: 1.2em;
-  color: #7f8c8d; /* Gray color for the text */
+  color: #7f8c8d;
   margin: 0;
 }
 
 /* Core Goals Section */
 .section-box {
-  background-color: #ffffff; /* White background */
+  background-color: #ffffff;
   padding: 60px 20px;
   text-align: center;
   margin: 40px 0;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .highlight-title {
   font-size: 2.5em;
-  color: #2c3e50; /* Dark blue color */
+  color: #2c3e50;
   margin-bottom: 20px;
 }
 
 .sub-heading {
   font-size: 1.8em;
-  color: #e74c3c; /* Red color */
+  color: #e74c3c;
   margin-bottom: 20px;
 }
 
 .section-text {
   font-size: 1.2em;
-  color: #7f8c8d; /* Gray color */
+  color: #7f8c8d;
   max-width: 800px;
   margin: 0 auto 30px;
   line-height: 1.6;
-}
-
-.cta-button {
-  background-color: #e74c3c; /* Red background */
-  color: #ffffff; /* White text */
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #c0392b; /* Darker red on hover */
 }
 
 /* Positive Change Section */
@@ -224,18 +207,18 @@
 }
 
 .list-item {
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: #f8f9fa;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 1.1em;
-  color: #2c3e50; /* Dark blue color */
+  color: #2c3e50;
   text-align: left;
   max-width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .list-item:hover {
-  transform: translateY(-10px); /* Slight lift on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
