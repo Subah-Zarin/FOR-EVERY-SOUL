@@ -1,141 +1,177 @@
+/* General Styles */
 .volunteer-page {
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  font-family: Arial, sans-serif;
   padding: 20px;
-  padding-top: 100px; /* Adjust according to navbar height */
+  padding-top: 100px; /* Adjust for navbar height */
+  background-color: #f9f9f9; /* Light background */
 }
 
-
+/* Hero Section */
 .volunteer-hero {
   background-color: #f8f5f0; /* Light cream background */
-  padding: 60px 20px;
+  padding: 80px 20px; /* Increased padding */
   text-align: center;
   border-radius: 20px;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .hero-subtitle {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px; /* Slightly larger */
+  font-weight: 600; /* Semi-bold */
   color: #e77a50; /* Soft orange */
-  font-style: italic;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 2px; /* Increased spacing */
+  margin-bottom: 15px;
 }
 
 .hero-title {
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 42px; /* Larger title */
+  font-weight: 700; /* Bold */
   color: #1f3b30; /* Dark green */
+  margin: 0;
+  line-height: 1.2; /* Better readability */
 }
 
-  .volunteer-header h1 {
-    color: #2c3e50;
-    font-size: 24px;
-  }
-  
+/* Volunteer List Section */
+.volunteer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Increased gap */
+  margin: 40px 0; /* More spacing */
+}
+
+.volunteer-card {
+  background: #fff;
+  padding: 20px; /* Increased padding */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 200px; /* Slightly wider */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.volunteer-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.volunteer-card h3 {
+  margin: 15px 0 10px; /* Adjusted spacing */
+  font-size: 18px; /* Larger font */
+  color: #2c3e50; /* Dark blue */
+}
+
+.volunteer-card p {
+  font-size: 14px;
+  color: #666; /* Softer text color */
+  margin: 5px 0;
+}
+
+/* Social Links Section */
+.social-links {
+  margin-top: 15px; /* More spacing */
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Increased gap between icons */
+}
+
+.social-icon {
+  width: 24px; /* Slightly larger */
+  height: 24px;
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.social-icon:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Volunteer Form Section */
+.volunteer-form-section {
+  background: #fff; /* White background */
+  padding: 40px 20px; /* Increased padding */
+  border-radius: 15px; /* Rounded corners */
+  margin: 40px auto; /* More spacing */
+  width: 90%;
+  max-width: 600px; /* Centered form */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.volunteer-form-section h2 {
+  font-size: 28px; /* Larger heading */
+  font-weight: 700; /* Bold */
+  color: #1f3b30; /* Dark green */
+  margin-bottom: 15px; /* More spacing */
+}
+
+.volunteer-form-section p {
+  font-size: 16px; /* Larger text */
+  color: #666; /* Softer text color */
+  margin-bottom: 20px; /* More spacing */
+}
+
+.volunteer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between inputs */
+}
+
+.volunteer-form input,
+.volunteer-form textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* More padding */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Larger font */
+  outline: none;
+  transition: border-color 0.3s ease; /* Smooth border color change */
+}
+
+.volunteer-form input:focus,
+.volunteer-form textarea:focus {
+  border-color: #e77a50; /* Soft orange on focus */
+}
+
+.volunteer-form textarea {
+  height: 120px; /* Taller textarea */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.volunteer-form button {
+  background: #e77a50; /* Soft orange */
+  color: white;
+  padding: 12px 20px; /* More padding */
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Larger font */
+  cursor: pointer;
+  transition: background 0.3s ease; /* Smooth background change */
+}
+
+.volunteer-form button:hover {
+  background: #d45a3a; /* Darker orange on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .volunteer-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .volunteer-card {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 180px;
-    text-align: center;
+    width: 90%; /* Wider cards on mobile */
   }
-  
-  .volunteer-card img {
-    width: 100%;
-    border-radius: 50%;
+
+  .volunteer-form-section h2 {
+    font-size: 24px; /* Smaller heading on mobile */
   }
-  
-  .volunteer-card h3 {
-    margin: 10px 0 5px;
-    font-size: 16px;
+
+  .volunteer-form-section p {
+    font-size: 14px; /* Smaller text on mobile */
   }
-  
-  .volunteer-card p {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .social-links {
-    margin-top: 10px;
-  }
-  
-  .social-links a {
-    margin: 0 5px;
-    display: inline-block;
-  }
-  
-  .social-icon {
-    width: 20px;
-    height: 20px;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .social-icon:hover {
-    transform: scale(1.1);
-  }
-  
-  
-  .volunteer-form-section {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-  }
-  
-  .volunteer-form h2 {
-    margin-bottom: 10px;
-    color: #2c3e50;
-  }
-  
-  .volunteer-form input,
-  .volunteer-form textarea {
-    width: 90%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .volunteer-form textarea {
-    height: 80px;
-  }
-  
-  .volunteer-form button {
-    background: #e74c3c;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .volunteer-form button:hover {
-    background: #c0392b;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .volunteer-list {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .volunteer-card {
-      width: 80%;
-    }
-  }
-  
+}

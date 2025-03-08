@@ -38,7 +38,7 @@ const VolunteerPage = () => {
     <div className="volunteer-page" style={{ marginTop: "80px" }}>
       <NavBar />
 
-      {/* Header */}
+      {/* Hero Section */}
       <header className="volunteer-hero">
         <p className="hero-subtitle">OUR VOLUNTEERS</p>
         <h1 className="hero-title">Our Passionate Volunteers</h1>
@@ -67,14 +67,68 @@ const VolunteerPage = () => {
         <h2>Become A Volunteer</h2>
         <p>And Join Our Community</p>
         <form onSubmit={handleSubmit} className="volunteer-form">
-          <input type="text" name="name" placeholder="Your Full Name" required value={formData.name} onChange={handleChange} />
-          <input type="email" name="email" placeholder="Your Email" required value={formData.email} onChange={handleChange} />
-          <input type="tel" name="phone" placeholder="Your Phone" required value={formData.phone} onChange={handleChange} />
-          <input type="date" name="dob" required value={formData.dob} onChange={handleChange} />
-          <input type="text" name="occupation" placeholder="Your Occupation" required value={formData.occupation} onChange={handleChange} />
-          <input type="text" name="address" placeholder="Your Address" required value={formData.address} onChange={handleChange} />
-          <input type="text" name="country" placeholder="Your State/Country" required value={formData.country} onChange={handleChange} />
-          <textarea name="message" placeholder="Why do you want to volunteer?" required value={formData.message} onChange={handleChange}></textarea>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Full Name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Your Phone"
+            required
+            value={formData.phone}
+            onChange={handleChange}
+          />
+          <input
+            type="date"
+            name="dob"
+            required
+            value={formData.dob}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="occupation"
+            placeholder="Your Occupation"
+            required
+            value={formData.occupation}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="Your Address"
+            required
+            value={formData.address}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="country"
+            placeholder="Your State/Country"
+            required
+            value={formData.country}
+            onChange={handleChange}
+          />
+          <textarea
+            name="message"
+            placeholder="Why do you want to volunteer?"
+            required
+            value={formData.message}
+            onChange={handleChange}
+          ></textarea>
           <button type="submit">Submit Now</button>
         </form>
       </section>
