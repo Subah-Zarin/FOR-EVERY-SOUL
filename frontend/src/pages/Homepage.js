@@ -47,28 +47,30 @@ const HomePage = () => {
       <NavBar />
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h2 className="hero-title">Give hope, change lives, spread love.</h2>
-          <p className="hero-description">
-            We help local nonprofits access the funding, tools, training, and support they need to become more.
-          </p>
-          <button className="donate-button1" onClick={handleDonateClick}>Donate Now</button>
-          <div className="stats">
-            <div className="stat-item">
-              <span>100+</span>
-              <p>Happy Families</p>
-            </div>
-            <div className="stat-item">
-              <span>300+</span>
-              <p>Projects Done</p>
-            </div>
-          </div>
-        </div>
-        <div className="hero-image">
-          <img src={require('../assets/hero-image3.jpg')} alt="Helping Hands" />
-        </div>
-      </section>
+<section className="hero-sectionH">
+<video autoPlay loop muted playsInline className="hero-videoH">
+  <source src={require('../assets/v3.mp4')} type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+  <div className="hero-contentH">
+    <h2 className="hero-title">Give hope, change lives, spread love.</h2>
+    <p className="hero-description">
+      We help local nonprofits access the funding, tools, training, and support they need to become more.
+    </p>
+    <button className="donate-button1" onClick={handleDonateClick}>Donate Now</button>
+    <div className="stats">
+      <div className="stat-item">
+        <span>100+</span>
+        <p>Happy Families</p>
+      </div>
+      <div className="stat-item">
+        <span>300+</span>
+        <p>Projects Done</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Services Section */}
       <section className="homepage-cards">

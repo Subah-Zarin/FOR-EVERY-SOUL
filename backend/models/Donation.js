@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const donationSchema = new mongoose.Schema({
   donorName: String,
@@ -11,4 +11,6 @@ const donationSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Donation', donationSchema);
+const Donation = mongoose.model('Donation', donationSchema);
+
+export default Donation;  // Use default export

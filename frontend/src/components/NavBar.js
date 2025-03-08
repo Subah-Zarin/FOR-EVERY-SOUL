@@ -3,6 +3,8 @@ import { useNavigate, Link , useLocation} from 'react-router-dom';
 import { Button, Input, Dropdown, Menu, Drawer,message } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
+import Search from './NavSearch';
+
 
 import '../styles/NavBar.css';
 
@@ -190,11 +192,8 @@ const NavBar = () => {
           ) : (
             // Desktop header: full navigation bar with search, dropdowns, brand, and buttons
             <div className="container-fluid d-flex align-items-center justify-content-between">
-              <Input
-                placeholder="Search..."
-                style={{ width: 200, borderRadius: '50px', padding: '8px 16px' }}
-              />
-
+              
+              <Search onSearchResults={(results) => console.log(results)}/>
               <Dropdown
                 overlay={donationsMenu}
                 trigger={['hover']}
@@ -355,6 +354,3 @@ const menuLinkStyle = {
 };
 
 export default NavBar;
-
-
-

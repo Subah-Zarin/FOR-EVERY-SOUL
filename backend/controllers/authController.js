@@ -1,6 +1,8 @@
-import User from "../models/users.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import User from "../models/users.js";  // Correct import
+
+
 
 // Registration controller: collects firstName, lastName, email, and password.
 export const Register = async (req, res) => {

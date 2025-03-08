@@ -7,10 +7,11 @@ const campaignSchema = new mongoose.Schema(
     category: { type: String, required: true },
     goalAmount: { type: Number, required: true },
     imageUrl: { type: String, required: true },
-    donations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Donation' }],
   },
   { timestamps: true }
 );
 
-const Campaign = mongoose.model("Campaign", campaignSchema);
+// Check if the model is already defined to prevent overwriting
+const Campaign = mongoose.models.Campaign || mongoose.model("Campaign", campaignSchema);
+
 export default Campaign;

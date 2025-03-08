@@ -30,16 +30,9 @@ mongoose
     console.error("❌ Database connection error:", err);
     process.exit(1); // Exit if DB connection fails
   });
-  const express = require('express');
-//const app = express();
-const donationsRouter = require('./routes/donations');
-
-app.use(express.json()); // To parse JSON bodies
-app.use('/api', donationsRouter); // Add this line
-
 
 // Middleware
-app.use(express.json());
+app.use(express.json()); // To parse JSON bodies
 app.use(cookieParser());
 app.use(
   cors({

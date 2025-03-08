@@ -79,7 +79,7 @@ const SearchBar = ({ onSearchResults }) => {
         <ul className="suggestions-dropdown2">
           {suggestions.map((campaign) => (
             <li key={campaign._id} onClick={() => handleSuggestionClick(campaign)}>
-              <img src={campaign.imageUrl} alt={campaign.title} className="suggestion-image" />
+              <img src={campaign.imageUrl} alt={campaign.title} className="suggestion-image2" />
               {campaign.title}
             </li>
           ))}
