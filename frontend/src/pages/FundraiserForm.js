@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavBar from '../components/NavBar';
 import Footer from "../components/Footer";
 import '../styles/FundraiserForm.css';
+import { message } from "antd";
 
 const FundraiserForm = () => {
   const [title, setTitle] = useState("");
@@ -10,7 +12,19 @@ const FundraiserForm = () => {
   const [goalAmount, setGoalAmount] = useState("");
   const [category, setCategory] = useState("");  
   const [image, setImage] = useState(null);
-  const [message, setMessage] = useState("");
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const username = localStorage.getItem('username');
+      if (!username) {
+        message.error('You are not logged in!');
+        navigate('/login');
+      }
+    };
+    fetchUserData();
+  }, [navigate]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -25,12 +39,10 @@ const FundraiserForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!title || !description || !goalAmount || !category || !image) {
-      setMessage("All fields are required.");
+      setMsg("All fields are required.");
       return;
     }
-
     try {
       const response = await axios.post("http://localhost:5000/api/campaigns/create", {
         title,
@@ -39,26 +51,22 @@ const FundraiserForm = () => {
         category,  
         imageUrl: image,
       });
-
-      setMessage(response.data.message);
+      setMsg(response.data.message);
       setTitle("");
       setDescription("");
       setGoalAmount("");
       setCategory("");  
       setImage(null);
     } catch (error) {
-      setMessage("Error creating campaign.");
+      setMsg("Error creating campaign.");
     }
   };
 
   return (
-    <div class="fundraiser-page">
+    <div className="fundraiser-page">
       <NavBar />
-
       <header className="Fund-header"></header>
-
       <div className="fundraiser-wrapper">
-        {/* Left Section - Info about Fundraising */}
         <div className="fundraiser-info">
           <h2>Why Start a Fundraiser?</h2>
           <p>Every great cause deserves a platform. Create your fundraiser to:</p>
@@ -70,8 +78,6 @@ const FundraiserForm = () => {
           </ul>
           <p>Start your campaign today and make a difference!</p>
         </div>
-
-        {/* Right Section - Fundraiser Form */}
         <div className="fundraiser-container">
           <h2 className="fundraiser-title">Create a Fundraiser</h2>
           <form onSubmit={handleSubmit} className="fundraiser-form">
@@ -98,12 +104,10 @@ const FundraiserForm = () => {
               className="fundraiser-input"
               required
             />
-
-            {/* Donation Category Selection */}
             <select
               className="fundraiser-select"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}  // Handle category selection
+              onChange={(e) => setCategory(e.target.value)}  
               required
             >
               <option value="" disabled>Select Donation Category</option>
@@ -111,7 +115,6 @@ const FundraiserForm = () => {
               <option value="medical">Medical</option>
               <option value="relief">Relief</option>
             </select>
-
             <input
               type="file"
               accept="image/*"
@@ -123,7 +126,7 @@ const FundraiserForm = () => {
               Create Campaign
             </button>
           </form>
-          {message && <p className="fundraiser-message">{message}</p>}
+          {msg && <p className="fundraiser-message">{msg}</p>}
         </div>
       </div>
       <Footer />

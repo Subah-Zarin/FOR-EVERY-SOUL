@@ -49,7 +49,7 @@ app.get("/", (req, res) => res.json({ message: "API is working 🚀" }));
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/api/campaigns", campaignRoutes);
-app.use("/api/volunteers", volunteerRoutes);
+app.use("/api", volunteerRoutes);
 app.use("/api/Donation", donationRoutes); // Changed "/api" to "/api/volunteers" to avoid conflicts
 
 // ✅ Handle 404 (Not Found) errors
