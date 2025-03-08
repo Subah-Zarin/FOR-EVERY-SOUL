@@ -7,6 +7,7 @@ const campaignSchema = new mongoose.Schema(
     category: { type: String, required: true },
     goalAmount: { type: Number, required: true },
     imageUrl: { type: String, required: true },
+    donations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Donation' }],
   },
   { timestamps: true }
 );

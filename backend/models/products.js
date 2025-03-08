@@ -1,26 +1,23 @@
-import { Schema, model } from "mongoose";
-import { getDhakaTime } from "../utils/index.js";
+import mongoose from "mongoose";
 
-const productSchema = new Schema({
-  productName: {
-    type: String,
-    required: true,
+const campaignSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    category: { type: String, required: true },
+    goalAmount: { type: Number, required: true },
+    imageUrl: { type: String, required: true },
+    donations: [
+      {
+        userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        amount: { type: Number, required: true },
+        date: { type: Date, default: Date.now },
+      },
+    ],
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0,
-    default: 0,
-  },
-  createdAt: {
-    type: Date,
-    default: getDhakaTime(),
-  },
-  updatedAt: {
-    type: Date,
-    default: getDhakaTime(),
-  },
-});
+  { timestamps: true }
+);
 
-const Product = model("Product", productSchema);
-export default Product;
+const Campaign = mongoose.model("Campaign", campaignSchema);
+
+export default Campaign;
