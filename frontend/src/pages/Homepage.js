@@ -59,12 +59,12 @@ const HomePage = () => {
       We help local nonprofits access the funding, tools, training, and support they need to become more.
     </p>
     <button className="donate-button1" onClick={handleDonateClick}>Donate Now</button>
-    <div className="stats">
-      <div className="stat-item">
+    <div className="statsH">
+      <div className="stat-itemH">
         <span>100+</span>
         <p>Happy Families</p>
       </div>
-      <div className="stat-item">
+      <div className="stat-itemH">
         <span>300+</span>
         <p>Projects Done</p>
       </div>

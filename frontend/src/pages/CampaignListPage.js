@@ -39,9 +39,13 @@ const CampaignListPage = () => {
 
   return (
     <div class="campaigns-container">
-      <h2>All Campaigns</h2>
+      
 
       <NavBar/>
+
+      <header className="camp-header"></header>
+
+      <h2>All Campaigns</h2>
 
       {/* Category Selector */}
       <Select

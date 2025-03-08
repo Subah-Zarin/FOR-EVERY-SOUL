@@ -92,23 +92,23 @@ body {
 }
 
 
-.stats {
+.statsH {
   display: flex;
   justify-content: center;
   gap: 50px;
   margin-top: 30px;
 }
 
-.stat-item {
+.stat-itemH {
   text-align: center;
-  color: #ffffff;
+  color: #0b0b0b;
 }
 
-.stat-item span {
+.stat-itemH span {
   font-size: 3rem;
   font-weight: 800;
   display: block;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 3px 3px 8px rgb(255, 255, 255);
 }
 
 .stat-item p {

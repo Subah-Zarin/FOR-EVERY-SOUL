@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../styles/Volunteer.css";
+import { message } from "antd";
 import instagramIcon from "../assets/instagram-icon.png";
 import facebookIcon from "../assets/facebook-icon.png";
 
@@ -11,6 +13,19 @@ const VolunteerPage = () => {
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", dob: "", occupation: "", address: "", country: "", message: "",
   });
+
+  const navigate = useNavigate();
+  
+    useEffect(() => {
+      const fetchUserData = async () => {
+        const username = localStorage.getItem('username');
+        if (!username) {
+          message.error('You are not logged in!');
+          navigate('/login');
+        }
+      };
+      fetchUserData();
+    }, [navigate]);
 
   // Fetch volunteers from backend
   useEffect(() => {

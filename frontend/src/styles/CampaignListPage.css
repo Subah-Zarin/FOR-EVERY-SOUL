@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+.camp-header {
+    height: 65px; /* Adjust height as needed */
+    background-color: #e2f0d0; 
+    width: 100%;
+  }
+
 .campaigns-container h2 {
     font-size: 28px;
     font-weight: bold;
