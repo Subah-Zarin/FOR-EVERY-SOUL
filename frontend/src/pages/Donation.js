@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Input, Form, message, Typography, Popover, Steps, Select } from 'antd';
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../styles/donation.css';
@@ -13,40 +14,19 @@ import nagadLogo from '../assets/nagad.png';
 
 const { Title } = Typography;
 
-// ✅ Move `Donation` function above `useEffect`
 const Donation = () => {
-  const navigate = useNavigate(); // ✅ Move `useNavigate` inside the component
+  const navigate = useNavigate();
+  const [progress, setProgress] = useState(0); // ✅ Tracks form progress
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      const username = localStorage.getItem('username');
-      if (!username) {
-        message.error('You are not logged in!');
-        navigate('/login');
-      }
-    };
-    fetchUserData();
-  }, [navigate]); // ✅ Keep dependencies
+    const username = localStorage.getItem('username');
+    if (!username) {
+      message.error('You are not logged in!');
+      navigate('/login');
+    }
+  }, [navigate]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        document.querySelector('.donation-page').classList.add('scrolled');
-      } else {
-        document.querySelector('.donation-page').classList.remove('scrolled');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  // ✅ Remove unused variable warning
-  // const updateProgressBar = () => {}; ❌ Remove this if not used
-
-  // Form validation schema
+  // Form Validation Schema
   const validationSchema = Yup.object({
     donorName: Yup.string().required('Please enter your name!'),
     donorEmail: Yup.string().email('Invalid email format').required('Please enter your email!'),
@@ -56,14 +36,31 @@ const Donation = () => {
     donationMessage: Yup.string().optional(),
   });
 
-  const handleSubmit = (values) => {
-    message.success('Thank you for your donation! Your contribution will make a difference.');
-    navigate('/'); // ✅ Navigate after successful submission
+  // Function to update progress
+  const updateProgress = (values) => {
+    const totalFields = 6; // Total fields in form
+    let filledFields = 0;
+
+    Object.keys(values).forEach(key => {
+      if (values[key] && values[key] !== '') {
+        filledFields += 1;
+      }
+    });
+
+    const newProgress = Math.round((filledFields / totalFields) * 100);
+    setProgress(newProgress);
   };
 
-  // ✅ Custom dot for Steps
+  // Handle form submission
+  const handleSubmit = (values) => {
+    message.success('Thank you for your donation! Your contribution will make a difference.');
+    setProgress(100); // ✅ Move to completion
+    navigate('/');
+  };
+
+  // Custom stepper dot
   const customDot = (dot, { status, index }) => (
-    <Popover content={<span>Step {index} status: {status}</span>}>{dot}</Popover>
+    <Popover content={<span>Step {index + 1}: {status}</span>}>{dot}</Popover>
   );
 
   return (
@@ -73,11 +70,12 @@ const Donation = () => {
         <div className="donation-form">
           <Title level={1}>Make a Donation</Title>
 
-          <Steps current={1} progressDot={customDot} items={[
-            { title: 'Fill Personal Info' },
-            { title: 'Enter Amount' },
-            { title: 'Select Payment Method' },
-            { title: 'Done' },
+          {/* ✅ Progress Bar */}
+          <Steps current={progress / 25} progressDot={customDot} items={[
+            { title: 'Start' },
+            { title: 'Halfway' },
+            { title: 'Almost Done' },
+            { title: 'Completed' },
           ]} />
 
           <Formik
@@ -93,7 +91,7 @@ const Donation = () => {
             onSubmit={handleSubmit}
           >
             {({ setFieldValue, values }) => (
-              <FormikForm>
+              <FormikForm onChange={() => updateProgress(values)}>
                 <Form.Item label="Name">
                   <Field as={Input} name="donorName" placeholder="Your Name" />
                   <ErrorMessage name="donorName" component="div" className="error-message" />
@@ -117,7 +115,7 @@ const Donation = () => {
                 <Form.Item label="Donation Method">
                   <Select
                     value={values.donationMethod}
-                    onChange={(value) => setFieldValue('donationMethod', value)}
+                    onChange={(value) => { setFieldValue('donationMethod', value); updateProgress(values); }}
                     placeholder="Select Donation Method"
                   >
                     <Select.Option value="creditCard">
@@ -140,7 +138,7 @@ const Donation = () => {
                   <Field as={Input.TextArea} name="donationMessage" placeholder="Message (Optional)" rows={4} />
                 </Form.Item>
 
-                <Button type="primary" htmlType="submit" className="donation-submit-btn">
+                <Button type="primary" htmlType="submit">
                   Donate Now
                 </Button>
               </FormikForm>
@@ -148,6 +146,7 @@ const Donation = () => {
           </Formik>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

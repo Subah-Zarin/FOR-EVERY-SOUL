@@ -105,7 +105,7 @@ const NavBar = () => {
         </Link>
       </Menu.Item>
       <Menu.Item key="2" style={menuItemStyle}>
-        <Link to="/team" style={menuLinkStyle}>
+        <Link to="/Team" style={menuLinkStyle}>
           Team
         </Link>
       </Menu.Item>

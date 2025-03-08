@@ -10,6 +10,7 @@ const CampaignListPage = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [showAll, setShowAll] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all"); // Default: Show all categories
+  const [donatedAmounts, setDonatedAmounts] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +21,14 @@ const CampaignListPage = () => {
 
         const data = await response.json();
         setCampaigns(data);
-      } catch (err) {
+         // Initialize donated amounts for each campaign
+         const initialDonatedAmounts = {};
+         data.forEach((campaign) => {
+           initialDonatedAmounts[campaign._id] = campaign.raisedAmount;
+         });
+         setDonatedAmounts(initialDonatedAmounts);
+       }
+       catch (err) {
         message.error("Failed to fetch campaigns");
         console.error("Error fetching campaigns:", err);
       }
@@ -37,9 +45,20 @@ const CampaignListPage = () => {
   // Show only the first 6 campaigns unless 'Show More' is clicked
   const visibleCampaigns = showAll ? filteredCampaigns : filteredCampaigns.slice(0, 6);
 
+    // Function to handle donation button click and update progress
+    const handleDonate = (campaignId, goalAmount) => {
+      setDonatedAmounts(prevState => {
+        const newAmount = prevState[campaignId] + 100; // Increment by 100 each time (can be adjusted)
+        if (newAmount <= goalAmount) {
+          return { ...prevState, [campaignId]: newAmount };
+        }
+        return prevState; // Prevent exceeding goal
+      });
+    };
+    
   return (
     <div class="campaigns-container">
-      
+     
 
       <NavBar/>
 

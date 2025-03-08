@@ -135,7 +135,8 @@ const HomePage = () => {
         We are dedicated to providing support to underprivileged children through education and healthcare, ensuring access to essential resources like clean water, food, and medical care, and uplifting communities in need. Additionally, we work to protect stray animals and assist those facing disabilities or crises. 
         Every donation you make has the power to transform lives and bring hope to those who need it most. Together, we can create a world where kindness knows no boundaries and no one is left behind.
         </p>
-        <button className="know-more-button">Know More</button>
+        <Link to="/our-mission">
+        <button className="know-more-button">Know More</button></Link>
       </section>
 
        {/* Search Bar */}

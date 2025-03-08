@@ -12,6 +12,7 @@ import OurMission from './pages/OurMission';
 
 import TellYourStory from './pages/TellYourStory';
 import FundraiserForm from "./pages/FundraiserForm";
+import Team from "./pages/Team";
 
 
 import 'antd/dist/reset.css'; 
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/impact" element={<Impact />} />
         <Route path="/FundraiserForm" element={<FundraiserForm />} />
         <Route path="/CampaignListPage" element={<CampaignListPage/>} />
+        <Route path="/Team" element={<Team/>} />
 
 
       </Routes>

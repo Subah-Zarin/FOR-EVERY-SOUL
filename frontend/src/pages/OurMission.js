@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react'; 
 import { Button, List, Typography } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import NavBar from '../components/NavBar';
 import Footer from "../components/Footer";
 import "../styles/OurMission.css"; 
@@ -8,7 +8,7 @@ import "../styles/OurMission.css";
 // Import images
 import handshakeIcon from "../assets/handshake.png";
 import donationIcon from "../assets/donation.png";
-import charityEventImage from "../assets/charity-event.jpg";
+import charityEventImage from "../assets/edu6.jpeg";
 
 const OurMission = () => {
   return (
@@ -51,9 +51,11 @@ const OurMission = () => {
             <li>💛 Facilitating volunteer opportunities for community involvement.</li>
           </ul>
 
+          <Link to ="/volunteer">
           <button className="support-btn">Support Now</button>
+          </Link>
         </div>
-
+         
         {/* Image Section */}
         <div className="nonprofit-image">
           <img src={charityEventImage} alt="Charity Event" />
@@ -79,7 +81,9 @@ const OurMission = () => {
           assistance, and necessary resources. Our nonprofit works to enhance
           people's lives and promote sustainable development.
         </p>
+        <Link to="/donation">
         <button className="cta-button">Donate Now</button>
+        </Link>
       </section>
 
       {/* Positive Change Section */}
